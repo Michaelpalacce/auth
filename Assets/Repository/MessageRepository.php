@@ -30,6 +30,64 @@ class MessageRepository
         $stmt->bindParam(':id',$id);
         $stmt->execute();
     }
+    public function DeleteForSender($id){
+        set_include_path('D:/Coding/Xamp/htdocs/auth');
+        require 'Assets/include/database.php';
+        $sql="SELECT * FROM messages WHERE ID= :id ";
+        $stmt=$pdo->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+
+        while($results=$stmt->fetch(PDO::FETCH_ASSOC)){
+
+            if($results['DeletedByReciever']=="Y"){
+
+                $this->Delete($id);
+            }
+            else{
+                $mes=$this->GetByID($id);
+                $Message=new Message();
+                $Message->Reciever=$mes['Reciever'];
+                $Message->Sender=$mes['Sender'];
+                $Message->Message=$mes['Message'];
+                $Message->TimeRecieved=$mes['TimeRecieved'];
+                $Message->TimeSent=$mes['TimeSent'];
+                $Message->DeletedByReciever=$mes['DeletedByReciever'];
+                $Message->DeletedBySender='Y';
+                $Message->Recieved=$mes['Recieved'];
+                $Message->ID=$mes['ID'];
+                $this->Update($Message);
+            }
+        }
+    }
+    public function DeleteForReciever($id){
+        set_include_path('D:/Coding/Xamp/htdocs/auth');
+        require 'Assets/include/database.php';
+        $sql="SELECT * FROM messages WHERE ID= :id ";
+        $stmt=$pdo->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+        while($results=$stmt->fetch(PDO::FETCH_ASSOC)){
+            if($results['DeletedBySender']=="Y"){
+                $this->Delete($id);
+            }
+            else{
+                $mes=$this->GetByID($id);
+                $Message=new Message();
+                $Message->Reciever=$mes['Reciever'];
+                $Message->Sender=$mes['Sender'];
+                $Message->Message=$mes['Message'];
+                $Message->TimeRecieved=$mes['TimeRecieved'];
+                $Message->TimeSent=$mes['TimeSent'];
+                $Message->DeletedByReciever='Y';
+                $Message->DeletedBySender=$mes['DeletedBySender'];
+                $Message->Recieved=$mes['Recieved'];
+                $Message->ID=$mes['ID'];
+                $this->Update($Message);
+            }
+        }
+    }
+
     public function GetByID($id){
         set_include_path('D:/Coding/Xamp/htdocs/auth');
         require 'Assets/include/database.php';

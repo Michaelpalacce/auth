@@ -23,7 +23,6 @@ body{
 #footer{
     width:80%;
     margin:0 auto;
-
 }
 #header ul{
     margin:0;
@@ -157,6 +156,12 @@ input[type="file"]{
     cursor: pointer;
     text-decoration: none;
 }
+.CreateButton:hover{
+    color:#2FCC00;
+    background:#fff;
+    transition: 0.1s;
+}
+
 .CreateButton span {
     cursor: pointer;
     display: inline-block;
@@ -324,7 +329,6 @@ p {
     cursor: pointer;
     opacity: 0;
     transition: .4s ease-in-out;
-
 }
 .message-row:hover +.email-row {
     max-height: 500px;

@@ -12,34 +12,45 @@
 
     <?php
     require 'Assets/include/database.php';
-    $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeRecieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
-WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER BY messages.ID DESC");
+    $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Reciever,Recieved,TimeRecieved,TimeSent, Message, Reciever, users.ImagePath,users.Email,users.Name from messages inner join users on messages.Reciever = users.ID
+WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY messages.ID DESC");
     $id = $_SESSION['user_id'];
     $records->bindParam(':id',$id);
     $records->execute();
     while($results=$records->fetch(PDO::FETCH_ASSOC)) {
-        $ImagePath = $results['ImagePath'];
-        $Email = $results['Email'];
-        $Name = $results['Name'];
-        $Sender = $results['Sender'];
-        $Message = $results['Message'];
+        $ImagePath=$results['ImagePath'];
+        $Email=$results['Email'];
+        $Name=$results['Name'];
+        $Reciever=$results['Reciever'];
+        $Sender=$results['Sender'];
+        $Message=$results['Message'];
+        $mes;
         $mes2;
-        if (strlen($Message) <= 30) {
-            $mes2 = substr($Message, 0, 30);
-        } else {
-            $mes2 = substr($Message, 0, 30) . '...';
+        if(strlen($Message)<=10){
+            $mes=substr($Message,0, 10);
         }
-        $Recieved = $results['Recieved'];
-        $TimeRecieved = $results['TimeRecieved'];
-        $TimeSent = $results['TimeSent'];
-        $messageID = $results['ID'];
-        $person="Reciever";
+        else{
+            $mes=substr($Message,0, 10).'...';
+        }
+        if(strlen($Message)<=30){
+            $mes2=substr($Message,0, 30);
+        }
+        else{
+            $mes2=substr($Message,0, 30).'...';
+        }
+
+
+        $Recieved=$results['Recieved'];
+        $TimeRecieved=$results['TimeRecieved'];
+        $TimeSent=$results['TimeSent'];
+        $messageID=$results['ID'];
+        $person="Sender";
 //  <img src='$ImagePath' alt='Image' width='50' height='50' id='img' class='imag'  style='float: left; margin: 15px 0px 0px 20px;' >
         echo "<div class='message' style='background: #eee;'>
         <div class='message-row' >
 
         <div>
-                <p class='email'>From: $Email</p>
+                <p class='email'>To: $Email</p>
             </div>
             <div>
                 <p class='title'>Preview: $mes2</p>
@@ -55,7 +66,7 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
                 <p class='email-text'>$Message</p>
             </div>
             <div>
-            <a href='SendMessage.php?ID=$Sender' class='but2' style='color: #0098cb;'>Reply |</a><a href='DeleteMessage.php?ID=$messageID&Person=$person&Place=R' class='but2' style='color: #FF0002;;'>Delete</a>
+            <a href='SendMessage.php?ID=$Reciever' class='but2' style='color: #0098cb;'>Send Message|</a><a href='DeleteMessage.php?ID=$messageID&Person=$person&Place=S' class='but2' style='color: #FF0002;;'>Delete</a>
 </div>
 <br/>
         </div>

@@ -46,11 +46,14 @@ $email=$_SESSION['Email'];
         </div>
     </div>
     <div class="dropdown2">
-        <li><a href="Inbox.php" class="dropbtn">Inbox</a> </li>
+        <li style="color: white; cursor:default;">Mail <div style="width: 11px; height: 11px; color: red; float: right; margin-left: 2px; font-size: 11px;">1</div></li>
         <div class="dropdown-content">
-            <a href="Inboxpt2.php">Inbox V2</a>
-            <a href="SentMessage.php">Messages Sent</a>
-            <a href="SendMessage.php">Send Message</a>
+            <a href="Inboxpt2.php" class="dropbtn">Inbox</a>
+            <a href="SentMessagept2.php">Outbox</a>
+            <a href="SendMessage.php">New Message</a>
+<!--            <a href="Inbox.php">Inbox(old)</a>-->
+<!--            <a href="SentMessage.php">Messages Sent(old)</a>-->
+
         </div>
     </div>
     

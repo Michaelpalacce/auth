@@ -20,7 +20,7 @@ include "Assets/include/loggedfilter.php";
         <?php
 
         require 'Assets/include/database.php';
-        $records =$pdo->prepare("select DISTINCT Sender,Recieved,TimeRecieved,TimeSent, Message, Reciever, users.ImagePath,users.Email,users.Name from messages inner join users on messages.Reciever = users.ID
+        $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Reciever,Recieved,TimeRecieved,TimeSent, Message, Reciever, users.ImagePath,users.Email,users.Name from messages inner join users on messages.Reciever = users.ID
 WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY messages.ID DESC");
         $id = $_SESSION['user_id'];
         $records->bindParam(':id',$id);
@@ -29,6 +29,7 @@ WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY m
             $ImagePath=$results['ImagePath'];
             $Email=$results['Email'];
             $Name=$results['Name'];
+            $Reciever=$results['Reciever'];
             $Sender=$results['Sender'];
             $Message=$results['Message'];
             $mes;
@@ -50,13 +51,14 @@ WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY m
             $Recieved=$results['Recieved'];
             $TimeRecieved=$results['TimeRecieved'];
             $TimeSent=$results['TimeSent'];
-
+            $messageID=$results['ID'];
+            $person="Sender";
             echo "<tr class='ViewMessage'>";
             echo "<td style='padding: 5px;'><img src='$ImagePath' alt='Image' width='50' height='50' id='img' style=''></td>";
             echo "<td style='font-size: 20px'>".$Email."</td>";
             echo "<td style='font-size: 20px'>".$TimeSent."</td>";
             echo "<td style='font-size: 20px;'  id='tooltip'>".$mes ." <span class='tooltiptext'>$mes2</span></td>";
-            echo "<td><a href='SendMessage.php?ID=$id' class='but2' style='color: #00CCBF;'>Reply|</a><a href='DeleteMessage.php?ID=$id' class='but2' style='color: #FF0002;;'>Delete</a></td>";
+            echo "<td><a href='SendMessage.php?ID=$Reciever' class='but2' style='color: #00CCBF;'>Send Message|</a><a href='DeleteMessage.php?ID=$messageID&Person=$person&Place=S' class='but2' style='color: #FF0002;;'>Delete</a></td>";
             echo "</tr>";
 
         }

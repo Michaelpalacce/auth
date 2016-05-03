@@ -63,7 +63,7 @@ if(!empty($_POST)){
             <textarea placeholder="Message" class="mess" name="message" ></textarea>
 
             <div>
-                <button type="submit" class="sendButton">Send</button>
+                <button type="submit" class="sendButton"><span>Send</span></button>
                 <div class="circle"></div>
             </div>
 
@@ -168,7 +168,7 @@ if(!empty($_POST)){
     .sendButton{
         float: left;
         outline:none;
-        padding:10%;
+        padding:5%;
         padding-top: 10px;
         padding-bottom: 10px;
         background: #0098cb;
@@ -181,25 +181,49 @@ if(!empty($_POST)){
         resize: none;
         cursor: pointer;
 
-        transition: 0.5s color ease;
-        transition: 0.5s background ease;
+        transition: 0.2s color ease;
+        transition: 0.2s background ease;
     }
     .sendButton:hover{
         background: #f5f5f5;
         color: #0098cb;
-        -webkit-animation:background 1s;
-        -o-animation:background 1s;
-        animation:background 1s;
-        -webkit-animation:color 1s;
-        -o-animation:color 1s;
-        animation:color 1s;
-        -webkit-transition: 1s ease;
-        -moz-transition: 1s ease;
-        -ms-transition: 1s ease;
-        -o-transition: 1s ease;
-        transition: 1s ease;
+        -webkit-animation:background .2s;
+        -o-animation:background .2s;
+        animation:background .2s;
+        -webkit-animation:color .2s;
+        -o-animation:color .2s;
+        animation:color .2s;
+        -webkit-transition: .2s ease;
+        -moz-transition: .2s ease;
+        -ms-transition: .2s ease;
+        -o-transition: .2s ease;
+        transition: .2s ease;
 
     }
 
+    .sendButton span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .sendButton span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .sendButton:hover span {
+        padding-right: 25px;
+    }
+
+    .sendButton:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
 
 </style>

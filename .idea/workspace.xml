@@ -32,6 +32,20 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - auth@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="messages" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -39,32 +53,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Home.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Home.php">
+      <file leaf-file-name="DeleteMessage.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DeleteMessage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            <state vertical-scroll-proportion="-10.461538">
+              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Inbox.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Inbox.php">
+      <file leaf-file-name="SentMessagept2.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SentMessagept2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.230769">
-              <caret line="23" column="99" selection-start-line="23" selection-start-column="99" selection-end-line="23" selection-end-column="99" />
+            <state vertical-scroll-proportion="-12.923077">
+              <caret line="68" column="100" selection-start-line="68" selection-start-column="100" selection-end-line="68" selection-end-column="100" />
               <folding>
-                <marker date="1462221095660" expanded="true" signature="475:670" placeholder="select DISTI..messages..." />
-                <marker date="1462221095660" expanded="true" signature="475:674" placeholder="select DISTI..messages..." />
-                <marker date="1462221095660" expanded="true" signature="475:714" placeholder="select DISTI..messages..." />
-                <marker date="1462221095660" expanded="true" signature="475:741" placeholder="select DISTI..messages..." />
-                <marker date="1462221095660" expanded="true" signature="1764:1777" placeholder="..." />
-                <marker date="1462221095660" expanded="true" signature="1891:1906" placeholder="..." />
-                <marker date="1462221095660" expanded="true" signature="1955:1970" placeholder="..." />
-                <marker date="1462221095660" expanded="true" signature="2022:2038" placeholder="..." />
-                <marker date="1462221095660" expanded="true" signature="2189:2204" placeholder="..." />
-                <marker date="1462221095660" expanded="true" signature="2278:2294" placeholder="..." />
+                <marker date="1462267750511" expanded="true" signature="188:480" placeholder="select DISTI..messages..." />
+                <marker date="1462267750511" expanded="false" signature="1565:1582" placeholder="..." />
+                <marker date="1462267750511" expanded="true" signature="1583:2297" placeholder="..." />
+                <marker date="1462267750511" expanded="true" signature="1617:1899" placeholder="..." />
+                <marker date="1462267750511" expanded="true" signature="1633:1700" placeholder="..." />
+                <marker date="1462267750511" expanded="true" signature="1718:1789" placeholder="..." />
+                <marker date="1462267750511" expanded="true" signature="1807:1884" placeholder="..." />
+                <marker date="1462267750511" expanded="true" signature="1933:2286" placeholder="..." />
+                <marker date="1462267750511" expanded="true" signature="1951:2021" placeholder="..." />
+                <marker date="1462267750511" expanded="true" signature="2039:2265" placeholder="..." />
+                <marker date="1462267750511" expanded="false" signature="2112:2127" placeholder="..." />
+                <marker date="1462267750511" expanded="false" signature="2231:2247" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -73,8 +89,8 @@
       <file leaf-file-name="Index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+            <state vertical-scroll-proportion="-10.461538">
+              <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
               <folding>
                 <marker date="1462200560652" expanded="true" signature="821:875" placeholder="SELECT id,em..users..." />
               </folding>
@@ -82,12 +98,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Logout.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Logout.php">
+      <file leaf-file-name="Inbox.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Inbox.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="-7.0384617">
+              <caret line="57" column="161" selection-start-line="57" selection-start-column="161" selection-end-line="57" selection-end-column="169" />
+              <folding>
+                <marker date="1462265332484" expanded="true" signature="475:670" placeholder="select DISTI..messages..." />
+                <marker date="1462265332484" expanded="true" signature="475:674" placeholder="select DISTI..messages..." />
+                <marker date="1462265332484" expanded="true" signature="475:714" placeholder="select DISTI..messages..." />
+                <marker date="1462265332484" expanded="true" signature="475:741" placeholder="select DISTI..messages..." />
+                <marker date="1462265332484" expanded="true" signature="1795:1808" placeholder="..." />
+                <marker date="1462265332484" expanded="true" signature="1922:1937" placeholder="..." />
+                <marker date="1462265332484" expanded="true" signature="1986:2001" placeholder="..." />
+                <marker date="1462265332484" expanded="true" signature="2053:2069" placeholder="..." />
+                <marker date="1462265332484" expanded="true" signature="2220:2235" placeholder="..." />
+                <marker date="1462265332484" expanded="true" signature="2332:2348" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,10 +122,49 @@
       <file leaf-file-name="MainHeader.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainHeader.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
+            <state vertical-scroll-proportion="-7.8461537">
+              <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
-                <marker date="1462220202313" expanded="true" signature="1883:1925" placeholder="..." />
+                <element signature="n#style#0;n#li#0;n#div#4;n#ul#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#li#0;n#div#4;n#ul#0;n#!!top" expanded="true" />
+                <marker date="1462268557856" expanded="true" signature="2119:2161" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/CSS/home.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.307693">
+              <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="187" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SendMessage.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SendMessage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.57271093">
+              <caret line="184" column="41" selection-start-line="184" selection-start-column="41" selection-end-line="184" selection-end-column="41" />
+              <folding>
+                <marker date="1462269283337" expanded="true" signature="276:313" placeholder="SELECT * FRO..users..." />
+                <marker date="1462269283337" expanded="true" signature="640:683" placeholder="SELECT * FRO..users..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Contacts.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Contacts.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.730769">
+              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+              <folding>
+                <marker date="1462219164129" expanded="true" signature="858:935" placeholder="SELECT First..contacts..." />
+                <marker date="1462219164129" expanded="true" signature="1055:1199" placeholder="SELECT First..contacts..." />
+                <marker date="1462219164129" expanded="true" signature="1540:1553" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -107,50 +173,28 @@
       <file leaf-file-name="Inboxpt2.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Inboxpt2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.538462">
-              <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+            <state vertical-scroll-proportion="-15.038462">
+              <caret line="57" column="91" selection-start-line="57" selection-start-column="91" selection-end-line="57" selection-end-column="91" />
               <folding>
-                <marker date="1462231973418" expanded="true" signature="188:427" placeholder="select DISTI..messages..." />
-                <marker date="1462231973418" expanded="true" signature="188:453" placeholder="select DISTI..messages..." />
-                <marker date="1462231973418" expanded="true" signature="1498:1515" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1516:2177" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1550:1811" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1551:1556" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1551:1811" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1553:1555" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1569:1595" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1569:1632" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1650:1676" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1650:1712" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1730:1796" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1845:2166" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1863:1889" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1863:1933" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="1951:2145" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="2022:2037" placeholder="..." />
-                <marker date="1462231973418" expanded="true" signature="2111:2127" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/CSS/home.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9389587">
-              <caret line="351" column="1" selection-start-line="351" selection-start-column="1" selection-end-line="351" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Phones.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Phones.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="103" selection-start-line="13" selection-start-column="103" selection-end-line="13" selection-end-column="103" />
-              <folding>
-                <marker date="1462219272299" expanded="true" signature="453:495" placeholder="SELECT * FRO..numbers..." />
+                <marker date="1462267750497" expanded="true" signature="188:427" placeholder="select DISTI..messages..." />
+                <marker date="1462267750497" expanded="true" signature="188:453" placeholder="select DISTI..messages..." />
+                <marker date="1462267750497" expanded="true" signature="1351:1368" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1369:2077" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1403:1687" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1404:1406" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1404:1687" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1419:1445" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1419:1454" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1419:1488" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1506:1532" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1506:1577" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1595:1672" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1721:2066" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1739:1765" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1739:1809" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1827:2045" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="1898:1913" placeholder="..." />
+                <marker date="1462267750497" expanded="true" signature="2011:2027" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -159,30 +203,18 @@
       <file leaf-file-name="SentMessage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentMessage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="95" selection-start-line="23" selection-start-column="95" selection-end-line="23" selection-end-column="95" />
+            <state vertical-scroll-proportion="-9.807693">
+              <caret line="60" column="178" selection-start-line="60" selection-start-column="178" selection-end-line="60" selection-end-column="178" />
               <folding>
-                <marker date="1462221059664" expanded="true" signature="473:679" placeholder="select DISTI..messages..." />
-                <marker date="1462221059664" expanded="true" signature="473:717" placeholder="select DISTI..messages..." />
-                <marker date="1462221059664" expanded="true" signature="473:744" placeholder="select DISTI..messages..." />
-                <marker date="1462221059664" expanded="true" signature="1730:1743" placeholder="..." />
-                <marker date="1462221059664" expanded="true" signature="1857:1872" placeholder="..." />
-                <marker date="1462221059664" expanded="true" signature="1921:1936" placeholder="..." />
-                <marker date="1462221059664" expanded="true" signature="1988:2004" placeholder="..." />
-                <marker date="1462221059664" expanded="true" signature="2151:2166" placeholder="..." />
-                <marker date="1462221059664" expanded="true" signature="2233:2249" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.65384614">
-              <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-              <folding>
-                <marker date="1462032260691" expanded="true" signature="265:319" placeholder="SELECT id,em..users..." />
+                <marker date="1462265319792" expanded="true" signature="473:700" placeholder="select DISTI..messages..." />
+                <marker date="1462265319792" expanded="true" signature="473:738" placeholder="select DISTI..messages..." />
+                <marker date="1462265319792" expanded="true" signature="473:765" placeholder="select DISTI..messages..." />
+                <marker date="1462265319792" expanded="true" signature="1863:1876" placeholder="..." />
+                <marker date="1462265319792" expanded="true" signature="1990:2005" placeholder="..." />
+                <marker date="1462265319792" expanded="true" signature="2054:2069" placeholder="..." />
+                <marker date="1462265319792" expanded="true" signature="2121:2137" placeholder="..." />
+                <marker date="1462265319792" expanded="true" signature="2290:2305" placeholder="..." />
+                <marker date="1462265319792" expanded="true" signature="2409:2425" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -198,11 +230,13 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/CSS/style.css" />
-        <option value="$PROJECT_DIR$/stf/sfasf.php" />
         <option value="$PROJECT_DIR$/AccountHeader.php" />
         <option value="$PROJECT_DIR$/Login.php" />
         <option value="$PROJECT_DIR$/HijackSession.php" />
@@ -231,7 +265,6 @@
         <option value="$PROJECT_DIR$/EditGroup.php" />
         <option value="$PROJECT_DIR$/EditPhone.php" />
         <option value="$PROJECT_DIR$/EditUser.php" />
-        <option value="$PROJECT_DIR$/Index.php" />
         <option value="$PROJECT_DIR$/Home.php" />
         <option value="$PROJECT_DIR$/Assets/include/adminfilter.php" />
         <option value="$PROJECT_DIR$/Account.php" />
@@ -239,19 +272,22 @@
         <option value="$PROJECT_DIR$/AdminHeader.php" />
         <option value="$PROJECT_DIR$/EditCurrentUser.php" />
         <option value="$PROJECT_DIR$/search.php" />
-        <option value="$PROJECT_DIR$/Assets/Repository/MessageRepository.php" />
-        <option value="$PROJECT_DIR$/SendMessage.php" />
         <option value="$PROJECT_DIR$/Admin.php" />
         <option value="$PROJECT_DIR$/Contacts.php" />
         <option value="$PROJECT_DIR$/FindFriends.php" />
         <option value="$PROJECT_DIR$/Friends.php" />
         <option value="$PROJECT_DIR$/Groups.php" />
         <option value="$PROJECT_DIR$/Phones.php" />
-        <option value="$PROJECT_DIR$/MainHeader.php" />
+        <option value="$PROJECT_DIR$/Assets/Repository/MessageRepository.php" />
         <option value="$PROJECT_DIR$/SentMessage.php" />
         <option value="$PROJECT_DIR$/Inbox.php" />
+        <option value="$PROJECT_DIR$/DeleteMessage.php" />
+        <option value="$PROJECT_DIR$/SentMessagept2.php" />
         <option value="$PROJECT_DIR$/Inboxpt2.php" />
+        <option value="$PROJECT_DIR$/MainHeader.php" />
+        <option value="$PROJECT_DIR$/Index.php" />
         <option value="$PROJECT_DIR$/Assets/CSS/home.css" />
+        <option value="$PROJECT_DIR$/SendMessage.php" />
       </list>
     </option>
   </component>
@@ -299,8 +335,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -394,9 +430,9 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_25d850739bc178b2eb13c3e2a9faafea2f9143c0/git-cmd.exe" />
     <property name="SearchEverywhereHistoryKey" value="color pick&#9;ACTION&#9;ShowColorPicker&#10;color pi&#9;ACTION&#9;ShowColorPicker&#10;color picker&#9;ACTION&#9;ShowColorPicker&#10;color pic&#9;ACTION&#9;ShowColorPicker&#10;inc&#9;null&#9;null&#10;color&#9;null&#9;null&#10;colo pi&#9;ACTION&#9;ShowColorPicker&#10;settings&#9;ACTION&#9;Database.Settings&#10;sett&#9;ACTION&#9;Database.Settings&#10;setting&#9;ACTION&#9;Database.Settings&#10;SETTING&#9;ACTION&#9;Database.Settings&#10;settin&#9;ACTION&#9;Database.Settings&#10;setti&#9;ACTION&#9;Database.Settings&#10;database&#9;ACTION&#9;ActivateDatabaseToolWindow&#10;plugin&#9;ACTION&#9;WelcomeScreen.Plugins" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
@@ -487,11 +523,11 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2602118" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26399395" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13993949" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
@@ -525,6 +561,16 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+          <folding>
+            <marker date="1462032260691" expanded="true" signature="265:319" placeholder="SELECT id,em..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Repository/ContactRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.307693">
@@ -701,20 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SendMessage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.8846154">
-          <caret line="60" column="168" selection-start-line="60" selection-start-column="168" selection-end-line="60" selection-end-column="168" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Repository/MessageRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.576923">
-          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CreateContact.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-20.76923">
@@ -765,13 +797,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Contacts.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.8461537">
-          <caret line="12" column="77" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FindFriends.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.1923075">
@@ -801,16 +826,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="7" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-          <folding>
-            <marker date="1462200560652" expanded="true" signature="821:875" placeholder="SELECT id,em..users..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Logout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -829,34 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainHeader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
-          <folding>
-            <marker date="1462220202313" expanded="true" signature="1883:1925" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SentMessage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="95" selection-start-line="23" selection-start-column="95" selection-end-line="23" selection-end-column="95" />
-          <folding>
-            <marker date="1462221059664" expanded="true" signature="473:679" placeholder="select DISTI..messages..." />
-            <marker date="1462221059664" expanded="true" signature="473:717" placeholder="select DISTI..messages..." />
-            <marker date="1462221059664" expanded="true" signature="473:744" placeholder="select DISTI..messages..." />
-            <marker date="1462221059664" expanded="true" signature="1730:1743" placeholder="..." />
-            <marker date="1462221059664" expanded="true" signature="1857:1872" placeholder="..." />
-            <marker date="1462221059664" expanded="true" signature="1921:1936" placeholder="..." />
-            <marker date="1462221059664" expanded="true" signature="1988:2004" placeholder="..." />
-            <marker date="1462221059664" expanded="true" signature="2151:2166" placeholder="..." />
-            <marker date="1462221059664" expanded="true" signature="2233:2249" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614">
@@ -867,58 +854,165 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Repository/MessageRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.730769">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <marker date="1462264545739" expanded="true" signature="270:371" placeholder="INSERT INTO messages..." />
+            <marker date="1462264545739" expanded="true" signature="986:1021" placeholder="DELETE FROM ..." />
+            <marker date="1462264545739" expanded="true" signature="1287:1323" placeholder="SELECT * FRO..messages..." />
+            <marker date="1462264545739" expanded="true" signature="2397:2433" placeholder="SELECT * FRO..messages..." />
+            <marker date="1462264545739" expanded="true" signature="3491:3528" placeholder="SELECT * FRO..messages..." />
+            <marker date="1462264545739" expanded="true" signature="3967:4189" placeholder="UPDATE messa..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentMessage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="60" column="178" selection-start-line="60" selection-start-column="178" selection-end-line="60" selection-end-column="178" />
+          <folding>
+            <marker date="1462265319792" expanded="true" signature="473:700" placeholder="select DISTI..messages..." />
+            <marker date="1462265319792" expanded="true" signature="473:738" placeholder="select DISTI..messages..." />
+            <marker date="1462265319792" expanded="true" signature="473:765" placeholder="select DISTI..messages..." />
+            <marker date="1462265319792" expanded="true" signature="1863:1876" placeholder="..." />
+            <marker date="1462265319792" expanded="true" signature="1990:2005" placeholder="..." />
+            <marker date="1462265319792" expanded="true" signature="2054:2069" placeholder="..." />
+            <marker date="1462265319792" expanded="true" signature="2121:2137" placeholder="..." />
+            <marker date="1462265319792" expanded="true" signature="2290:2305" placeholder="..." />
+            <marker date="1462265319792" expanded="true" signature="2409:2425" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Inbox.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.230769">
-          <caret line="23" column="99" selection-start-line="23" selection-start-column="99" selection-end-line="23" selection-end-column="99" />
+        <state vertical-scroll-proportion="-7.0384617">
+          <caret line="57" column="161" selection-start-line="57" selection-start-column="161" selection-end-line="57" selection-end-column="169" />
           <folding>
-            <marker date="1462221095660" expanded="true" signature="475:670" placeholder="select DISTI..messages..." />
-            <marker date="1462221095660" expanded="true" signature="475:674" placeholder="select DISTI..messages..." />
-            <marker date="1462221095660" expanded="true" signature="475:714" placeholder="select DISTI..messages..." />
-            <marker date="1462221095660" expanded="true" signature="475:741" placeholder="select DISTI..messages..." />
-            <marker date="1462221095660" expanded="true" signature="1764:1777" placeholder="..." />
-            <marker date="1462221095660" expanded="true" signature="1891:1906" placeholder="..." />
-            <marker date="1462221095660" expanded="true" signature="1955:1970" placeholder="..." />
-            <marker date="1462221095660" expanded="true" signature="2022:2038" placeholder="..." />
-            <marker date="1462221095660" expanded="true" signature="2189:2204" placeholder="..." />
-            <marker date="1462221095660" expanded="true" signature="2278:2294" placeholder="..." />
+            <marker date="1462265332484" expanded="true" signature="475:670" placeholder="select DISTI..messages..." />
+            <marker date="1462265332484" expanded="true" signature="475:674" placeholder="select DISTI..messages..." />
+            <marker date="1462265332484" expanded="true" signature="475:714" placeholder="select DISTI..messages..." />
+            <marker date="1462265332484" expanded="true" signature="475:741" placeholder="select DISTI..messages..." />
+            <marker date="1462265332484" expanded="true" signature="1795:1808" placeholder="..." />
+            <marker date="1462265332484" expanded="true" signature="1922:1937" placeholder="..." />
+            <marker date="1462265332484" expanded="true" signature="1986:2001" placeholder="..." />
+            <marker date="1462265332484" expanded="true" signature="2053:2069" placeholder="..." />
+            <marker date="1462265332484" expanded="true" signature="2220:2235" placeholder="..." />
+            <marker date="1462265332484" expanded="true" signature="2332:2348" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DeleteMessage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentMessagept2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.923077">
+          <caret line="68" column="100" selection-start-line="68" selection-start-column="100" selection-end-line="68" selection-end-column="100" />
+          <folding>
+            <marker date="1462267750511" expanded="true" signature="188:480" placeholder="select DISTI..messages..." />
+            <marker date="1462267750511" expanded="false" signature="1565:1582" placeholder="..." />
+            <marker date="1462267750511" expanded="true" signature="1583:2297" placeholder="..." />
+            <marker date="1462267750511" expanded="true" signature="1617:1899" placeholder="..." />
+            <marker date="1462267750511" expanded="true" signature="1633:1700" placeholder="..." />
+            <marker date="1462267750511" expanded="true" signature="1718:1789" placeholder="..." />
+            <marker date="1462267750511" expanded="true" signature="1807:1884" placeholder="..." />
+            <marker date="1462267750511" expanded="true" signature="1933:2286" placeholder="..." />
+            <marker date="1462267750511" expanded="true" signature="1951:2021" placeholder="..." />
+            <marker date="1462267750511" expanded="true" signature="2039:2265" placeholder="..." />
+            <marker date="1462267750511" expanded="false" signature="2112:2127" placeholder="..." />
+            <marker date="1462267750511" expanded="false" signature="2231:2247" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Inboxpt2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.538462">
-          <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="57" column="91" selection-start-line="57" selection-start-column="91" selection-end-line="57" selection-end-column="91" />
           <folding>
-            <marker date="1462231973418" expanded="true" signature="188:427" placeholder="select DISTI..messages..." />
-            <marker date="1462231973418" expanded="true" signature="188:453" placeholder="select DISTI..messages..." />
-            <marker date="1462231973418" expanded="true" signature="1498:1515" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1516:2177" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1550:1811" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1551:1556" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1551:1811" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1553:1555" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1569:1595" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1569:1632" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1650:1676" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1650:1712" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1730:1796" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1845:2166" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1863:1889" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1863:1933" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="1951:2145" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="2022:2037" placeholder="..." />
-            <marker date="1462231973418" expanded="true" signature="2111:2127" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="188:427" placeholder="select DISTI..messages..." />
+            <marker date="1462267750497" expanded="true" signature="188:453" placeholder="select DISTI..messages..." />
+            <marker date="1462267750497" expanded="true" signature="1351:1368" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1369:2077" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1403:1687" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1404:1406" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1404:1687" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1419:1445" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1419:1454" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1419:1488" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1506:1532" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1506:1577" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1595:1672" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1721:2066" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1739:1765" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1739:1809" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1827:2045" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="1898:1913" placeholder="..." />
+            <marker date="1462267750497" expanded="true" signature="2011:2027" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MainHeader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8461537">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#div#4;n#ul#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#div#4;n#ul#0;n#!!top" expanded="true" />
+            <marker date="1462268557856" expanded="true" signature="2119:2161" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+          <folding>
+            <marker date="1462200560652" expanded="true" signature="821:875" placeholder="SELECT id,em..users..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/CSS/home.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9389587">
-          <caret line="351" column="1" selection-start-line="351" selection-start-column="1" selection-end-line="351" selection-end-column="1" />
+        <state vertical-scroll-proportion="-10.307693">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="187" selection-end-column="1" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Contacts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.730769">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+          <folding>
+            <marker date="1462219164129" expanded="true" signature="858:935" placeholder="SELECT First..contacts..." />
+            <marker date="1462219164129" expanded="true" signature="1055:1199" placeholder="SELECT First..contacts..." />
+            <marker date="1462219164129" expanded="true" signature="1540:1553" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SendMessage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.57271093">
+          <caret line="184" column="41" selection-start-line="184" selection-start-column="41" selection-end-line="184" selection-end-column="41" />
+          <folding>
+            <marker date="1462269283337" expanded="true" signature="276:313" placeholder="SELECT * FRO..users..." />
+            <marker date="1462269283337" expanded="true" signature="640:683" placeholder="SELECT * FRO..users..." />
+          </folding>
         </state>
       </provider>
     </entry>
