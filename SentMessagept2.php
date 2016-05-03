@@ -54,14 +54,7 @@ WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY m
             </div>
             <div>
                 <p class='title'>Preview: $mes2</p>
-            </div>
-            <div >
-                <p class='time'>Time Sent: $TimeSent</p>
-            </div>
-        </div>
-
-
-        <div class='email-row'>
+                 <div class='email-row'>
             <div>
                 <p class='email-text'>$Message</p>
             </div>
@@ -69,6 +62,11 @@ WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY m
             <a href='SendMessage.php?ID=$Reciever' class='but2' style='color: #0098cb;'>Send Message|</a><a href='DeleteMessage.php?ID=$messageID&Person=$person&Place=S' class='but2' style='color: #FF0002;;'>Delete</a>
 </div>
 <br/>
+        </div>
+            </div>
+            <div >
+                <p class='time'>Time Sent: $TimeSent</p>
+            </div>
         </div>
     </div>";
     }

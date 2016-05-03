@@ -45,8 +45,20 @@ $email=$_SESSION['Email'];
             <a href="FindFriends.php">Find Friend</a>
         </div>
     </div>
+    <?php
+    include "Assets/include/database.php";
+    $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeRecieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
+WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND messages.Recieved like 'N' ORDER BY messages.ID DESC ");
+    $id = $_SESSION['user_id'];
+    $records->bindParam(':id',$id);
+    $records->execute();
+    $count=0;
+    while($results=$records->fetch(PDO::FETCH_ASSOC)) {
+        $count++;
+    }
+    ?>
     <div class="dropdown2">
-        <li style="color: white; cursor:default;">Mail <div style="width: 11px; height: 11px; color: red; float: right; margin-left: 2px; font-size: 11px;">1</div></li>
+        <li style="color: white; cursor:default;">Mail <div style="width: 11px; height: 11px; color: red; float: right; margin-left: 2px; font-size: 11px;"><?=$count?></div></li>
         <div class="dropdown-content">
             <a href="Inboxpt2.php" class="dropbtn">Inbox</a>
             <a href="SentMessagept2.php">Outbox</a>

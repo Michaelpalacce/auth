@@ -1,4 +1,12 @@
 <?php
+if(!isset($_SESSION)){
+    session_start();
+}
+require 'Assets/include/database.php';
+$id = $_SESSION['user_id'];
+$records2 =$pdo->prepare("UPDATE messages set Recieved='Y' where Reciever like :id");
+$records2->bindParam(':id',$id);
+$records2->execute();
 ?>
 
 <html>
@@ -11,10 +19,9 @@
 <div class="Message-container">
 
     <?php
-    require 'Assets/include/database.php';
+
     $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeRecieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
 WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER BY messages.ID DESC");
-    $id = $_SESSION['user_id'];
     $records->bindParam(':id',$id);
     $records->execute();
     while($results=$records->fetch(PDO::FETCH_ASSOC)) {
@@ -37,20 +44,12 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
 //  <img src='$ImagePath' alt='Image' width='50' height='50' id='img' class='imag'  style='float: left; margin: 15px 0px 0px 20px;' >
         echo "<div class='message' style='background: #eee;'>
         <div class='message-row' >
-
         <div>
                 <p class='email'>From: $Email</p>
             </div>
             <div>
                 <p class='title'>Preview: $mes2</p>
-            </div>
-            <div >
-                <p class='time'>Time Sent: $TimeSent</p>
-            </div>
-        </div>
-
-
-        <div class='email-row'>
+                 <div class='email-row'>
             <div>
                 <p class='email-text'>$Message</p>
             </div>
@@ -59,6 +58,15 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
 </div>
 <br/>
         </div>
+            </div>
+
+            <div >
+                <p class='time'>Time Sent: $TimeSent</p>
+            </div>
+        </div>
+
+
+
     </div>";
     }
     ?>
