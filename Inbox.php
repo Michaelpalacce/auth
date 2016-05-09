@@ -20,7 +20,7 @@ include "Assets/include/loggedfilter.php";
         <?php
 
         require 'Assets/include/database.php';
-        $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeRecieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
+        $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
 WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N'  ORDER BY messages.ID DESC");
         $id = $_SESSION['user_id'];
         $records->bindParam(':id',$id);

@@ -50,7 +50,6 @@ class MessageRepository
                 $Message->Reciever=$mes['Reciever'];
                 $Message->Sender=$mes['Sender'];
                 $Message->Message=$mes['Message'];
-                $Message->TimeRecieved=$mes['TimeRecieved'];
                 $Message->TimeSent=$mes['TimeSent'];
                 $Message->DeletedByReciever=$mes['DeletedByReciever'];
                 $Message->DeletedBySender='Y';
@@ -77,7 +76,6 @@ class MessageRepository
                 $Message->Reciever=$mes['Reciever'];
                 $Message->Sender=$mes['Sender'];
                 $Message->Message=$mes['Message'];
-                $Message->TimeRecieved=$mes['TimeRecieved'];
                 $Message->TimeSent=$mes['TimeSent'];
                 $Message->DeletedByReciever='Y';
                 $Message->DeletedBySender=$mes['DeletedBySender'];
@@ -107,12 +105,11 @@ class MessageRepository
     public function Update(Message $Message){
         set_include_path('D:/Coding/Xamp/htdocs/auth');
         require 'Assets/include/database.php';
-        $sql="UPDATE messages SET Reciever=:Reciever, Sender=:Sender, Message=:Message,TimeRecieved=:TimeRecieved,TimeSent=:TimeSent,DeletedByReciever=:DeletedByReciever,DeletedBySender=:DeletedBySender,Recieved=:Recieved Where ID = :id";
+        $sql="UPDATE messages SET Reciever=:Reciever, Sender=:Sender, Message=:Message,TimeSent=:TimeSent,DeletedByReciever=:DeletedByReciever,DeletedBySender=:DeletedBySender,Recieved=:Recieved Where ID = :id";
         $stmt=$pdo->prepare($sql);
         $stmt->bindParam(':Reciever',$Message->Reciever);
         $stmt->bindParam(':Sender',$Message->Sender);
         $stmt->bindParam(':Message',$Message->Message);
-        $stmt->bindParam(':TimeRecieved',$Message->TimeRecieved);
         $stmt->bindParam(':TimeSent',$Message->TimeSent);
         $stmt->bindParam(':DeletedByReciever',$Message->DeletedByReciever);
         $stmt->bindParam(':DeletedBySender',$Message->DeletedBySender);
@@ -120,5 +117,4 @@ class MessageRepository
         $stmt->bindParam(':id',$Message->ID);
         $stmt->execute();
     }
-
 }

@@ -15,231 +15,302 @@
       <table id="6" parent="1" name="numbers"/>
       <table id="7" parent="1" name="friends"/>
       <table id="8" parent="1" name="messages"/>
-      <column id="9" parent="2" name="ID">
+      <table id="9" parent="1" name="events"/>
+      <column id="10" parent="2" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="10" parent="2" name="Email">
+      <column id="11" parent="2" name="Email">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="11" parent="2" name="Password">
+      <column id="12" parent="2" name="Password">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="12" parent="2" name="Name">
+      <column id="13" parent="2" name="Name">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="13" parent="2" name="ImagePath">
+      <column id="14" parent="2" name="ImagePath">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <default-expression>&apos;UserPhotos\default.png&apos;</default-expression>
       </column>
-      <column id="14" parent="2" name="Phone">
+      <column id="15" parent="2" name="Phone">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="15" parent="2" name="Website">
+      <column id="16" parent="2" name="Website">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="16" parent="2" name="Birthday">
+      <column id="17" parent="2" name="Birthday">
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="17" parent="2" name="Admin">
+      <column id="18" parent="2" name="Admin">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <default-expression>&apos;N&apos;</default-expression>
       </column>
-      <key id="18" parent="2" name="PRIMARY">
+      <index id="19" parent="2" name="Email">
+        <columns>Email</columns>
+        <unique>1</unique>
+      </index>
+      <key id="20" parent="2" name="Email">
+        <columns>Email</columns>
+        <underlying-index>Email</underlying-index>
+      </key>
+      <key id="21" parent="2" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <column id="19" parent="3" name="group_id">
+      <column id="22" parent="3" name="group_id">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="20" parent="3" name="contact_id">
+      <column id="23" parent="3" name="contact_id">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="21" parent="3" name="ID">
+      <column id="24" parent="3" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <key id="22" parent="3" name="PRIMARY">
+      <key id="25" parent="3" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="23" parent="3" name="FKIDONCONTACT">
+      <foreign-key id="26" parent="3" name="FKIDONCONTACT">
         <columns>contact_id</columns>
         <ref-key>contacts.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="24" parent="3" name="FKIDONGROUP">
+      <foreign-key id="27" parent="3" name="FKIDONGROUP">
         <columns>group_id</columns>
         <ref-key>groups.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="25" parent="4" name="ID">
+      <column id="28" parent="4" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="26" parent="4" name="FirstName">
+      <column id="29" parent="4" name="FirstName">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="27" parent="4" name="LastName">
+      <column id="30" parent="4" name="LastName">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="28" parent="4" name="Address">
+      <column id="31" parent="4" name="Address">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="29" parent="4" name="ImagePath">
+      <column id="32" parent="4" name="ImagePath">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="30" parent="4" name="UserID">
+      <column id="33" parent="4" name="UserID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <key id="31" parent="4" name="PRIMARY">
+      <key id="34" parent="4" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="32" parent="4" name="FKID">
+      <foreign-key id="35" parent="4" name="FKID">
         <columns>UserID</columns>
         <ref-key>users.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="33" parent="5" name="ID">
+      <column id="36" parent="5" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="34" parent="5" name="Name">
+      <column id="37" parent="5" name="Name">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="35" parent="5" name="UserID">
+      <column id="38" parent="5" name="UserID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="36" parent="5" name="ImagePath">
+      <column id="39" parent="5" name="ImagePath">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <key id="37" parent="5" name="PRIMARY">
+      <key id="40" parent="5" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <column id="38" parent="6" name="ID">
+      <foreign-key id="41" parent="5" name="FKIDUSER">
+        <columns>UserID</columns>
+        <ref-key>users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="42" parent="6" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="39" parent="6" name="Number">
+      <column id="43" parent="6" name="Number">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="40" parent="6" name="Type">
+      <column id="44" parent="6" name="Type">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="41" parent="6" name="ContactID">
+      <column id="45" parent="6" name="ContactID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <key id="42" parent="6" name="PRIMARY">
+      <key id="46" parent="6" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="43" parent="6" name="FKCONTACTID">
+      <foreign-key id="47" parent="6" name="FKCONTACTID">
         <columns>ContactID</columns>
         <ref-key>contacts.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="44" parent="7" name="ID">
+      <column id="48" parent="7" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="45" parent="7" name="UserID_1">
+      <column id="49" parent="7" name="UserID_1">
         <mandatory>1</mandatory>
         <data-type>int(200)</data-type>
       </column>
-      <column id="46" parent="7" name="UserID_2">
+      <column id="50" parent="7" name="UserID_2">
         <mandatory>1</mandatory>
         <data-type>int(200)</data-type>
       </column>
-      <key id="47" parent="7" name="PRIMARY">
+      <key id="51" parent="7" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="48" parent="7" name="fr1">
+      <foreign-key id="52" parent="7" name="fr1">
         <columns>UserID_1</columns>
         <ref-key>users.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="49" parent="7" name="fr2">
+      <foreign-key id="53" parent="7" name="fr2">
         <columns>UserID_2</columns>
         <ref-key>users.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="50" parent="8" name="ID">
+      <column id="54" parent="8" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="51" parent="8" name="Sender">
+      <column id="55" parent="8" name="Sender">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="52" parent="8" name="Reciever">
+      <column id="56" parent="8" name="Reciever">
         <mandatory>1</mandatory>
         <data-type>int(255)</data-type>
       </column>
-      <column id="53" parent="8" name="Message">
+      <column id="57" parent="8" name="Message">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="54" parent="8" name="TimeSent">
+      <column id="58" parent="8" name="TimeSent">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
       </column>
-      <column id="55" parent="8" name="Recieved">
-        <mandatory>1</mandatory>
-        <data-type>varchar(255)</data-type>
-      </column>
-      <column id="56" parent="8" name="TimeRecieved">
-        <mandatory>1</mandatory>
-        <data-type>varchar(255)</data-type>
-      </column>
-      <column id="57" parent="8" name="DeletedBySender">
+      <column id="59" parent="8" name="Recieved">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <default-expression>&apos;N&apos;</default-expression>
       </column>
-      <column id="58" parent="8" name="DeletedByReciever">
+      <column id="60" parent="8" name="DeletedBySender">
         <mandatory>1</mandatory>
         <data-type>varchar(255)</data-type>
         <default-expression>&apos;N&apos;</default-expression>
       </column>
-      <key id="59" parent="8" name="PRIMARY">
+      <column id="61" parent="8" name="DeletedByReciever">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;N&apos;</default-expression>
+      </column>
+      <column id="62" parent="8" name="Notified">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+        <default-expression>&apos;N&apos;</default-expression>
+      </column>
+      <key id="63" parent="8" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="60" parent="8" name="FKIDONRECIEVER">
+      <foreign-key id="64" parent="8" name="FKIDONRECIEVER">
         <columns>Reciever</columns>
         <ref-key>users.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="61" parent="8" name="FKIDONSENDER">
+      <foreign-key id="65" parent="8" name="FKIDONSENDER">
         <columns>Sender</columns>
+        <ref-key>users.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="66" parent="9" name="ID">
+        <mandatory>1</mandatory>
+        <data-type>int(255)</data-type>
+      </column>
+      <column id="67" parent="9" name="UserID">
+        <mandatory>1</mandatory>
+        <data-type>int(255)</data-type>
+      </column>
+      <column id="68" parent="9" name="Email">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="69" parent="9" name="Hour">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="70" parent="9" name="Duration">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="71" parent="9" name="Day">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="72" parent="9" name="Month">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="73" parent="9" name="Year">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="74" parent="9" name="TimeCreated">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="75" parent="9" name="Title">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="76" parent="9" name="Description">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)</data-type>
+      </column>
+      <key id="77" parent="9" name="PRIMARY">
+        <columns>ID</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="78" parent="9" name="FKONID">
+        <columns>UserID</columns>
         <ref-key>users.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>

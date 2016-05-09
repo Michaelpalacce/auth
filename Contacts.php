@@ -12,6 +12,7 @@ if(!empty($_GET['str'])){
 <div id="container">
     <a href="CreateContact.php" class="CreateButton"><span>Create New Contact</span></a>
 
+
     <form name="search" id="search" method="get" action="Contacts.php">
         <input type="text" tabindex="1" class="input" id="str" name="str" value="" placeholder="Search" style="margin: 0px 0px 0px 520px; width: 321px;" />
         <input type="submit" tabindex="2" id="submit" value="SEARCH" style="display: none;"/>

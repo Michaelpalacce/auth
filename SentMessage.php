@@ -20,7 +20,7 @@ include "Assets/include/loggedfilter.php";
         <?php
 
         require 'Assets/include/database.php';
-        $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Reciever,Recieved,TimeRecieved,TimeSent, Message, Reciever, users.ImagePath,users.Email,users.Name from messages inner join users on messages.Reciever = users.ID
+        $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Reciever,Recieved,TimeSent, Message, Reciever, users.ImagePath,users.Email,users.Name from messages inner join users on messages.Reciever = users.ID
 WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY messages.ID DESC");
         $id = $_SESSION['user_id'];
         $records->bindParam(':id',$id);
@@ -49,7 +49,6 @@ WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY m
 
 
             $Recieved=$results['Recieved'];
-            $TimeRecieved=$results['TimeRecieved'];
             $TimeSent=$results['TimeSent'];
             $messageID=$results['ID'];
             $person="Sender";

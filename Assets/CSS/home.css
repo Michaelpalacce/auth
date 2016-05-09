@@ -2,10 +2,10 @@ body{
     margin:0px;
     padding:0px;
     background-image: url("background.jpg");
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
     text-align: center;
 }
@@ -175,7 +175,6 @@ input[type="file"]{
     opacity: 0;
     top: 0;
     right: -20px;
-    transition: 0.5s;
 }
 
 .CreateButton:hover span {
@@ -186,10 +185,47 @@ input[type="file"]{
     opacity: 1;
     right: 0;
 }
+.changer{
+    padding:10px 20px 10px 20px;
+    background-color: turquoise;
+    color:white;
+    border:0px;
+    font-weight:bold;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.changer:hover{
+    background-color: white;
+    color:turquoise;
+    transition:.5s ease-in-out;
+}
 
+.changer span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
 
+.changer span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+}
 
+.changer:hover span {
+    padding-right: 25px;
+}
 
+.changer:hover span:after {
+    opacity: 1;
+    right: 0;
+}
 .but{
     padding:10px;
     color:#fff;
@@ -335,7 +371,7 @@ p {
     overflow: hidden;
     cursor: pointer;
     opacity: 0;
-    transition: .4s ease-in-out;
+    transition: 0.6s ease-in-out;
 }
 
 .email-row:hover{
@@ -353,10 +389,10 @@ p {
 .email-row:hover +.title{
     visibility: hidden;
     opacity:0;
-    transition: .4s ease-in-out ;
+    transition: 0.6s ease-in-out ;
 }
 .message:hover .title{
     visibility: hidden;
     opacity:0;
-    transition: .4s ease-in-out;
+    transition: 0.6s ease-in-out;
 }

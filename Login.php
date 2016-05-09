@@ -12,6 +12,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
     $records->execute();
     $results=$records->fetch(PDO::FETCH_ASSOC);
     if(count($records)>0&&$_POST['password']=$results['password']){
+        setcookie("otpyrc", "", expire, path, domain, secure, httponly);
         $_SESSION['user_id']=$results['id'];
         $_SESSION['Email']=$results['email'];
         header("Location: Index.php");

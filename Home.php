@@ -10,7 +10,6 @@ require'Assets/include/loggedfilter.php';
 <br/>
 <br/>
 <br/>
-
 <?php
 if(!class_exists('UserRepository')){
     include 'Assets/Repository/UserRepository.php';
@@ -29,7 +28,10 @@ $image=$results['ImagePath'];
 
 </body>
 </html>
+
 <style>
+
+
     #img{
         transition: 1s ease;
         -webkit-border-radius:;

@@ -20,7 +20,7 @@ $records2->execute();
 
     <?php
 
-    $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeRecieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
+    $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
 WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER BY messages.ID DESC");
     $records->bindParam(':id',$id);
     $records->execute();
@@ -37,7 +37,7 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
             $mes2 = substr($Message, 0, 30) . '...';
         }
         $Recieved = $results['Recieved'];
-        $TimeRecieved = $results['TimeRecieved'];
+
         $TimeSent = $results['TimeSent'];
         $messageID = $results['ID'];
         $person="Reciever";
@@ -76,16 +76,3 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
 
 </body>
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script>
-    var main = function() {
-        $('.message').click(function() {
-            $(this).children('.imag').toggleClass('show');
-            $(this).children('.email-row').toggleClass('show');
-
-
-        });
-    }
-    $(document).ready(main);
-
-</script>

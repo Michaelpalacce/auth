@@ -28,15 +28,11 @@ $email=$_SESSION['Email'];
         </div>
     </div>
     <div class="dropdown2">
-        <li><a href="Groups.php" class="dropbtn">Groups</a> </li>
-        <div class="dropdown-content">
-            <a href="CreateGroup.php">Create Group</a>
-        </div>
-    </div>
-    <div class="dropdown2">
         <li><a href="Contacts.php" class="dropbtn">Contacts</a> </li>
         <div class="dropdown-content">
             <a href="CreateContact.php">Create Contact</a>
+            <a href="Groups.php" class="dropbtn">Groups</a>
+            <a href="CreateGroup.php">Create Group</a>
         </div>
     </div>
     <div class="dropdown2">
@@ -58,17 +54,20 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
     }
     ?>
     <div class="dropdown2">
-        <li style="color: white; cursor:default;">Mail <div style="width: 11px; height: 11px; color: red; float: right; margin-left: 2px; font-size: 11px;"><?=$count?></div></li>
+        <li style="color: white; cursor:default;">Mail <div style="width: 11px;font-weight: bold; height: 11px; color: red; float: right; margin-left: 2px; font-size: 11px;"><?=$count?></div></li>
         <div class="dropdown-content">
             <a href="Inboxpt2.php" class="dropbtn">Inbox</a>
             <a href="SentMessagept2.php">Outbox</a>
             <a href="SendMessage.php">New Message</a>
-<!--            <a href="Inbox.php">Inbox(old)</a>-->
-<!--            <a href="SentMessage.php">Messages Sent(old)</a>-->
 
         </div>
     </div>
-    
+    <div class="dropdown2">
+        <li><a href="Calendar.php" class="dropbtn">Calendar</a> </li>
+        <div class="dropdown-content">
+            <a href="AddEvent.php">Add Event</a>
+        </div>
+    </div>
     <div class="dropdown2">
         <span class="dropbtn"><?php echo 'Hello, '.$email.'!'?></span>
         <div class="dropdown-content">
@@ -79,4 +78,57 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
         </div>
     </div>
 </ul>
+<div class="load"">
 
+</div>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        setInterval(function(){
+            $('.load').load('Notif.php');
+        },10000);
+    });
+
+</script>
+<style>
+    .active{
+        visibility: visible;
+    }
+    .closeForNotif{
+        float:right;
+        border:0px;
+        border-radius:4px;
+        z-index: 11 ;
+        background: #00b8eb;
+    }
+    .cont{
+        opacity:0.8;
+        margin-top:32%;
+        margin-left:30%;
+        padding:2%;
+        position:absolute;
+        z-index: 10;
+        background: turquoise;
+        border: 1px solid #eee ;
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        border-radius:5px;
+        width:15%;
+        display: inline-block;
+        height:10%;
+    }
+    .cont .picture{
+        margin-left:18px;
+        margin-bottom:10px;
+        width: 40px;
+        height: 40px;
+        border-radius:50%;
+        box-shadow: 2px 2px 1px #888888;
+    }
+    .cont .notification-message{
+        text-align: center;
+        margin: 20px auto;
+        color: #eee;
+
+    }
+</style>
