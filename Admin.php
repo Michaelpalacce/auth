@@ -30,18 +30,19 @@ require 'Assets/include/adminfilter.php';
         $records->execute();
         while($results=$records->fetch(PDO::FETCH_ASSOC)){
             $ImagePath=$results['ImagePath'];
+            $Website='http://'.$results['Website'];
             echo "<tr>";
             echo "<td style='padding: 5px;'><img src='$ImagePath' alt='Image' width='50' height='50' id='img' style=''></td>";
             echo "<td>".$results['Email']."</td>";
             echo "<td>".$results['Password']."</td>";
             echo "<td>".$results['Name']."</td>";
             echo "<td>".$results['Phone']."</td>";
-            echo "<td>".$results['Website']."</td>";
+            echo "<td><a href='$Website'>$Website</a></td>";
             echo "<td>".$results['Birthday']."</td>";
             echo "<td>".$results['Admin']."</td>";
             $id=$results['ID'];
             $email=$results['Email'];
-            echo "<td><a href='HijackSession.php?ID=$id&Email=$email' class='but2'>Hijack Session</a>|<a href='EditUser.php?ID=$id' class='but2' >Edit</a>|<a href='DeleteUser.php?ID=$id' class='but2del' >Delete</a></td>";
+            echo "<td><a href='HijackSession.php?ID=$id&Email=$email' class='but2'>Hijack</a><a href='EditUser.php?ID=$id' class='but2' >Edit</a><button class='but1del' value='$id''>Delete</button></td>";
             echo "</tr>";
         }
         ?>
@@ -50,4 +51,19 @@ require 'Assets/include/adminfilter.php';
 </div>
 </body>
 </html>
+<script src="Assets/js/jquery.min.js"></script>
+<script>
+    $('.but1del').click(function () {
+        var me=$(this).val();
+        var parent=$(this).parent().parent();
+        $.ajax({
+            type: 'POST',
+            url: 'DeleteUser.php',
+            data:{value:me},
+            success: function(data) {
+                parent.hide();
+            }
+        });
 
+    });
+</script>

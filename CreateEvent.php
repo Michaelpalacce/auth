@@ -43,7 +43,7 @@ if(!empty($_POST['title'])&&!empty($_POST['date'])&&!empty($_POST['time'])&&!emp
     <link href="Assets/CSS/jquery.timepicker.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<form action="AddEvent.php" method="post" enctype="multipart/form-data">
+<form action="CreateEvent.php" method="post" enctype="multipart/form-data">
     <div class="ev">
         <input type="text" class="title" placeholder="Title:" name="title">
         <input type="text" class="datepicker" placeholder="Pick Date:" name="date">

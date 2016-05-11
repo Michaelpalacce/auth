@@ -38,13 +38,11 @@ $id=$_SESSION['user_id'];
 
         echo " <div class='event' style='background: #eee;'>
        <div class='title-row'>
-
             <div class='title'>
                 <span>Title: $Title</span>
             </div>
-       </div>
-       <div class='event-row'>
 
+              <div class='event-row'>
             <div class='description'>
                 <span>Description: $Description</span>
             </div>
@@ -52,28 +50,31 @@ $id=$_SESSION['user_id'];
            <div class='time'>
                <span>Time: $Hour $Day/$Month/$Year</span>
            </div>
-
            <div class='links'>
-           <a href='EditEvent.php?ID=$EventID' class='but2'>Edit</a><a href='DeleteEvent.php?ID=$EventID' class='but2' style='color: #FF0002;'>Delete</a>
+           <a href='EditEvent.php?ID=$EventID' class='but2'>Edit</a>
+           <button class='but1del' value='$EventID'>Delete</button>
            </div>
        </div>
+       </div>
     </div>";
-
     }
     ?>
 </body>
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="Assets/js/jquery.min.js"></script>
 <script>
-    $('.event').click(function() {
-        var $this = $(this);
+    $('.but1del').click(function () {
+        var me=$(this).val();
+        var parent=$(this).parent().parent().parent().parent();
+        $.ajax({
+            type: 'POST',
+            url: 'DeleteEvent.php',
+            data:{value:me},
+            success: function(data) {
+                parent.hide();
+            }
+        });
 
-        if ($this.hasClass("hidden")) {
-            $(this).removeClass("hidden").addClass("visible");
-
-        } else {
-            $(this).removeClass("visible").addClass("hidden");
-        }
     });
 </script>
 <style>
@@ -100,7 +101,7 @@ $id=$_SESSION['user_id'];
         padding:10px;
         max-height:0px;
         opacity:0;
-        transition:.4s ease-in-out;
+
     }
     .event:hover .event-row{
         display: block;

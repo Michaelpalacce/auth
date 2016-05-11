@@ -27,12 +27,13 @@ include "Assets/include/loggedfilter.php";
         while($results=$records->fetch(PDO::FETCH_ASSOC)){
             if($results['ID']!=$_SESSION['user_id']){
                 $ImagePath=$results['ImagePath'];
+                $friendID=$results['ID'];
                 echo "<tr>";
                 echo "<td style='padding: 5px;'><img src='$ImagePath' alt='Image' width='50' height='50' id='img' style=''></td>";
                 echo "<td style='font-size: 20px'>".$results['Name']."</td>";
                 echo "<td style='font-size: 20px'>".$results['Email']."</td>";
                 $id=$results['ID'];
-                echo "<td><a href='AddFriend.php?ID=$id' class='but2'>Add Friend</a></td>";
+                echo "<td><button class='but1add' value='$friendID''>Add Friend</button></td>";
                 echo "</tr>";
 
             }
@@ -45,3 +46,19 @@ include "Assets/include/loggedfilter.php";
 
 </body>
 </html>
+<script src="Assets/js/jquery.min.js"></script>
+<script>
+    $('.but1add').click(function () {
+        var me=$(this).val();
+        var parent=$(this).parent().parent();
+        $.ajax({
+            type: 'POST',
+            url: 'AddFriend.php',
+            data:{value:me},
+            success: function(data) {
+                parent.hide();
+            }
+        });
+
+    });
+</script>

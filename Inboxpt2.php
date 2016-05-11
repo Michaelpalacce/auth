@@ -7,6 +7,8 @@ $id = $_SESSION['user_id'];
 $records2 =$pdo->prepare("UPDATE messages set Recieved='Y' where Reciever like :id");
 $records2->bindParam(':id',$id);
 $records2->execute();
+
+
 ?>
 
 <html>
@@ -40,7 +42,6 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
 
         $TimeSent = $results['TimeSent'];
         $messageID = $results['ID'];
-        $person="Reciever";
 //  <img src='$ImagePath' alt='Image' width='50' height='50' id='img' class='imag'  style='float: left; margin: 15px 0px 0px 20px;' >
         echo "<div class='message' style='background: #eee;'>
         <div class='message-row' >
@@ -53,26 +54,39 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
             <div>
                 <p class='email-text'>$Message</p>
             </div>
+
+
             <div>
-            <a href='SendMessage.php?ID=$Sender' class='but2' style='color: #0098cb;'>Reply |</a><a href='DeleteMessage.php?ID=$messageID&Person=$person&Place=R' class='but2' style='color: #FF0002;;'>Delete</a>
-</div>
+            <a href='SendMessage.php?ID=$Sender' class='but2send' style='padding: 10px;'>Reply</a>
+            <button class='but1del' value='$messageID'>Delete</button>
+            </div>
 <br/>
-        </div>
+             </div>
             </div>
 
             <div >
                 <p class='time'>Time Sent: $TimeSent</p>
             </div>
         </div>
-
-
-
     </div>";
     }
     ?>
-
-
 </div>
-
 </body>
 </html>
+<script src="Assets/js/jquery.min.js"></script>
+<script>
+    $('.but1del').click(function () {
+        var me=$(this).val();
+        var parent=$(this).parent().parent().parent().parent();
+        $.ajax({
+            type: 'POST',
+            url: 'DeleteMessageReciever.php',
+            data:{value:me},
+            success: function(data) {
+                parent.hide();
+            }
+        });
+
+        });
+</script>

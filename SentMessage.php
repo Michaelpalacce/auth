@@ -57,7 +57,7 @@ WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY m
             echo "<td style='font-size: 20px'>".$Email."</td>";
             echo "<td style='font-size: 20px'>".$TimeSent."</td>";
             echo "<td style='font-size: 20px;'  id='tooltip'>".$mes ." <span class='tooltiptext'>$mes2</span></td>";
-            echo "<td><a href='SendMessage.php?ID=$Reciever' class='but2' style='color: #00CCBF;'>Send Message|</a><a href='DeleteMessage.php?ID=$messageID&Person=$person&Place=S' class='but2' style='color: #FF0002;;'>Delete</a></td>";
+            echo "<td><a href='SendMessage.php?ID=$Reciever' class='but2' style='color: #00CCBF;'>Send Message|</a><a href='DeleteMessageReciever.php?ID=$messageID&Person=$person&Place=S' class='but2' style='color: #FF0002;;'>Delete</a></td>";
             echo "</tr>";
 
         }

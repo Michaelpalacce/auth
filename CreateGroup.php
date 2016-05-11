@@ -106,7 +106,7 @@ if(!empty($_POST['name'])) {
     }
 
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="Assets/js/jquery.min.js"></script>
 <script>
     var btn = document.getElementById('img');
     var btnToCLick=document.getElementById('upload');

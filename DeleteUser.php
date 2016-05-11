@@ -14,14 +14,12 @@ include "Assets/include/loggedfilter.php";
 set_include_path('D:/Coding/Xamp/htdocs/auth');
 require 'Assets/Repository/UserRepository.php';
 $user= new UserRepository();
-$id = $_GET["ID"];
+$id = $_POST["value"];
 $us=$user->GetByID($id);
 
-$imageDir='UserPhotos/'.$us['Email'];
-$GroupImages='GroupImages/'.$us['Email'];
-$ContactImages='Images/'.$us['Email'];
-
-
+$imageDir='UserPhotos/'.$us->Email;
+$GroupImages='GroupImages/'.$us->Email;
+$ContactImages='Images/'.$us->Email;
 
 if(is_dir($imageDir)){
     DeleteLeft($imageDir);
@@ -34,5 +32,3 @@ if(is_dir($ContactImages)){
 }
 
 $user->Delete($id);
-header('Location: Admin.php');
-

@@ -49,16 +49,6 @@
         border-left:2px solid #dddddd;
         text-align: center;
     }
-    input[type="text"],input[type="password"] {
-        outline: none;
-        padding: 10px;
-        display: block;
-        width: 300px;
-        border-radius: 3px;
-        border: 1px solid #eee;
-        margin: 20px 20px 20px 20px;
-        display: block;
-    }
     .submit{
         background:#FF0002;
         padding:10px;

@@ -38,8 +38,15 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])&&!empty($_POST['admin']))
     $user= new User();
     $user->Email=$_POST['email'];
     $user->Password=$_POST['password'];
-    $user->IsAdmin=$_POST['admin'];
+    $user->Hash="-";
+    $user->Reset="-";
     $empty='';
+    if(!empty($_POST['admin'])){
+        $user->Admin=$_POST['admin'];
+    }
+    else{
+        $user->Admin='N';
+    }
     if(!empty($_POST['name'])){
         $user->Name=$_POST['name'];
     }
@@ -59,9 +66,9 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])&&!empty($_POST['admin']))
         $user->Website=$empty;
     }
     if(!empty($_POST['phone'])){
-        $user->Number=$_POST['phone'];
+        $user->Phone=$_POST['phone'];
     }else{
-        $user->Number=$empty;
+        $user->Phone=$empty;
     }
 
 
@@ -81,7 +88,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])&&!empty($_POST['admin']))
     }
 
 
-
+    header('Location: Admin.php');
 }
 ?>
 <html>
@@ -144,7 +151,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])&&!empty($_POST['admin']))
     }
 
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="Assets/js/jquery.min.js"></script>
 <script>
     var btn = document.getElementById('img');
     var btnToCLick=document.getElementById('upload');

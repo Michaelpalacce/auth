@@ -5,7 +5,6 @@ if(!isset($_SESSION)){
 }
 $repo= new FriendRepository();
 $id = $_SESSION['user_id'];
-$frID=$_GET['ID'];
+$frID=$_POST['value'];
 
 $repo->Delete($id,$frID);
-header('Location: Friends.php');

@@ -34,7 +34,7 @@ if(!empty($_POST)){
             echo "Sorry, your file is too large. Make sure it`s below 10MB!";
             $uploadOk = 0;
         }
-
+        $getter=new Contact();
         $repo= new ContactsRepository();
         $getter=$repo->GetByID($id);
         $con = new Contact();
@@ -43,20 +43,20 @@ if(!empty($_POST)){
             $con->FirstName=$_POST['firstname'];
         }
         else{
-            $con->FirstName=$getter['FirstName'];
+            $con->FirstName=$getter->FirstName;
         }
         if(!empty($_POST['lastname'])){
             $con->LastName=$_POST['lastname'];
         }
         else{
-            $con->LastName=$getter['LastName'];
+            $con->LastName=$getter->LastName;
         }
 
         if(!empty($_POST['address'])){
             $con->Address=$_POST['address'];
         }
         else{
-            $con->Address=$getter['Address'];
+            $con->Address=$getter->Address;
         }
         $con->ID=$id;
 
@@ -65,15 +65,15 @@ if(!empty($_POST)){
             $repo->Update($con);
         } else {
             if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
-                if($getter['ImagePath']!='Images/default.png'){
-                    unlink($getter['ImagePath']);
+                if($getter->ImagePath!='Images/default.png'){
+                    unlink($getter->ImagePath);
                 }
                 $con->ImagePath=$target_file;
                 $repo->Update($con);
             } else {
                 $con2=$repo->GetByID($con->ID);
-                if( $con2['ImagePath']!='Images/default.png'){
-                    $con->ImagePath=$con2['ImagePath'];
+                if( $con2->ImagePath!='Images/default.png'){
+                    $con->ImagePath=$con2->ImagePath;
                 }else{
                     $con->ImagePath='Images/default.png';
                 }
@@ -93,17 +93,15 @@ if(!empty($_POST)){
                 for($i=0;$i<count($groups);$i++){
                     $GroupRepository=new GroupRepository();
                     $group=$GroupRepository->GetByName($groups[$i]);
-                    $GR= new Group();
-                    $GR->ID=$group['ID'];
                     $sql="INSERT INTO contact_group (contact_id,group_id) VALUES (:cid,:gid)";
                     $stmt=$pdo->prepare($sql);
                     $stmt->bindParam(':cid',$_GET['ID']);
-                    $stmt->bindParam(':gid',$GR->ID);
+                    $stmt->bindParam(':gid',$group->ID);
                     $stmt->execute();
                 }
             }
         }
-
+        header('Location: Contacts.php');
     }
 }
 ?>
@@ -119,14 +117,15 @@ if(!empty($_POST)){
 
     <?php
     $rep= new ContactsRepository();
+    $contact=new Contact();
     $id = $_GET["ID"];
     $contact=$rep->GetByID($id);
 
-    $firstname=$contact['FirstName'];
-    $lastname=$contact['LastName'];
-    $address=$contact['Address'];
-    $userid=$contact['UserID'];
-    $ImagePath=$contact['ImagePath'];
+    $firstname=$contact->FirstName;
+    $lastname=$contact->LastName;
+    $address=$contact->Address;
+    $userid=$contact->UserID;
+    $ImagePath=$contact->ImagePath;
 
     echo " <img src='$ImagePath' alt='Image' width='250' height='250' id='img' class='img'>";
 

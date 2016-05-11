@@ -9,13 +9,8 @@ if(!isset($_SESSION)){
 }
 $repo= new FriendRepository();
 $id = $_SESSION['user_id'];
-$frID=$_GET['ID'];
+$frID=$_POST['value'];
 $friend =new Friend();
 $friend->UserID_1=$id;
 $friend->UserID_2=$frID;
 $repo->Add($friend);
-
-
-
-
-header('Location: FindFriends.php');

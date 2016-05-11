@@ -11,6 +11,7 @@ if(!empty($_POST['number'])&&!empty($_POST['type'])) {
     $phone->PhoneType=$_POST['type'];
     $phone->ContactID=$_GET['ID'];
     $repo->Add($phone);
+    header('Location: Phones.php?ID='.$_GET['ID']);
 }
 
 

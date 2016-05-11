@@ -1,24 +1,24 @@
 <?php
 session_start();
 require 'Assets/include/loggedoutfilter.php';
-
+if(!class_exists('UserRepository')){
+    include 'Assets/Repository/UserRepository.php';
+}
 if(isset($_SESSION['user_id'])){
     header("Location: Index.php");
 }
 require 'Assets/include/database.php';
 if(!empty($_POST['email'])&&!empty($_POST['password'])){
-    $records =$pdo->prepare("SELECT id,email,password FROM users WHERE email=:email");
-    $records->bindParam(':email',$_POST['email']);
-    $records->execute();
-    $results=$records->fetch(PDO::FETCH_ASSOC);
-    if(count($records)>0&&$_POST['password']=$results['password']){
+    $repo=new UserRepository();
+    $user=$repo->GetByEmail($_POST['email']);
+    if($user!=null&&$_POST['password']=$user->Password&&$user->Hash=='-'){
         setcookie("otpyrc", "", expire, path, domain, secure, httponly);
-        $_SESSION['user_id']=$results['id'];
-        $_SESSION['Email']=$results['email'];
+        $_SESSION['user_id']=$user->ID;
+        $_SESSION['Email']=$user->Email;
         header("Location: Index.php");
     }
     else{
-       echo "Username or password not correct";
+       echo "Could not Login!";
     }
 }
 ?>
@@ -50,6 +50,12 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
         <input type="text" placeholder="Enter Your Email" name="email">
         <input type="password" placeholder="Enter Your Password" name="password">
         <input type="submit">
+        <div>
+            <a href="Reset.php" class="but" style="color: blue;">Password Reset</a>
+        </div>
+
+
+
 
 </form>
 </body>

@@ -86,7 +86,7 @@
         text-align: center;
     }
 </style>
-<script src="jquery.js"></script>
+<script src="Assets/js/jquery.js"></script>
 <script>
     $(document).ready(function(){
         $('.days').click(function () {

@@ -9,18 +9,22 @@ if(!empty($_POST)){
         if(!isset($_SESSION)){
             session_start();
         }
-        $Date=$_POST['date'];
-        $day;
-        $month;
-        $year;
-        list($month, $day, $year) = split('[/]', $Date);
-        $zero='0';
-        if(substr($day, 0, 1) === '0'){
-            $day=substr($day,1,1);
+        $Date;
+        if(!empty($_POST['Date'])){
+            $Date=$_POST['date'];
+            $day;
+            $month;
+            $year;
+            list($month, $day, $year) = split('[/]', $Date);
+            $zero='0';
+            if(substr($day, 0, 1) === '0'){
+                $day=substr($day,1,1);
+            }
+            if(substr($month, 0, 1) === '0'){
+                $month=substr($month,1,1);
+            }
         }
-        if(substr($month, 0, 1) === '0'){
-            $month=substr($month,1,1);
-        }
+
         $repo= new EventRepository();
         $getter=$repo->GetByID($id);
         $event = new Event();
@@ -96,15 +100,15 @@ if(!empty($_POST)){
         <input type='text' class='title' placeholder='Title: $Title' name='title'>
         <input type='text' class='datepicker' placeholder='Pick Date: $Month/$Day/$Year' name='date'>
     <div>
-        <input type='text' class='choosers' id='time-start' placeholder='Time: $Hour' name='time'/>
+        <input type='text' class='choosers' id='time-start' placeholder='Time: $Hour' name='time' autocomplete='on'/>
         <input type='text' id='duration' placeholder='Duration: $Duration' name='duration'/>
     </div>
         <br/>
         <textarea placeholder='Description: $Description' class='description' name='description' ></textarea>
         <br/>
         <div>
-        <button type=\"submit\" class=\"submit\">Submit</button>
-        <a href=\"Calendar.php\" class=\"cancel\">Cancel</a>
+        <button type='submit' class='submit'>Submit</button>
+        <a href='Calendar.php' class='cancel'>Cancel</a>
     </div>
     </div>";
     ?>
@@ -141,9 +145,8 @@ if(!empty($_POST)){
     }
 </style>
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
-<script src="/code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="Assets/CSS/jquery-ui.css">
+<script src="Assets/js/jquery-ui.js"></script>
 <script src="Assets/js/jquery.timepicker.min.js"></script>
 <script>
     $('.choosers').timepicker({ 'timeFormat': 'H:i','step': 15 });

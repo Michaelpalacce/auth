@@ -36,7 +36,12 @@ class GroupRepository
         $stmt->execute();
         $results=$stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($results)){
-            return $results;
+            $Group= new Group();
+            $Group->ID=$results['ID'];
+            $Group->Name=$results['Name'];
+            $Group->UserID=$results['UserID'];
+            $Group->ImagePath=$results['ImagePath'];
+            return $Group;
         }
         else{
             return null;
@@ -51,7 +56,12 @@ class GroupRepository
         $stmt->execute();
         $results=$stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($results)){
-            return $results;
+            $Group= new Group();
+            $Group->ID=$results['ID'];
+            $Group->Name=$results['Name'];
+            $Group->UserID=$results['UserID'];
+            $Group->ImagePath=$results['ImagePath'];
+            return $Group;
         }
         else{
             return null;

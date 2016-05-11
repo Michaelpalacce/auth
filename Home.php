@@ -14,10 +14,11 @@ require'Assets/include/loggedfilter.php';
 if(!class_exists('UserRepository')){
     include 'Assets/Repository/UserRepository.php';
 }
-$rep = new UserRepository();
-$results =$rep->GetByID($_SESSION['user_id']);
-$name=$results['Name'];
-$image=$results['ImagePath'];
+$repo= new UserRepository();
+$user=new User();
+$user=$repo->GetByID($_SESSION['user_id']);
+$name=$user->Name;
+$image=$user->ImagePath;
 ?>
 <img src="<?php echo  $image;?>" alt="Image" width="250" height="250" id="img">
 <br/>

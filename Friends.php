@@ -42,7 +42,7 @@ ON
                 echo "<td style='font-size: 20px'>".$results['Name']."</td>";
                 echo "<td style='font-size: 20px'>".$results['Email']."</td>";
                 $id=$results['ID'];
-                echo "<td><a href='SendMessage.php?ID=$id' class='but2' style='color: #00CCBF;'>Send Message|</a><a href='DeleteFriend.php?ID=$id' class='but2' style='color: #FF0002;;'>Delete Friend</a></td>";
+                echo "<td><a href='SendMessage.php?ID=$id' class='but2send'style='padding: 10px;'>Send Message</a><button class='but1del' value='$id''>Remove Friend</button></td>";
                 echo "</tr>";
             }
         }
@@ -51,3 +51,19 @@ ON
 </div>
 </body>
 </html>
+<script src="Assets/js/jquery.min.js"></script>
+<script>
+    $('.but1del').click(function () {
+        var me=$(this).val();
+        var parent=$(this).parent().parent();
+        $.ajax({
+            type: 'POST',
+            url: 'DeleteFriend.php',
+            data:{value:me},
+            success: function(data) {
+                parent.hide();
+            }
+        });
+
+    });
+</script>

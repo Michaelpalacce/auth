@@ -2,6 +2,9 @@
 if(!class_exists('MessageRepository')){
     include "Assets/Repository/MessageRepository.php";
 }
+if(!isset($_SESSION)){
+    session_start();
+}
 set_include_path('D:/Coding/Xamp/htdocs/auth');
 require 'Assets/include/database.php';
 $reciever;
@@ -19,31 +22,34 @@ if(!empty($_GET['ID'])){
 
 if(!empty($_POST)){
     if(!empty($_POST['reciever']&&!empty($_POST['message']))){
-
-        $found='no';
-        $id;
-        $sql="SELECT * FROM users where Email like :email";
-        $stmt=$pdo->prepare($sql);
-        $stmt->bindParam(":email",$_POST['reciever']);
-        $stmt->execute();
-        while($results=$stmt->fetch(PDO::FETCH_ASSOC)){
-            $id=$results['ID'];
-            $found='yes';
-        }
-
-        if($found=='yes'){
-            if(!isset($_SESSION)){
-                session_start();
+        if($_POST['reciever']!=$_SESSION['Email']){
+            $found='no';
+            $id;
+            $sql="SELECT * FROM users where Email like :email";
+            $stmt=$pdo->prepare($sql);
+            $stmt->bindParam(":email",$_POST['reciever']);
+            $stmt->execute();
+            while($results=$stmt->fetch(PDO::FETCH_ASSOC)){
+                $id=$results['ID'];
+                $found='yes';
             }
 
-            $repo= new MessageRepository();
-            $mes = new Message;
-            $mes->Message=$_POST['message'];
-            $mes->Reciever=$id;
-            $mes->Sender=$_SESSION['user_id'];
-            $repo->Add($mes);
-        }
+            if($found=='yes'){
+                if(!isset($_SESSION)){
+                    session_start();
+                }
 
+                $repo= new MessageRepository();
+                $mes = new Message;
+                $mes->Message=$_POST['message'];
+                $mes->Reciever=$id;
+                $mes->Sender=$_SESSION['user_id'];
+                $repo->Add($mes);
+            }
+        }
+        else{
+            echo 'Can not send messages to self!';
+        }
     }
 }
 

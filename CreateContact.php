@@ -81,20 +81,14 @@ if(!empty($_POST['firstname'])&&!empty($_POST['lastname'])&&!empty($_POST['addre
         for($i=0;$i<count($groups);$i++){
             $GroupRepository=new GroupRepository();
             $group=$GroupRepository->GetByName($groups[$i]);
-            $GR= new Group();
-            $GR->ID=$group['ID'];
             $sql="INSERT INTO contact_group (contact_id,group_id) VALUES (:cid,:gid)";
             $stmt=$pdo->prepare($sql);
             $stmt->bindParam(':cid',$MaxID);
-            $stmt->bindParam(':gid',$GR->ID);
+            $stmt->bindParam(':gid',$group->ID);
             $stmt->execute();
         }
     }
-
-
-
-
-
+    header('Location: Contacts.php');
 }
 
 
@@ -169,7 +163,7 @@ if(!empty($_POST['firstname'])&&!empty($_POST['lastname'])&&!empty($_POST['addre
     }
 
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="Assets/js/jquery.min.js"></script>
 <script>
     var btn = document.getElementById('img');
     var btnToCLick=document.getElementById('upload');

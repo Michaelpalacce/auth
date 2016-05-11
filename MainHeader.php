@@ -14,10 +14,11 @@ $email=$_SESSION['Email'];
             if(!class_exists('UserRepository')){
                 include "Assets/Repository/UserRepository.php";
             }
-            $rep = new UserRepository();
-            $user= new User();
-            if(($user=$rep->GetByID($_SESSION['user_id']))!=null){
-                if($user['Admin']=='Y'){
+            $repo= new UserRepository();
+            $user=new User();
+            $user=$repo->GetByID($_SESSION['user_id']);
+            if($user!=null){
+                if($user->Admin=='Y'){
                     echo '<a href="Admin.php" class="dropbtn">Admin</a>';
                 }
             }
@@ -43,7 +44,7 @@ $email=$_SESSION['Email'];
     </div>
     <?php
     include "Assets/include/database.php";
-    $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeRecieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
+    $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
 WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND messages.Recieved like 'N' ORDER BY messages.ID DESC ");
     $id = $_SESSION['user_id'];
     $records->bindParam(':id',$id);
@@ -57,7 +58,7 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
         <li style="color: white; cursor:default;">Mail <div style="width: 11px;font-weight: bold; height: 11px; color: red; float: right; margin-left: 2px; font-size: 11px;"><?=$count?></div></li>
         <div class="dropdown-content">
             <a href="Inboxpt2.php" class="dropbtn">Inbox</a>
-            <a href="SentMessagept2.php">Outbox</a>
+            <a href="Outbox.php">Outbox</a>
             <a href="SendMessage.php">New Message</a>
 
         </div>
@@ -65,7 +66,7 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
     <div class="dropdown2">
         <li><a href="Calendar.php" class="dropbtn">Calendar</a> </li>
         <div class="dropdown-content">
-            <a href="AddEvent.php">Add Event</a>
+            <a href="CreateEvent.php">Add Event</a>
         </div>
     </div>
     <div class="dropdown2">
@@ -81,12 +82,15 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
 <div class="load"">
 
 </div>
-<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="Assets/js/jquery.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         setInterval(function(){
             $('.load').load('Notif.php');
         },10000);
+        $('.closeForNotif').click(function(){
+            $('.load').hide();
+        });
     });
 
 </script>

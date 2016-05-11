@@ -18,13 +18,6 @@ session_start();
     <?php endif;?>
 </head>
 <body>
-
-<style>
-    .header{
-        text-align: center;
-        background: #00CCBF;
-    }
-</style>
 <?php if(isset($_SESSION['user_id'])):?>
     <?php
     require 'Assets/include/database.php';
@@ -33,18 +26,8 @@ session_start();
     }
 
     if(isset($_SESSION['user_id'])){
-        $records =$pdo->prepare("SELECT id,email,password,Admin FROM users WHERE id=:id");
-        $records->bindParam(':id',$_SESSION['user_id']);
-        $records->execute();
-        $results=$records->fetch(PDO::FETCH_ASSOC);
-        $user=NULL;
-        if(count($results)>0){
-            $user=new User();
-            $id=$results['id'];
-            $user->ID=$results['id'];
-            $user->Email=$results['email'];
-            $user->IsAdmin=$results['Admin'];
-        }
+      $repo= new UserRepository();
+        $user=$repo->GetByID($_SESSION['user_id']);
     }
     ?>
     <br/>
@@ -59,7 +42,7 @@ session_start();
     <br/><br/>
 
     <a href="Home.php" class="but">Continue to account</a>
-    <span style="color: #fff; font-size: 25px">or <a href="Logout.php" class="but">Logout</a><br/><?php if($user->IsAdmin=='Y'){echo '</br>'; echo '<a href="Admin.php" class="but">Admin</a>';};?> </span>
+    <span style="color: #fff; font-size: 25px">or <a href="Logout.php" class="but">Logout</a><br/><?php if($user->Admin=='Y'){echo '</br>'; echo '<a href="Admin.php" class="but">Admin</a>';};?> </span>
 <?php else: ?>
 <h1 style="color: #fff;">Please Login or Register</h1>
 <a href="Login.php" class="but">Login</a> <span style="color: #fff; font-size: 25px;">or</span>

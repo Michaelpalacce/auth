@@ -16,9 +16,10 @@ $user= new UserRepository();
 $id = $_GET["ID"];
 $us=$user->GetByID($id);
 
-$imageDir='UserPhotos/'.$us['Email'];
-$GroupImages='GroupImages/'.$us['Email'];
-$ContactImages='Images/'.$us['Email'];
+$imageDir='UserPhotos/'.$us->Email;
+$GroupImages='GroupImages/'.$us->Email;
+$ContactImages='Images/'.$us->Email;
+$ContactImages='Images/'.$us->Email;
 
 if(is_dir($imageDir)){
     DeleteLeft($imageDir);

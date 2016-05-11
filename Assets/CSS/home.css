@@ -67,16 +67,42 @@ tr{
 }
 tr:hover {  background-color: #FFFEC1}
 
-
-.but2{
+.but2,.but2del,.but2send{
     outline:none;
-    color:#2FCC00;
+    padding:2%;
+    margin:20px;
     text-decoration: none;
+    box-shadow: 3px 3px 1px grey;
+}
+.but2{
+    background:#2FCC00;
+    color: white;
 }
 .but2del{
-    outline:none;
-    color:#FF0002;
+    background:#FF0002;
+    color: white;
+}
+.but2send{
+    background: #00CCBF;
+    color: white;
+}
+.but1del,.but1add{
+    padding: 10px 25px;
+    color: #fff;
     text-decoration: none;
+    box-shadow: 3px 3px 1px grey;
+    border:0px;
+    margin:0px 0px 0px 20px;
+    border-radius:0px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+.but1del{
+    background:#FF0002;
+}
+.but1add{
+    background:#2FCC00;
 }
 input[type="text"], input[type="password"]{
     outline:none;
@@ -84,8 +110,11 @@ input[type="text"], input[type="password"]{
     display: block;
     width:25%;
     border-radius:3px;
-    border:1px solid #eee;
-    margin:20px auto ;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 1px solid white;
+    margin:20px auto;
 
 }
 #drop{
@@ -120,11 +149,9 @@ input[type="submit"]{
     display: inline-block;
 }
 .submit{
-
     background:#2FCC00;
     padding:10px;
     color:#fff;
-
     width:11%;
     margin:20px auto;
     margin-top:0px;

@@ -33,7 +33,14 @@ class ContactsRepository
         $stmt->execute();
         $results=$stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($results)){
-            return $results;
+            $Contact= new Contact();
+            $Contact->ID=$results['ID'];
+            $Contact->FirstName=$results['FirstName'];
+            $Contact->LastName=$results['LastName'];
+            $Contact->Address=$results['Address'];
+            $Contact->ImagePath=$results['ImagePath'];
+            $Contact->UserID=$results['UserID'];
+            return $Contact;
         }
         else{
             return null;

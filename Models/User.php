@@ -5,8 +5,10 @@ class User{
     public $Password;
     public $Name;
     public $ImagePath;
-    public $Number;
+    public $Phone;
     public $Website;
     public $Birthday;
-    public $IsAdmin;
+    public $Admin;
+    public $Hash;
+    public $Reset;
 }

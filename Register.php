@@ -1,6 +1,12 @@
 <?php
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
+
 require 'Assets/include/loggedoutfilter.php';
+require 'Assets/include/Random.php';
+require 'Assets/Repository/UserRepository.php';
+require 'Assets/Mailer/PHPMailerAutoload.php';
 
 if(isset($_SESSION['user_id'])){
     header("Location: auth/Index.php");
@@ -12,51 +18,88 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])&&!empty($_POST['confirmPa
         echo 'Passwords Do Not Match!';
     }
     else{
-
+        $hash=generateRandomString(52);
         $sql="Select Email from users where Email=:email";
         $stmt=$pdo->prepare($sql);
         $stmt->bindParam(':email',$_POST['email']);
         $stmt->execute();
         $results=$stmt->fetch(PDO::FETCH_ASSOC);
         if($results['Email']!=$_POST['email']){
+            $repo=new UserRepository();
+            $User= new User();
 
-            $sql="INSERT INTO users (email,password,Name,Birthday,Website,Phone) VALUES (:email,:password,:name,:birthday,:website,:phone)";
-            $stmt=$pdo->prepare($sql);
-            $stmt->bindParam(':email',$_POST['email']);
-            $stmt->bindParam(':password',$_POST['password']);
+            $Email=$_POST['email'];
+            $User->Email=$Email;
+            $User->Reset='-';
+            $Name;
+            if(!empty($Name)){
+                $Name='';
+            }
+            $User->Password= $_POST['password'];
+            $User->Hash=$hash;
+            $User->Admin='N';
             $empty='';
             if(!empty($_POST['name'])){
-                $stmt->bindParam(':name',$_POST['name']);
+                $Name=$_POST['name'];
+                $User->Name=$Name;
             }
             else{
-                $stmt->bindParam(':name',$empty);
+                $User->Name=$empty;
             }
             if(!empty($_POST['birthday'])){
-                $stmt->bindParam(':birthday',$_POST['birthday']);
+                $User->Birthday=$_POST['birthday'];
             }
             else{
-                $stmt->bindParam(':birthday',$empty);
+                $User->Birthday=$empty;
             }
             if(!empty($_POST['website'])){
-                $stmt->bindParam(':website',$_POST['website']);
+                $User->Website=$_POST['website'];
             }
             else{
-                $stmt->bindParam(':website',$empty);
+                $User->Website=$empty;
             }
 
             if(!empty($_POST['phone'])){
-                $stmt->bindParam(':phone',$_POST['phone']);
+                $User->Phone=$_POST['phone'];
             }else{
-                $stmt->bindParam(':phone',$empty);
+                $User->Phone=$empty;
+            }
+            $User->ImagePath='UserPhotos/default.png';
+            $repo->Add($User);
+            $target_dir = "UserPhotos/".$_POST['email']."/";
+            if(!is_dir($target_dir)){
+                mkdir($target_dir);
+            }
+
+            $url='localhost:63342/auth/VerifyAccount.php?Hash='.$hash;
+            $body="Welcome to Contacts Manager $Email,\r\n Click the link to verify your account:\r\n $url";
+
+
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = "smtp.gmail.com";
+            $mail->Port = 465;
+            $mail->Username = "contestuni4@gmail.com";
+            $mail->Password = "stefanbg";
+            $mail->AddAddress($Email);
+
+            $mail->WordWrap = 50;
+            $mail->IsHTML(true);
+
+            $mail->Subject = "Verify";
+            $mail->Body    = $body;
+
+            if(!$mail->Send())
+            {
+                echo "Message could not be sent. <p>";
+                echo "Mailer Error: " . $mail->ErrorInfo;
+                exit;
             }
 
 
-            if($stmt->execute()){
-                echo "User has been successfully created!";
-            }
-            else{
-                echo "User could not be created! Please try again!";
-            }
+
         }
         else{
             echo "Users cannot have the same email!";

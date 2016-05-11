@@ -3,7 +3,7 @@ include "Assets/include/database.php";
 if(!isset($_SESSION)){
     session_start();
 }
-$records =$pdo->prepare("select DISTINCT messages.ID,Notified,Sender,Recieved,TimeRecieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
+$records =$pdo->prepare("select DISTINCT messages.ID,Notified,Sender,Recieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
 WHERE messages.Reciever like :id And messages.Notified like 'N' ORDER BY messages.ID DESC limit 1");
 $id = $_SESSION['user_id'];
 $records->bindParam(':id',$id);

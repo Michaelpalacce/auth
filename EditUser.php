@@ -12,7 +12,7 @@ if(!empty($_POST['email'])||!empty($_POST['password'])||!empty($_POST['admin'])|
     }
     $repo= new UserRepository();
     $getter=$repo->GetByID($id);
-    $target_dir = "UserPhotos/".$getter['Email']."/";
+    $target_dir = "UserPhotos/".$getter->Email."/";
 
     $renamer=$_SESSION['Email'].'UserPhoto'.generateRandomString();
     $target_file = $target_dir . $renamer;
@@ -36,65 +36,66 @@ if(!empty($_POST['email'])||!empty($_POST['password'])||!empty($_POST['admin'])|
 
     $user= new User();
     $user->ID=$id;
-
     $empty='';
     if(!empty($_POST['email'])){
         $user->Email=$_POST['email'];
     }
     else{
-        $user->Email=$getter['Email'];
+        $user->Email=$getter->Email;
     }
+
     if(!empty($_POST['password'])){
         $user->Password=$_POST['password'];
     }
     else{
-        $user->Password=$getter['Password'];
+        $user->Password=$getter->Password;
     }
     if(!empty($_POST['admin'])){
-        $user->IsAdmin=$_POST['admin'];
+        $user->Admin=$_POST['admin'];
     }
     else{
-        $user->IsAdmin=$getter['Admin'];
+        $user->Admin=$getter->Admin;
     }
 
     if(!empty($_POST['name'])){
         $user->Name=$_POST['name'];
     }
     else{
-        $user->Name=$getter['Name'];
+        $user->Name=$getter->Name;
     }
     if(!empty($_POST['birthday'])){
         $user->Birthday=$_POST['birthday'];
     }
     else{
-        $user->Birthday=$getter['Birthday'];
+        $user->Birthday=$getter->Birthday;
     }
     if(!empty($_POST['website'])){
         $user->Website=$_POST['website'];
     }
     else{
-        $user->Website=$getter['Website'];
+        $user->Website=$getter->Website;
     }
     if(!empty($_POST['phone'])){
-        $user->Number=$_POST['phone'];
+        $user->Phone=$_POST['phone'];
     }else{
-        $user->Number=$getter['Phone'];
+        $user->Phone=$getter->Phone;
     }
-
+    $user->Reset=$getter->Reset;
+    $user->Hash=$getter->Hash;
     if ($uploadOk == 0) {
         $user->ImagePath='UserPhotos/default.png';
         $repo->Update($user);
     } else {
         if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
-            if($getter['ImagePath']!='UserPhotos/default.png'){
-                unlink($getter['ImagePath']);
+            if($getter->ImagePath!='UserPhotos/default.png'){
+                unlink($getter->ImagePath);
             }
             $user->ImagePath=$target_file;
             $repo->Update($user);
         } else {
             $user2=$repo->GetByID($user->ID);
-            if( $user2['ImagePath']!='UserPhotos/default.png'){
-                $user->ImagePath=$user2['ImagePath'];
+            if( $user2->ImagePath!='UserPhotos/default.png'){
+                $user->ImagePath=$user2->ImagePath;
             }else{
                 $user->ImagePath='UserPhotos/default.png';
             }
@@ -130,21 +131,21 @@ if(!empty($_POST['email'])||!empty($_POST['password'])||!empty($_POST['admin'])|
     $id = $_GET["ID"];
     $user=$rep->GetByID($id);
 
-    $email=$user['Email'];
-    $password=$user['Password'];
-    $admin=$user['Admin'];
-    $name=$user['Name'];
-    $phone=$user['Phone'];
-    $website=$user['Website'];
-    $birthday=$user['Birthday'];
-    $ImagePath=$user['ImagePath'];
+    $email=$user->Email;
+    $password=$user->Password;
+    $admin=$user->Admin;
+    $name=$user->Name;
+    $phone=$user->Phone;
+    $website=$user->Website;
+    $birthday=$user->Birthday;
+    $ImagePath=$user->ImagePath;
     echo "<img src='$ImagePath' alt='Image' width='250' height='250' id='img' class='img'>";
     echo "<input type='text' placeholder='Email: $email' name='email'>";
     echo "<input type='text' placeholder='Password: $password' name='password'>";
     echo "<input type='text' placeholder='Name: $name' name='name'>";
     echo "<input type='text' placeholder='Phone: $phone' name='phone'>";
     echo "<input type='text' placeholder='Website: $website' name='website'>";
-    echo "<input type='text' placeholder='Birhtday: $birthday' name='birthday'>";
+    echo "<input type='text' placeholder='Bithtday: $birthday' name='birthday'>";
     echo "<input type='text' placeholder='Admin: $admin' name='admin'>";
 
     ?>

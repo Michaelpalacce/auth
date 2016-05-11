@@ -39,7 +39,7 @@ if(!empty($_POST)){
             $group->Name=$_POST['name'];
         }
         else{
-            $group->Name=$getter['Name'];
+            $group->Name=$getter->Name;
         }
 
         $group->UserID=$_SESSION['user_id'];
@@ -50,22 +50,22 @@ if(!empty($_POST)){
             $repo->Update($group);
         } else {
             if (move_uploaded_file($_FILES["upload"]["tmp_name"], $target_file)) {
-                if($getter['ImagePath']!='GroupImages/default.png'){
-                    unlink($getter['ImagePath']);
+                if($getter->ImagePath!='GroupImages/default.png'){
+                    unlink($getter->ImagePath);
                 }
                 $group->ImagePath=$target_file;
                 $repo->Update($group);
             } else {
                 $group2=$repo->GetByID($group->ID);
-                if( $group2['ImagePath']!='GroupImages/default.png'){
-                    $group->ImagePath=$group2['ImagePath'];
+                if( $group2->ImagePath!='GroupImages/default.png'){
+                    $group->ImagePath=$group2->ImagePath;
                 }else{
                     $group->ImagePath='GroupImages/default.png';
                 }
                 $repo->Update($group);
             }
         }
-
+        header('Location: Groups.php');
 
     }
 }
@@ -86,9 +86,9 @@ if(!empty($_POST)){
     $id = $_GET["ID"];
     $group=$rep->GetByID($id);
 
-    $Name=$group['Name'];
+    $Name=$group->Name;
+    $ImagePath=$group->ImagePath;
 
-    $ImagePath=$group['ImagePath'];
     echo " <img src='$ImagePath' alt='Image' width='250' height='250' id='img' class='img'>";
 
     echo "<input type='text' placeholder='Name: $Name' name='name'>";

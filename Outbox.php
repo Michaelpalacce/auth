@@ -45,7 +45,6 @@
         $Recieved=$results['Recieved'];
         $TimeSent=$results['TimeSent'];
         $messageID=$results['ID'];
-        $person="Sender";
 //  <img src='$ImagePath' alt='Image' width='50' height='50' id='img' class='imag'  style='float: left; margin: 15px 0px 0px 20px;' >
         echo "<div class='message' style='background: #eee;'>
         <div class='message-row' >
@@ -60,7 +59,8 @@
                 <p class='email-text'>$Message</p>
             </div>
             <div>
-            <a href='SendMessage.php?ID=$Reciever' class='but2' style='color: #0098cb;'>Send Message|</a><a href='DeleteMessage.php?ID=$messageID&Person=$person&Place=S' class='but2' style='color: #FF0002;;'>Delete</a>
+            <a href='SendMessage.php?ID=$Reciever' class='but2' style='padding: 10px;'>Send Message</a>
+            <button class='but1del' value='$messageID'>Delete</button>
 </div>
 <br/>
         </div>
@@ -72,20 +72,22 @@
     </div>";
     }
     ?>
-
-
 </div>
-
 </body>
 </html>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="Assets/js/jquery.min.js"></script>
 <script>
-    var main = function() {
-        $('.message').click(function() {
-            $(this).children('.imag').toggleClass('show');
-            $(this).children('.email-row').toggleClass('show');
+    $('.but1del').click(function () {
+        var me=$(this).val();
+        var parent=$(this).parent().parent().parent().parent();
+        $.ajax({
+            type: 'POST',
+            url: 'DeleteMessageSender.php',
+            data:{value:me},
+            success: function(data) {
+                parent.hide();
+            }
         });
-    }
-    $(document).ready(main);
 
+    });
 </script>

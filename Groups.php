@@ -16,7 +16,7 @@ if(!empty($_GET['str'])){
     <form name="search" id="search" method="get" action="Groups.php">
         <input type="text" tabindex="1" class="input" id="str" name="str" value="" placeholder="Search" style="margin: 0px 0px 0px 520px;"/>
         <input type="submit" tabindex="2" id="submit" value="SEARCH" style="display: none;"/>
-
+    </form>
 
         <table>
         <th>Picture</th>
@@ -57,16 +57,28 @@ if(!empty($_GET['str'])){
             }
             echo '</td>';
             $id=$results['ID'];
-            echo "<td><a href='EditGroup.php?ID=$id' class='but2' >Edit</a>|<a href='DeleteGroup.php?ID=$id' class='but2del' >Delete</a></td>";
+            echo "<td><a href='EditGroup.php?ID=$id' class='but2' >Edit</a><button class='but1del' value='$id'>Delete</button></td>";
             echo "</tr>";
         }
-
-
-
         ?>
     </table>
-    </form>
 </div>
 </body>
 </body>
 </html>
+<script src="Assets/js/jquery.min.js"></script>
+<script>
+    $('.but1del').click(function () {
+        var me=$(this).val();
+        var parent=$(this).parent().parent();
+        $.ajax({
+            type: 'POST',
+            url: 'DeleteGroup.php',
+            data:{value:me},
+            success: function(data) {
+                parent.hide();
+            }
+        });
+
+    });
+</script>
