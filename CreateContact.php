@@ -108,9 +108,9 @@ if(!empty($_POST['firstname'])&&!empty($_POST['lastname'])&&!empty($_POST['addre
 
     <img src="Images/default.png" alt="Image" width="250" height="250" id="img">
 
-    <input type="text" placeholder="First name" name="firstname">
-    <input type="text" placeholder="Last name" name="lastname">
-    <input type="text" placeholder="Address" name="address">
+    <input type="text" placeholder="First name" name="firstname" class="text">
+    <input type="text" placeholder="Last name" name="lastname" class="text">
+    <input type="text" placeholder="Address" name="address" class="text">
     Groups:
     <div class="groups">
 
@@ -171,6 +171,7 @@ if(!empty($_POST['firstname'])&&!empty($_POST['lastname'])&&!empty($_POST['addre
     btn.addEventListener('click', function() {
         btnToCLick.click();
     });
+
 
     function readURL(input) {
         if (input.files && input.files[0]) {

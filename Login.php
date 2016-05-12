@@ -49,9 +49,10 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
     <form action="Login.php" method="POST">
         <input type="text" placeholder="Enter Your Email" name="email">
         <input type="password" placeholder="Enter Your Password" name="password">
-        <input type="submit">
+        <input type="submit" value="Login">
         <div>
-            <a href="Reset.php" class="but" style="color: blue;">Password Reset</a>
+            <br/>
+            <a href="Reset.php" class="reset">Password Reset</a>
         </div>
 
 

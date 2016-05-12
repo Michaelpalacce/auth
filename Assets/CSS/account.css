@@ -30,10 +30,11 @@ body{
     text-align: center;
 }
 #header{
-    float:inherit;
-    min-height:50px;
-    margin:0 auto;
-    background: #00CCBF;
+    float: inherit;
+    box-shadow: 1px 1px 1px #AEA3AC;
+    min-height: 50px;
+    margin: 0 auto;
+    background: #01A298;
 }
 #container{
     width:1350px;

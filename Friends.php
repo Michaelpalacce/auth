@@ -17,7 +17,6 @@ include "Assets/include/loggedfilter.php";
         <th>Email</th>
         <th></th>
         <?php
-
         require 'Assets/include/database.php';
         $records =$pdo->prepare("select DISTINCT ID,Name,ImagePath,Email,Birthday,Phone,Website from users INNER JOIN
 (
@@ -64,6 +63,5 @@ ON
                 parent.hide();
             }
         });
-
     });
 </script>

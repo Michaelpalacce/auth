@@ -34,26 +34,44 @@ input[type="submit"]:hover {
     background:#00b8eb;
 }
 .header{
-    border-bottom: 1px solid #eee;
+    float: inherit;
+    box-shadow: 1px 1px 1px #AEA3AC;
     padding:10px 0px;
-    width:100%;
-    text-align: center;
-    background: #00CCBF;
+    min-height:10px;
+    margin: 0 auto;
+    background: #01A298;
+
 }
 .header a{
     color: #333;
     text-decoration: none;
 }
 .but{
-
+    background: #00b8eb;
     padding:10px;
+
+    border-radius:15px;
     color:#fff;
     font-size:25px;
     width:150px;
-    margin:20px auto;
+    margin:20px 20px 20px 20px;
     margin-top:0px;
     border:0px;
-    border-radius:0px;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+.reset{
+    background:#fff;
+
+    padding:10px;
+
+    color: #00b8eb;
+    font-size:25px;
+    width:150px;
+    margin:20px auto;
+    border:0px;
+    border-radius:4px;
     cursor: pointer;
     text-decoration: none;
 }

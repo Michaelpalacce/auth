@@ -9,12 +9,7 @@ body{
 
     text-align: center;
 }
-#header{
-    float:inherit;
-    min-height:50px;
-    margin:0 auto;
-    background: #00CCBF;
-}
+
 #container{
     width:90%;
     min-height:500px;
@@ -23,6 +18,13 @@ body{
 #footer{
     width:80%;
     margin:0 auto;
+}
+#header{
+    float: inherit;
+    box-shadow: 1px 1px 1px #AEA3AC;
+    min-height: 50px;
+    margin: 0 auto;
+    background: #01A298;
 }
 #header ul{
     margin:0;
@@ -69,12 +71,13 @@ tr:hover {  background-color: #FFFEC1}
 
 .but2,.but2del,.but2send{
     outline:none;
-    padding:2%;
+    padding:1.4% 2%;
     margin:20px;
     text-decoration: none;
     box-shadow: 3px 3px 1px grey;
 }
 .but2{
+    padding:2% 2%;
     background:#2FCC00;
     color: white;
 }
@@ -117,6 +120,7 @@ input[type="text"], input[type="password"]{
     margin:20px auto;
 
 }
+
 #drop{
     padding: 10px;
     display: block;

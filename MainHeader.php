@@ -55,7 +55,7 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
     }
     ?>
     <div class="dropdown2">
-        <li style="color: white; cursor:default;">Mail <div style="width: 11px;font-weight: bold; height: 11px; color: red; float: right; margin-left: 2px; font-size: 11px;"><?=$count?></div></li>
+        <li style="color: white; cursor:default;">Mail<div style="width: 11px;font-weight: bold; height: 11px; color: red; float: right; margin-left: 2px; font-size: 11px;"><?=$count?></div></li>
         <div class="dropdown-content">
             <a href="Inboxpt2.php" class="dropbtn">Inbox</a>
             <a href="Outbox.php">Outbox</a>
