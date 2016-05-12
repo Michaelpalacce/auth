@@ -75,11 +75,12 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
             <a href="EditCurrentUser.php">Account</a>
             <a href="ChangePassword.php">Change Password</a>
             <a href="DeleteAccount.php">Delete Account</a>
+            <a href="About.php">About</a>
             <a href="Logout.php">Logout</a>
         </div>
     </div>
 </ul>
-<div class="load"">
+<div class="load">
 
 </div>
 <script type="text/javascript" src="Assets/js/jquery.js"></script>

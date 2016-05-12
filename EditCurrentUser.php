@@ -66,6 +66,67 @@ if(!empty($_POST['name'])||!empty($_POST['birthday'])||!empty($_POST['website'])
     }else{
         $user->Phone=$getter->Phone;
     }
+    if(!empty($_POST['job'])){
+        $user->Phone=$_POST['job'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+    if(!empty($_POST['phone'])){
+        $user->Phone=$_POST['phone'];
+    }else{
+        $user->Phone=$getter->Phone;
+    }
+
 
 
     if ($uploadOk == 0) {
@@ -110,12 +171,39 @@ if(!empty($_POST['name'])||!empty($_POST['birthday'])||!empty($_POST['website'])
         $phone=$user->Phone;
         $website=$user->Website;
         $birthday=$user->Birthday;
+        $job=$user->Job;
+        $hometown=$user->Hometown;
+        $relationship=$user->Relationship;
+        $currentResidence=$user->CurrentResidence;
+        $education=$user->Education;
+        $motherLanguage=$user->MotherLanguage;
+        $country=$user->Country;
+        $religion=$user->Religion;
+        $gender=$user->Gender;
+        $favouriteQuote=$user->FavouriteQuote;
+        $nickname=$user->Nickname;
+        $description=$user->Description;
         $ImagePath=$user->ImagePath;
+
         echo "<img src='$ImagePath' alt='Image' width='250' height='250' id='img' class='img' >";
+        echo"<br/>";
         echo "<input type='text' placeholder='Name: $name' name='name' >";
         echo "<input type='text' placeholder='Phone: $phone' name='phone' >";
         echo "<input type='text' placeholder='Website: $website' name='website' >";
         echo "<input type='text' placeholder='Birthday: $birthday' name='birthday'>";
+        echo "<input type='text' placeholder='Job: $job' name='job'>";
+        echo "<input type='text' placeholder='Hometown: $hometown' name='$hometown'>";
+        echo "<input type='text' placeholder='Relationship: $relationship' name='$relationship'>";
+        echo "<input type='text' placeholder='CurrentResidence: $currentResidence' name='$currentResidence'>";
+        echo "<input type='text' placeholder='Education: $education' name='education'>";
+        echo "<input type='text' placeholder='MotherLanguage: $motherLanguage' name='motherLanguage'>";
+        echo "<input type='text' placeholder='Country: $country' name='country'>";
+        echo "<input type='text' placeholder='Religion: $religion' name='religion'>";
+        echo "<input type='text' placeholder='Gender: $gender' name='gender'>";
+        echo "<input type='text' placeholder='FavouriteQuote: $favouriteQuote' name='favouriteQuote'>";
+        echo "<input type='text' placeholder='Nickname: $nickname' name='nickname'>";
+        echo "<textarea placeholder='Description: $description' class='desc' name='description' ></textarea>";
+
         ?>
         <div>
             <button type="submit" class="submit">Submit</button>
@@ -128,6 +216,17 @@ if(!empty($_POST['name'])||!empty($_POST['birthday'])||!empty($_POST['website'])
 </div>
 
 <style>
+    .desc{
+        outline:none;
+        padding: 10px;
+
+        width: 100%;
+        height:10%;
+        border-radius:3px;
+        border:1px solid #eee;
+        text-align: left;
+        resize: none;
+    }
     .co{
         display: inline-block;
         text-align: center;

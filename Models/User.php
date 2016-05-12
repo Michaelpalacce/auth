@@ -11,4 +11,16 @@ class User{
     public $Admin;
     public $Hash;
     public $Reset;
+    public $Job;
+    public $Relationship;
+    public $Hometown;
+    public $CurrentResidence;
+    public $Description;
+    public $Education;
+    public $MotherLanguage;
+    public $Country;
+    public $Religion;
+    public $Gender;
+    public $FavouriteQuote;
+    public $Nickname;
 }

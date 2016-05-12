@@ -42,7 +42,7 @@ require 'Assets/include/adminfilter.php';
             echo "<td>".$results['Admin']."</td>";
             $id=$results['ID'];
             $email=$results['Email'];
-            echo "<td><a href='HijackSession.php?ID=$id&Email=$email' class='but2'>Hijack</a><a href='EditUser.php?ID=$id' class='but2' >Edit</a><button class='but1del' value='$id''>Delete</button></td>";
+            echo "<td><button class='but1hijack' value='$id'>Hijack</button><button class='but1edit' value='$id'>Edit</button><button class='but1del' value='$id'>Delete</button></td>";
             echo "</tr>";
         }
         ?>
@@ -53,6 +53,14 @@ require 'Assets/include/adminfilter.php';
 </html>
 <script src="Assets/js/jquery.min.js"></script>
 <script>
+    $('.but1hijack').click(function () {
+        var val= $(this).val();
+        window.location.href="HijackSession.php?ID="+val;
+    });
+    $('.but1edit').click(function () {
+        var val= $(this).val();
+        window.location.href="EditUser.php?ID="+val;
+    });
     $('.but1del').click(function () {
         var me=$(this).val();
         var parent=$(this).parent().parent();

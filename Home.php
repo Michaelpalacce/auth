@@ -113,7 +113,5 @@ $image=$user->ImagePath;
         transform: scale(1.2);
         transition: 1s ease;
     }
-    .wrap{
-        visibility: hidden;
-    }
+
 </style>

@@ -45,7 +45,6 @@
         $Recieved=$results['Recieved'];
         $TimeSent=$results['TimeSent'];
         $messageID=$results['ID'];
-//  <img src='$ImagePath' alt='Image' width='50' height='50' id='img' class='imag'  style='float: left; margin: 15px 0px 0px 20px;' >
         echo "<div class='message' style='background: #eee;'>
         <div class='message-row' >
 
@@ -59,7 +58,7 @@
                 <p class='email-text'>$Message</p>
             </div>
             <div>
-            <a href='SendMessage.php?ID=$Reciever' class='but2' style='padding: 10px;'>Send Message</a>
+            <button  class='but1send' value='$Reciever'>Send Message</button>
             <button class='but1del' value='$messageID'>Delete</button>
 </div>
 <br/>
@@ -77,6 +76,10 @@
 </html>
 <script src="Assets/js/jquery.min.js"></script>
 <script>
+    $('.but1send').click(function () {
+        var val= $(this).val();
+        window.location.href=" SendMessage.php?ID="+val;
+    });
     $('.but1del').click(function () {
         var me=$(this).val();
         var parent=$(this).parent().parent().parent().parent();

@@ -57,7 +57,7 @@ if(!empty($_GET['str'])){
             }
             echo '</td>';
             $id=$results['ID'];
-            echo "<td><a href='EditGroup.php?ID=$id' class='but2' >Edit</a><button class='but1del' value='$id'>Delete</button></td>";
+            echo "<td><button class='but1' >Edit</button><button class='but1del' value='$id'>Delete</button></td>";
             echo "</tr>";
         }
         ?>
@@ -68,6 +68,9 @@ if(!empty($_GET['str'])){
 </html>
 <script src="Assets/js/jquery.min.js"></script>
 <script>
+    $('.but1').click(function () {
+       window.location.href="EditGroup.php?ID=<?=$id?>";
+    });
     $('.but1del').click(function () {
         var me=$(this).val();
         var parent=$(this).parent().parent();

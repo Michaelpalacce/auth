@@ -7,6 +7,9 @@ session_destroy();
 
 session_start();
 $_SESSION['user_id']=$_GET['ID'];
-$_SESSION['Email']=$_GET['Email'];
+include "Assets/Repository/UserRepository.php";
+$repo= new UserRepository();
+$user= $repo->GetByID($_GET['ID']);
+$_SESSION['Email']=$user->Email;
 header('Location: Home.php');
 

@@ -30,7 +30,7 @@ if(!empty($_GET['str'])){
 
             if(!empty($Search)){
                 $Search='%'.$Search.'%';
-                $records=$pdo->prepare("SELECT FirstName,LastName,Address,ImagePath,ID FROM contacts WHERE UserId=:id and FirstName like :str or LastName like :str or Address like :str");
+                $records=$pdo->prepare("SELECT FirstName,LastName,Address,ImagePath,ID FROM contacts WHERE UserId=:id and FirstName like :str or UserId=:id and LastName like :str or UserId=:id and  Address like :str");
 
                 $records->bindParam(':str',$Search);
             }
@@ -44,7 +44,10 @@ if(!empty($_GET['str'])){
                 echo "<td>".$results['LastName']."</td>";
                 echo "<td>".$results['Address']."</td>";
                 $id=$results['ID'];
-                echo "<td><a href='Phones.php?ID=$id' class='but2' >ViewPhones</a><a href='EditContact.php?ID=$id' class='but2' >Edit</a><button class='but1del' value='$id'>Delete</button></td>";
+                echo "<td>
+<button class='but1phones' id='phones' value='$id'>ViewPhones</button>
+<button class='but1edit' id='edit' value='$id'>Edit</button>
+<button class='but1del' value='$id'>Delete</button></td>";
                 echo "</tr>";
             }
             ?>
@@ -56,6 +59,14 @@ if(!empty($_GET['str'])){
 </html>
 <script src="Assets/js/jquery.min.js"></script>
 <script>
+    $('.but1edit').click(function () {
+        var val= $(this).val();
+        window.location.href="EditContact.php?ID="+val;
+    });
+    $('.but1phones').click(function () {
+        var val= $(this).val();
+        window.location.href="Phones.php?ID="+val;
+    });
     $('.but1del').click(function () {
         var me=$(this).val();
         var parent=$(this).parent().parent();

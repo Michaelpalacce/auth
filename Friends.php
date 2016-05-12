@@ -41,7 +41,7 @@ ON
                 echo "<td style='font-size: 20px'>".$results['Name']."</td>";
                 echo "<td style='font-size: 20px'>".$results['Email']."</td>";
                 $id=$results['ID'];
-                echo "<td><a href='SendMessage.php?ID=$id' class='but2send'style='padding: 10px;'>Send Message</a><button class='but1del' value='$id''>Remove Friend</button></td>";
+                echo "<td><button class='but1view' value='$id'>View Profile</button><button class='but1send' value='$id'>Send Message</button><button class='but1del' value='$id''>Remove Friend</button></td>";
                 echo "</tr>";
             }
         }
@@ -52,7 +52,23 @@ ON
 </html>
 <script src="Assets/js/jquery.min.js"></script>
 <script>
-    $('.but1del').click(function () {
+    $('.but1send').click(function () {
+        var val= $(this).val();
+        window.location.href=" SendMessage.php?ID="+val;
+    });
+    $('.but1view').click(function () {
+        var val= $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: 'SetFriendCookie.php',
+            data:{value:val},
+            success: function(data) {
+                window.location.href="ViewAccount.php";
+            }
+        });
+
+    });
+     $('.but1del').click(function () {
         var me=$(this).val();
         var parent=$(this).parent().parent();
         $.ajax({

@@ -1,7 +1,7 @@
 body{
     margin:0px;
     padding:0px;
-    background-image: url("background.jpg");
+    background: #77E4E1;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -9,7 +9,6 @@ body{
 
     text-align: center;
 }
-
 #container{
     width:90%;
     min-height:500px;
@@ -69,15 +68,14 @@ tr{
 }
 tr:hover {  background-color: #FFFEC1}
 
-.but2,.but2del,.but2send{
+.but2,.but2del,.but2send,.but2view{
     outline:none;
-    padding:1.4% 2%;
+    padding:1.5%;
     margin:20px;
     text-decoration: none;
     box-shadow: 3px 3px 1px grey;
 }
 .but2{
-    padding:2% 2%;
     background:#2FCC00;
     color: white;
 }
@@ -85,27 +83,53 @@ tr:hover {  background-color: #FFFEC1}
     background:#FF0002;
     color: white;
 }
-.but2send{
-    background: #00CCBF;
-    color: white;
-}
-.but1del,.but1add{
+
+.but1,.but1del,.but1add,.but1view,.but1send,.but1phones,.but1edit,.but1hijack,.but1account{
     padding: 10px 25px;
-    color: #fff;
     text-decoration: none;
     box-shadow: 3px 3px 1px grey;
+    color: white;
     border:0px;
     margin:0px 0px 0px 20px;
     border-radius:0px;
     cursor: pointer;
     text-decoration: none;
-    display: inline-block;
+
+}
+.but1{
+    background:#2FCC00;
+}
+.but1view{
+    background: #2CB800;
+}
+.but1send{
+    background: #00CCBF;
 }
 .but1del{
     background:#FF0002;
 }
 .but1add{
     background:#2FCC00;
+}
+.but1phones{
+    background:#2FCC00;
+}
+.but1hijack{
+    background:#2FCC00;
+}
+.but1edit{
+    background:#2FCC00;
+}
+.but1account{
+    margin-top:20px;
+    background: #00CCBF;
+    box-shadow: 3px 3px 1px #BBBEC0;
+    transition:.4s ease-in-out;
+}
+.but1account:hover{
+    background: white;
+    color: #00CCBF;
+    transition:.4s ease-in-out;
 }
 input[type="text"], input[type="password"]{
     outline:none;
