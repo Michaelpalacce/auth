@@ -41,12 +41,8 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])&&!empty($_POST['admin']))
     $user->Hash="-";
     $user->Reset="-";
     $empty='';
-    if(!empty($_POST['admin'])){
-        $user->Admin=$_POST['admin'];
-    }
-    else{
-        $user->Admin='N';
-    }
+    $user->Admin=$_POST['admin'];
+
     if(!empty($_POST['name'])){
         $user->Name=$_POST['name'];
     }
@@ -119,7 +115,10 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])&&!empty($_POST['admin']))
     <input type="text" placeholder="Phone" name="phone">
     <input type="text" placeholder="Website" name="website">
     <input type="text" placeholder="Birthday" name="birthday">
-    <input type="text" placeholder="Admin N-No Y-Yes" name="admin">
+    <select name="admin" id ="drop">
+        <option value="Y">Admin</option>
+        <option value="N">User</option>
+    </select>
     <div>
         <button type="submit" class="submit">Submit</button>
         <a href="Admin.php" class="cancel">Cancel</a>

@@ -57,6 +57,8 @@ if(!empty($_POST['firstname'])&&!empty($_POST['lastname'])&&!empty($_POST['addre
         $con->Address=$empty;
     }
 
+    $con->Private=$_POST['private'];
+
     if ($uploadOk == 0) {
         $con->ImagePath='Images/default.png';
         $repo->Add($con);
@@ -76,14 +78,16 @@ if(!empty($_POST['firstname'])&&!empty($_POST['lastname'])&&!empty($_POST['addre
     $results=$stmt->fetch(PDO::FETCH_ASSOC);
     $MaxID=intval($results['ID']);
     $NextID=$MaxID+1;
+    $UserID=$_SESSION['user_id'];
     if(!empty($_POST['groups'])){
         $groups=$_POST['groups'];
         for($i=0;$i<count($groups);$i++){
             $GroupRepository=new GroupRepository();
-            $group=$GroupRepository->GetByName($groups[$i]);
-            $sql="INSERT INTO contact_group (contact_id,group_id) VALUES (:cid,:gid)";
+            $group=$GroupRepository->GetByID($groups[$i]);
+            $sql="INSERT INTO contact_group (contact_id,group_id,UserID) VALUES (:cid,:gid,:UserID)";
             $stmt=$pdo->prepare($sql);
             $stmt->bindParam(':cid',$MaxID);
+            $stmt->bindParam(':UserID',$UserID);
             $stmt->bindParam(':gid',$group->ID);
             $stmt->execute();
         }
@@ -108,9 +112,15 @@ if(!empty($_POST['firstname'])&&!empty($_POST['lastname'])&&!empty($_POST['addre
 
     <img src="Images/default.png" alt="Image" width="250" height="250" id="img">
 
-    <input type="text" placeholder="First name" name="firstname" class="text">
+    <input type="text" placeholder="First Name" name="firstname" id="firstname" class="text">
     <input type="text" placeholder="Last name" name="lastname" class="text">
     <input type="text" placeholder="Address" name="address" class="text">
+
+    <select name="private" id ="drop">
+        <option value="Y">Private</option>
+        <option value="N">Public</option>
+    </select>
+    <br/>
     Groups:
     <div class="groups">
 
@@ -124,7 +134,7 @@ if(!empty($_POST['firstname'])&&!empty($_POST['lastname'])&&!empty($_POST['addre
         ?>
 
         <span><?php echo $groups['Name']; ?>:</span>
-        <input type='checkbox' name='groups[]' value='<?php echo $groups['Name']; ?>' />
+        <input type='checkbox' name='groups[]' value='<?php echo $groups['ID']; ?>' />
         <?php endwhile; ?>
     </div>
 
@@ -144,10 +154,11 @@ if(!empty($_POST['firstname'])&&!empty($_POST['lastname'])&&!empty($_POST['addre
 </body>
 </html>
 <style>
+
     #img{
         transition: 1s ease;
-        -webkit-border-radius:;
-        -moz-border-radius:;
+        -webkit-border-radius:50%;
+        -moz-border-radius:50%;
         border-radius:50%;
         box-shadow: 5px 5px 2px #888888;
         cursor: pointer;

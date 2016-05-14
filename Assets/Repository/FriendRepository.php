@@ -24,6 +24,14 @@ class FriendRepository{
         $stmt->bindParam(':frid',$frID);
         $stmt->execute();
     }
+    public function DeleteByID($id){
+        set_include_path('D:/Coding/Xamp/htdocs/auth');
+        require 'Assets/include/database.php';
+        $sql="DELETE FROM friends WHERE ID like :id";
+        $stmt=$pdo->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+    }
     public function GetByID($id){
         set_include_path('D:/Coding/Xamp/htdocs/auth');
         require 'Assets/include/database.php';
@@ -49,6 +57,17 @@ class FriendRepository{
         $stmt->bindParam(':usr1',$Friend->UserID_1);
         $stmt->bindParam(':usr2',$Friend->UserID_2);
         $stmt->bindParam(':id',$Friend->ID);
+
+        $stmt->execute();
+    }
+    public  function AcceptFriend($id){
+        set_include_path('D:/Coding/Xamp/htdocs/auth');
+        require 'Assets/include/database.php';
+        $sql="UPDATE friends SET Accepted=:acc Where ID = :id";
+        $stmt=$pdo->prepare($sql);
+        $yes='Y';
+        $stmt->bindParam(':acc',$yes);
+        $stmt->bindParam(':id',$id);
 
         $stmt->execute();
     }

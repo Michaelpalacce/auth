@@ -1,0 +1,873 @@
+
+<!-- saved from url=(0040)http://localhost:63342/auth/Inboxpt2.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+<style type="text/css"></style></head><body><div id="header">
+    <style>
+        body{
+    margin:0px;
+    padding:0px;
+    background: #77E4E1;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    text-align: center;
+}
+#container{
+    width:90%;
+    min-height:500px;
+    margin:0 auto;
+}
+#footer{
+    width:80%;
+    margin:0 auto;
+}
+#header{
+    float: inherit;
+    box-shadow: 1px 1px 1px #AEA3AC;
+    min-height: 50px;
+    margin: 0 auto;
+    background: #01A298;
+}
+#header ul{
+    margin:0;
+    list-style-type: none;
+}
+#header ul li{
+    display: inline-block;
+    margin-right:50px;
+}
+#header ul li a{
+    color:#ffffff;
+    text-decoration: none;
+    border-top: 100px;
+}
+#header ul li a:hover{
+    text-decoration: none;
+    border-left:0px;
+}
+
+table, th, td {
+    text-align: left;
+
+}
+table {
+    border-radius:3px;
+    float: left;
+    border-collapse: collapse;
+    width: 100%;
+    margin:0px auto;
+}
+
+th {
+    background-color: #00CCBF;
+    color:white;
+}
+th, td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+tr{
+    background: #f5f5f5;
+}
+tr:hover {  background-color: #FFFEC1}
+
+.but2,.but2del,.but2send,.but2view{
+    outline:none;
+    padding:1.5%;
+    margin:20px;
+    text-decoration: none;
+    box-shadow: 3px 3px 1px grey;
+}
+.but2{
+    background:#2FCC00;
+    color: white;
+}
+.but2del{
+    background:#FF0002;
+    color: white;
+}
+
+.but1,.but1del,.but1add,.but1view,.but1send,.but1phones,.but1edit,.but1hijack,.but1account{
+    padding: 10px 25px;
+    text-decoration: none;
+    /*box-shadow: 3px 3px 1px grey;*/
+    color: white;
+    border:0px;
+    margin:0px 0px 0px 20px;
+    border-radius:0px;
+    cursor: pointer;
+    outline:none;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+
+}
+.but1:hover,.but1del:hover,.but1add:hover,.but1view:hover,.but1send:hover,.but1phones:hover,.but1edit:hover,.but1hijack:hover,.but1account:hover{
+    -webkit-transition:all .2s ease-in-out;
+    -moz-transition: all .2s  ease-in-out;
+    -ms-transition: all .2s  ease-in-out;
+    -o-transition: all .2s  ease-in-out;
+    transition: all .2s  ease-in-out;
+}
+.but1{
+    background:#2FCC00;
+    transition:.4s ease-in-out;
+}
+.but1:hover{
+    background: white;
+    color: #2FCC00;
+}
+.but1view{
+    background: #2CB800;
+    transition:.4s ease-in-out;
+}
+.but1view:hover{
+    background: white;
+    color: #2FCC00;
+}
+.but1send{
+    background: #00CCBF;
+    transition:.4s ease-in-out;
+}
+.but1send:hover{
+    background: white;
+    color: #00CCBF;
+}
+.but1del{
+    background:#FF0002;
+    transition:.4s ease-in-out;
+}
+.but1del:hover{
+    background: white;
+    color: #FF0002;
+}
+.but1add{
+    background:#2FCC00;
+    transition:.4s ease-in-out;
+}
+.but1add:hover{
+    background: white;
+    color: #2FCC00;
+}
+.but1phones{
+    background:#2FCC00;
+    transition: .4s ease-in-out;
+}
+.but1phones:hover{
+    background: white;
+    color: #2FCC00;
+}
+.but1hijack{
+    background:#2FCC00;
+    transition:.4s ease-in-out;
+}
+.but1hijack:hover{
+    background: white;
+    color: #2FCC00;
+}
+.but1edit{
+    background:#2FCC00;
+    transition:.4s ease-in-out;
+}
+.but1edit:hover{
+    background: white;
+    color: #2FCC00;
+}
+.but1account{
+    margin-top:20px;
+    background: #00CCBF;
+    box-shadow: 3px 3px 1px #BBBEC0;
+
+}
+.but1account:hover{
+    background: white;
+    color: #00CCBF;
+}
+.but1:hover i,.but1del:hover i,.but1add:hover i,.but1view:hover i,.but1send:hover i,.but1phones:hover i,.but1edit:hover i,.but1hijack:hover i,.but1account:hover i{
+    transition: all .3s ease-in-out;
+    -webkit-animation: popoutandback 2s infinite linear;
+    -moz-animation : popoutandback 2s infinite linear;
+    -ms-animation : popoutandback 2s infinite linear;
+    -o-animation : popoutandback 2s infinite linear;
+}
+@-webkit-keyframes popoutandback {
+0%{
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+    50%{
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-moz-keyframes popoutandback {
+    0%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50%{
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-o-keyframes popoutandback {
+    0%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50%{
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-ms-keyframes popoutandback {
+    0%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50%{
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+.ripple-effect{
+    position: absolute;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: #00CCBF;
+    animation: ripple-animation 5s;
+}
+@keyframes ripple-animation {
+    from {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    to {
+        transform: scale(100);
+        opacity: 0;
+    }
+}
+
+input[type="text"], input[type="password"]{
+    outline:none;
+    padding: 10px;
+    display: block;
+    width:25%;
+    border-radius:3px;
+    border: 0;
+    outline: 0;
+    background: white;
+    margin:20px auto;
+    margin-top:10px;
+    margin-bottom: 10px;
+
+}
+
+input[type="submit"]{
+    padding:10px;
+    color:#fff;
+    background:#0098cb;
+    width:10%;
+    margin:20px auto;
+    margin-top:0px;
+    border:0px;
+    border-radius:0px;
+    cursor: pointer;
+}
+
+#drop{
+    padding: 10px;
+    display: block;
+    width:300px;
+    border-radius:3px;
+    border:1px solid #eee;
+    margin:20px auto ;
+}
+
+.cancel{
+    padding:8.4px 7.5px;
+    color:#fff;
+    background:#FF0002;
+    width:10%;
+    margin-top:2px;
+    border:0px;
+    border-radius:0px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+.submit{
+    background:#2FCC00;
+    padding:10px;
+    color:#fff;
+    width:11%;
+    margin:20px auto;
+    margin-top:0px;
+    border:0px;
+    border-radius:0px;
+    cursor: pointer;
+    text-decoration: none;
+}
+input[type="file"]{
+    padding:10px;
+    width:20%;
+    margin:20px auto;
+    margin-top:0px;
+    border:0px;
+    border-radius:0px;
+    cursor: pointer;
+
+}
+
+.CreateButton{
+    padding:10px;
+    color:#fff;
+    background:#2FCC00;
+    width:20%;
+    margin:0px 0px 10px 0px;
+    float: left;
+    border:0px;
+    border-radius:3px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.CreateButton:hover{
+    color:#2FCC00;
+    background:#fff;
+    transition: 0.1s;
+}
+
+.CreateButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.CreateButton span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+}
+
+.CreateButton:hover span {
+    padding-right: 25px;
+}
+
+.CreateButton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.changer{
+    padding:10px 20px 10px 20px;
+    background-color: turquoise;
+    color:white;
+    border:0px;
+    font-weight:bold;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.changer:hover{
+    background-color: white;
+    color:turquoise;
+    transition:.5s ease-in-out;
+}
+
+.changer span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.changer span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+}
+
+.changer:hover span {
+    padding-right: 25px;
+}
+
+.changer:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+.but{
+    padding:10px;
+    color:#fff;
+    font-size:25px;
+    width:10%;
+    margin:20px auto;
+    margin-top:0px;
+    border:0px;
+    border-radius:0px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.acc{
+    float: right;
+    margin-right:50px;
+    text-decoration: none;
+    color:#ffffff;
+    text-decoration: none;
+}
+.acc:hover{
+    color:#0D7B00;
+    text-decoration: none;
+    border-left:0px;
+}
+.dropdown2{
+    position: relative;
+    padding:20px;
+    display: inline-block;
+}
+.dropbtn {
+    color: #f5f5f5;
+    padding:20px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+
+}
+
+.dropdown {
+    padding:20px;
+    position: relative;
+    float: right;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    margin-top: 20px;
+    visibility: hidden;
+    opacity:0;
+    float: right;
+    position: absolute;
+    background-color: #f5f5f5;
+    color: #000;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    transition: visibility .5s, opacity 0.2s linear;
+    z-index: 500;
+}
+/* Show the dropdown menu on hover */
+.dropdown2:hover .dropdown-content {
+    opacity:0.8;
+    transition: visibility .5s,opacity 0.2s linear;
+    visibility: visible;
+    margin-top:20px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+
+    margin-top: 20px;
+    display: block;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#img{
+    transition: 0.5s ease;
+    border-radius:50%;
+    box-shadow: 5px 2px 2px #888888;
+}
+#img:hover{
+    -webkit-transform: scale(3.2);
+    -ms-transform: scale(3.2);
+    transform: scale(3.2);
+    transition: 0.5s ease;
+}
+p {
+    margin: 0;
+}
+
+.Message-container {
+    width:70%;
+    text-align: center;
+    margin:30px auto;
+
+}
+
+.message {
+    color: #222;
+    border-spacing: 2px;
+    margin-top:10px;
+    font-family: arial,sans-serif;
+
+}
+
+.message-row{
+    cursor: pointer;
+    padding-top: 7px;
+}
+
+.message .email {
+    margin: 25px auto;
+}
+
+.message .title {
+    transition: opacity .4s ease-in-out;
+    font-weight: bold;
+}
+
+.message .time {
+    padding:10px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+
+}
+
+.email-row{
+    color: #000;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    display: none;
+    transition: 0.6s ease-in-out;
+}
+
+.email-row p{
+    padding:20px 20px 20px 20px;
+}
+/*.message-row:hover .email-row {*/
+/*max-height: 200px;*/
+/*cursor: pointer;*/
+/*color: black;*/
+/*visibility: visible;*/
+/*opacity:1;*/
+/*}*/
+/*.email-row:hover{*/
+/*max-height: 200px;*/
+/*cursor: pointer;*/
+/*color: black;*/
+/*visibility: visible;*/
+/*opacity:1;*/
+/*}*/
+/*.email-row:hover +.title{*/
+    /*visibility: hidden;*/
+    /*opacity:0;*/
+    /*transition: 0.6s ease-in-out ;*/
+/*}*/
+/*.message:hover .title{*/
+    /*visibility: hidden;*/
+    /*opacity:0;*/
+    /*transition: 0.6s ease-in-out;*/
+/*}*/
+.wrappper{
+    position: relative;
+}
+.follower{
+    width:10px;
+    height:10px;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+
+    position : absolute;
+    -webkit-animation        : spin 10s infinite linear;
+    -webkit-transform-origin : 20px 20px;
+}
+
+.follower2,.follower3,.follower4,.follower5,.follower6,.follower7{
+    width:5px;
+    height:5px;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+
+position : absolute;
+-webkit-animation        : spin 6s infinite linear;
+-webkit-transform-origin : 15px 15px;
+}
+.follower3{
+    -webkit-animation        : spin 5s infinite linear;
+    -webkit-transform-origin : 30px 30px;
+}
+.follower4{
+    -webkit-animation        : spin 4s infinite linear;
+    -webkit-transform-origin : 30px 30px;
+}
+.follower5{
+    -webkit-animation        : spin 3s infinite linear;
+    -webkit-transform-origin : 30px 30px;
+}
+.follower6{
+    -webkit-animation        : spin 2s infinite linear;
+    -webkit-transform-origin : 15px 30px;
+}
+.follower7{
+    -webkit-animation        : spin 1s infinite linear;
+    -webkit-transform-origin : 30px 30px;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotateZ(0deg);
+        background: white;}
+    10%{ -webkit-transform: rotateZ(36deg);
+        background: #FFF667;}
+    20%{ -webkit-transform: rotateZ(72deg);
+        background: #FFB054;}
+    30%{ -webkit-transform: rotateZ(108deg);
+        background: #FF623D;}
+    40%{ -webkit-transform: rotateZ(144deg);
+        background: #FF0600;}
+    50%{ -webkit-transform: rotateZ(180deg);
+        background: #FF1ACF;}
+    60%{ -webkit-transform: rotateZ(216deg);
+        background: #9D21FF;}
+    70%{ -webkit-transform: rotateZ(252deg);
+        background: #1E05FF;}
+    80%{ -webkit-transform: rotateZ(288deg);
+        background: #00FFFF;}
+    90%{ -webkit-transform: rotateZ(324deg);
+        background: #03FF03;}
+    100%   { -webkit-transform: rotateZ(360deg); background: white;}
+}    </style>
+   <ul>
+    <div class="dropdown2">
+        <li><a href="http://localhost:63342/auth/Home.php" class="dropbtn">Home</a> </li>
+        <div class="dropdown-content">
+            <a href="http://localhost:63342/auth/Index.php" class="dropbtn">Index</a>
+            <a href="http://localhost:63342/auth/SetSelfCookie.php?value=1" class="dropbtn">Profile Page</a>
+            <a href="http://localhost:63342/auth/Admin.php" class="dropbtn">Admin</a>        </div>
+    </div>
+    <div class="dropdown2">
+        <li><a href="http://localhost:63342/auth/Contacts.php" class="dropbtn">Contacts</a> </li>
+        <div class="dropdown-content">
+            <a href="http://localhost:63342/auth/CreateContact.php">Create Contact</a>
+            <a href="http://localhost:63342/auth/Groups.php" class="dropbtn">Groups</a>
+            <a href="http://localhost:63342/auth/CreateGroup.php">Create Group</a>
+        </div>
+    </div>
+    <div class="dropdown2">
+        <li><a href="http://localhost:63342/auth/Friends.php" class="dropbtn">Friends</a> </li>
+        <div class="dropdown-content">
+            <a href="http://localhost:63342/auth/FindFriends.php">Find Friend</a>
+            <a href="http://localhost:63342/auth/Requests.php">Requests</a>
+        </div>
+    </div>
+        <div class="dropdown2">
+        <li style="color: white; cursor:default;">Mail<div style="width: 11px;font-weight: bold; height: 11px; color: red; float: right; margin-left: 2px; font-size: 11px;">0</div></li>
+        <div class="dropdown-content">
+            <a href="http://localhost:63342/auth/Inboxpt2.php" class="dropbtn">Inbox</a>
+            <a href="http://localhost:63342/auth/Outbox.php">Outbox</a>
+            <a href="http://localhost:63342/auth/SendMessage.php">New Message</a>
+
+        </div>
+    </div>
+    <div class="dropdown2">
+        <li><a href="http://localhost:63342/auth/Calendar.php" class="dropbtn">Calendar</a> </li>
+        <div class="dropdown-content">
+            <a href="http://localhost:63342/auth/CreateEvent.php">Add Event</a>
+        </div>
+    </div>
+    <div class="dropdown2">
+        <span class="dropbtn">Hello, stefantigro@gmail.com!</span>
+        <div class="dropdown-content">
+            <a href="http://localhost:63342/auth/EditCurrentUser.php">Account</a>
+            <a href="http://localhost:63342/auth/ChangePassword.php">Change Password</a>
+            <a href="http://localhost:63342/auth/DeleteAccount.php">Delete Account</a>
+            <a href="http://localhost:63342/auth/About.php">About</a>
+            <a href="http://localhost:63342/auth/Logout.php">Logout</a>
+        </div>
+    </div>
+</ul>
+<div class="load">
+
+</div>
+
+<div class="wrappper" style="display: none; left: 490px; top: 287px;">
+    <div class="follower">
+
+    </div>
+    <div class="follower2" style="left: -10px; top: -10px;">
+
+    </div>
+    <div class="follower3" style="left: -20px; top: -20px;">
+
+    </div>
+    <div class="follower4" style="left: -20px; top: -20px;">
+
+    </div>
+    <div class="follower5" style="left: -20px; top: -20px;">
+
+    </div>
+    <div class="follower6" style="left: -20px; top: -20px;">
+
+    </div>
+    <div class="follower7" style="left: -20px; top: -20px;">
+
+    </div>
+</div>
+
+
+<script type="text/javascript" src="./Inboxpt2.php_files/jquery.js"></script>
+<script type="text/javascript" src="./Inboxpt2.php_files/spin.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        setInterval(function(){
+            $('.load').load('Notif.php');
+        },10000);
+        $('.closeForNotif').click(function(){
+            $('.load').hide();
+        });
+    });
+
+</script>
+<style>
+    .active{
+        visibility: visible;
+    }
+    .closeForNotif{
+        float:right;
+        border:0px;
+        border-radius:4px;
+        z-index: 11 ;
+        background: #00b8eb;
+    }
+    .cont{
+        opacity:0.8;
+        margin-top:32%;
+        margin-left:30%;
+        padding:2%;
+        position:absolute;
+        z-index: 10;
+        background: turquoise;
+        border: 1px solid #eee ;
+        -webkit-border-radius:5px;
+        -moz-border-radius:5px;
+        border-radius:5px;
+        width:15%;
+        display: inline-block;
+        height:10%;
+    }
+    .cont .picture{
+        margin-left:18px;
+        margin-bottom:10px;
+        width: 40px;
+        height: 40px;
+        border-radius:50%;
+        box-shadow: 2px 2px 1px #888888;
+    }
+    .cont .notification-message{
+        text-align: center;
+        margin: 20px auto;
+        color: #eee;
+
+    }
+</style>
+</div>
+
+
+<input type="text" class="search" placeholder="Search" style="margin: 20px auto; width: 20%;">
+<div class="Message-container">
+
+    <div class="message" style="background: #eee;">
+        <div class="message-row">
+        <div>
+                <p class="email">From: michaelpalacce@gmail.com</p>
+            </div>
+            <div>
+                <p class="title">Preview: Hello there amigo!</p>
+                 <div class="email-row" style="display: none;">
+            <div>
+                <p class="email-text">Hello there amigo!</p>
+            </div>
+            <div>
+            <button class="but1send" value="76"><span><i class="fa fa-reply" aria-hidden="true"></i> Reply</span></button>
+            <button class="but1del" value="72"><span><i class="fa fa-trash" aria-hidden="true"></i> Delete</span></button>
+            </div>
+<br>
+             </div>
+            </div>
+
+            <div>
+                <p class="time">Time Sent: 05/13/2016 10:06:04 am</p>
+            </div>
+        </div>
+    </div></div>
+
+
+<link rel="stylesheet" href="./Inboxpt2.php_files/font-awesome.min.css">
+<script src="./Inboxpt2.php_files/jquery.min.js"></script>
+<script>
+    $('.message').click(function(){
+        $(this).children().children().next().children().next().animate({ height: 'toggle'},'slow');
+    });
+
+
+    var $rows = $('.message');
+
+    $('.search').keyup(function() {
+        var val = $.trim($(this).val()).toLowerCase();
+        $rows.show().filter(function(index) {
+            var text= $(this).text().toLowerCase();
+            return (text.indexOf(val) === -1);
+        }).hide();
+    });
+
+    $('.but1send').click(function () {
+        var val= $(this).val();
+        window.location.href="  SendMessage.php?ID="+val;
+    });
+
+    $('.but1del').click(function () {
+        var me=$(this).val();
+        var parent=$(this).parent().parent().parent().parent();
+        $.ajax({
+            type: 'POST',
+            url: 'DeleteMessageReciever.php',
+            data:{value:me},
+            success: function(data) {
+                parent.animate({height: 'toggle'},'slow');
+            }
+        });
+    });
+</script></body></html>

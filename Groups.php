@@ -13,10 +13,7 @@ if(!empty($_GET['str'])){
 <div id="container">
     <a href="CreateGroup.php" class="CreateButton"><span>Create New Group</span></a>
 
-    <form name="search" id="search" method="get" action="Groups.php">
-        <input type="text" tabindex="1" class="input" id="str" name="str" value="" placeholder="Search" style="margin: 0px 0px 0px 520px;"/>
-        <input type="submit" tabindex="2" id="submit" value="SEARCH" style="display: none;"/>
-    </form>
+        <input type="text" tabindex="1" class="search" placeholder="Search" style="margin: 0px 0px 0px 50%; width: 20%;"/>
 
         <table>
         <th>Picture</th>
@@ -31,23 +28,17 @@ if(!empty($_GET['str'])){
 
         require 'Assets/include/database.php';
         $records =$pdo->prepare("SELECT * FROM groups WHERE UserID=:id");
-
-        if(!empty($Search)){
-            $Search='%'.$Search.'%';
-            $records=$pdo->prepare("SELECT * FROM groups WHERE UserID=:id and Name like :str");
-
-            $records->bindParam(':str',$Search);
-        }
         $usrId=$_SESSION['user_id'];
         $records->bindParam(':id',$usrId);
         $records->execute();
         while($results=$records->fetch(PDO::FETCH_ASSOC)){
             $ImagePath=$results['ImagePath'];
-            echo "<tr>";
+            echo "<tr class='sr'>";
             echo "<td style='padding: 5px;'><img src='$ImagePath' alt='Image' width='50' height='50' id='img' style=''></td>";;
             echo "<td>".$results['Name']."</td>";
-            $records2=$pdo->prepare("select * from contacts c join contact_group cg on c.ID=cg.contact_id WHERE cg.group_id=:id");
+            $records2=$pdo->prepare("select * from contacts c join contact_group cg on c.ID=cg.contact_id WHERE cg.group_id=:id AND  cg.UserID =:UserID");
             $records2->bindParam(':id',$results['ID']);
+            $records2->bindParam(':UserID',$_SESSION['user_id']);
             $records2->execute();
             echo '<td>';
             while($results2=$records2->fetch(PDO::FETCH_ASSOC)){
@@ -57,7 +48,7 @@ if(!empty($_GET['str'])){
             }
             echo '</td>';
             $id=$results['ID'];
-            echo "<td><button class='but1' >Edit</button><button class='but1del' value='$id'>Delete</button></td>";
+            echo "<td><button class='but1' value='$id'><span><i class='fa fa-pencil' aria-hidden='true'></i> Edit</span></button><button class='but1del' value='$id'><span><i class='fa fa-trash' aria-hidden='true'></i> Delete</span></button></td>";
             echo "</tr>";
         }
         ?>
@@ -65,11 +56,24 @@ if(!empty($_GET['str'])){
 </div>
 </body>
 </body>
+<button class="but1account" >TestRipple</button>
+
+
 </html>
+<link rel="stylesheet" href="font-awesome-4.6.2/css/font-awesome.min.css">
 <script src="Assets/js/jquery.min.js"></script>
+<script src="Assets/js/search.js"></script>
 <script>
     $('.but1').click(function () {
-       window.location.href="EditGroup.php?ID=<?=$id?>";
+        var val= $(this).val();
+        $.ajax({
+            type: 'POST',
+            url: 'Assets/Cookies/EditCookie.php',
+            data:{value:val},
+            success: function(data) {
+                window.location.href="EditGroup.php";
+            }
+        });
     });
     $('.but1del').click(function () {
         var me=$(this).val();
@@ -85,3 +89,4 @@ if(!empty($_GET['str'])){
 
     });
 </script>
+<script src="Assets/js/ripple.js"></script>

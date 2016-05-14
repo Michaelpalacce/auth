@@ -55,4 +55,7 @@ if(!empty($_POST['oldpass'])&&!empty($_POST['newpass'])&&!empty($_POST['confirmp
         display: inline-block;
         text-align: center;
     }
+    input[type="text"],input[type="password"] {
+        display: block;
+    }
 </style>

@@ -6,7 +6,7 @@ if(!class_exists('UserRepository')){
 }
 
 $id=$_SESSION['user_id'];
-if(!empty($_POST['name'])||!empty($_POST['birthday'])||!empty($_POST['website'])||!empty($_POST['phone'])||!empty($_FILES['upload'])){
+if(!empty($_POST['name'])||!empty($_POST['birthday'])||!empty($_POST['website'])||!empty($_POST['phone'])||!empty($_POST['job'])||!empty($_POST['hometown'])||!empty($_POST['relationship'])||!empty($_POST['currentResidence'])||!empty($_POST['education'])||!empty($_POST['motherLanguage'])||!empty($_POST['country'])||!empty($_POST['religion'])||!empty($_POST['gender'])||!empty($_POST['favouriteQuote'])||!empty($_POST['nickname'])||!empty($_POST['description'])||!empty($_FILES['upload'])){
 
     $target_dir = "UserPhotos/".$_SESSION['Email']."/";
     if(!is_dir($target_dir)){
@@ -66,68 +66,67 @@ if(!empty($_POST['name'])||!empty($_POST['birthday'])||!empty($_POST['website'])
     }else{
         $user->Phone=$getter->Phone;
     }
+
     if(!empty($_POST['job'])){
-        $user->Phone=$_POST['job'];
+        $user->Job=$_POST['job'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->Job=$getter->Job;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['relationship'])){
+        $user->Relationship=$_POST['relationship'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->Relationship=$getter->Relationship;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['hometown'])){
+        $user->Hometown=$_POST['hometown'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->Hometown=$getter->Hometown;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['currentResidence'])){
+        $user->CurrentResidence=$_POST['currentResidence'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->CurrentResidence=$getter->CurrentResidence;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['description'])){
+        $user->Description=$_POST['description'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->Description=$getter->Description;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['education'])){
+        $user->Education=$_POST['education'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->Education=$getter->Education;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['motherLanguage'])){
+        $user->MotherLanguage=$_POST['motherLanguage'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->MotherLanguage=$getter->MotherLanguage;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['country'])){
+        $user->Country=$_POST['country'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->Country=$getter->Country;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['religion'])){
+        $user->Religion=$_POST['religion'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->Religion=$getter->Religion;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['gender'])){
+        $user->Gender=$_POST['gender'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->Gender=$getter->Gender;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['favouriteQuote'])){
+        $user->FavouriteQuote=$_POST['favouriteQuote'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->FavouriteQuote=$getter->FavouriteQuote;
     }
-    if(!empty($_POST['phone'])){
-        $user->Phone=$_POST['phone'];
+    if(!empty($_POST['nickname'])){
+        $user->Nickname=$_POST['nickname'];
     }else{
-        $user->Phone=$getter->Phone;
+        $user->Nickname=$getter->Nickname;
     }
-
-
 
     if ($uploadOk == 0) {
         $user->ImagePath='UserPhotos/default.png';
@@ -187,14 +186,16 @@ if(!empty($_POST['name'])||!empty($_POST['birthday'])||!empty($_POST['website'])
 
         echo "<img src='$ImagePath' alt='Image' width='250' height='250' id='img' class='img' >";
         echo"<br/>";
+
         echo "<input type='text' placeholder='Name: $name' name='name' >";
         echo "<input type='text' placeholder='Phone: $phone' name='phone' >";
         echo "<input type='text' placeholder='Website: $website' name='website' >";
         echo "<input type='text' placeholder='Birthday: $birthday' name='birthday'>";
         echo "<input type='text' placeholder='Job: $job' name='job'>";
-        echo "<input type='text' placeholder='Hometown: $hometown' name='$hometown'>";
-        echo "<input type='text' placeholder='Relationship: $relationship' name='$relationship'>";
-        echo "<input type='text' placeholder='CurrentResidence: $currentResidence' name='$currentResidence'>";
+        echo "<input type='text' placeholder='Hometown: $hometown' name='hometown'>";
+        echo "<input type='text' placeholder='Relationship: $relationship' name='relationship'>";
+        echo "<input type='text' placeholder='CurrentResidence: $currentResidence' name='currentResidence'>";
+
         echo "<input type='text' placeholder='Education: $education' name='education'>";
         echo "<input type='text' placeholder='MotherLanguage: $motherLanguage' name='motherLanguage'>";
         echo "<input type='text' placeholder='Country: $country' name='country'>";
@@ -203,10 +204,9 @@ if(!empty($_POST['name'])||!empty($_POST['birthday'])||!empty($_POST['website'])
         echo "<input type='text' placeholder='FavouriteQuote: $favouriteQuote' name='favouriteQuote'>";
         echo "<input type='text' placeholder='Nickname: $nickname' name='nickname'>";
         echo "<textarea placeholder='Description: $description' class='desc' name='description' ></textarea>";
-
         ?>
         <div>
-            <button type="submit" class="submit">Submit</button>
+            <button type='submit' class='submit'>Submit</button>
         </div>
         <div class="wrap">
             <input type="file" id="upload" name="upload"/>
@@ -216,20 +216,25 @@ if(!empty($_POST['name'])||!empty($_POST['birthday'])||!empty($_POST['website'])
 </div>
 
 <style>
+    
+    .submit{
+        margin:20px 20px 20px 45%;
+    }
+
+    .co{
+        width:80%;
+        display: inline;
+        text-align: center;
+    }
     .desc{
         outline:none;
-        padding: 10px;
-
-        width: 100%;
+        width: 50%;
         height:10%;
+
         border-radius:3px;
         border:1px solid #eee;
         text-align: left;
         resize: none;
-    }
-    .co{
-        display: inline-block;
-        text-align: center;
     }
     #img{
         transition: 1s ease;

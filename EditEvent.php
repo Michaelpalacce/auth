@@ -3,19 +3,23 @@ require 'Assets/include/loggedfilter.php';
 if(!class_exists('EventRepository')){
     include 'Assets/Repository/EventRepository.php';
 }
-$id = $_GET["ID"];
+$id='';
+if(!isset($_COOKIE['friend'])) {
+    header('Location: Error.php');
+} else {
+    $id=$_COOKIE['edit'];
+}
 if(!empty($_POST)){
     if(!empty($_POST['title'])||!empty($_POST['date'])||!empty($_POST['time'])||!empty($_POST['duration'])||!empty($_POST['description'])){
         if(!isset($_SESSION)){
             session_start();
         }
-        $Date;
+        $day;
+        $month;
+        $year;
+        $Date=$_POST['date'];
+        list($month, $day, $year) = split('[/]', $Date);
         if(!empty($_POST['Date'])){
-            $Date=$_POST['date'];
-            $day;
-            $month;
-            $year;
-            list($month, $day, $year) = split('[/]', $Date);
             $zero='0';
             if(substr($day, 0, 1) === '0'){
                 $day=substr($day,1,1);
@@ -24,7 +28,6 @@ if(!empty($_POST)){
                 $month=substr($month,1,1);
             }
         }
-
         $repo= new EventRepository();
         $getter=$repo->GetByID($id);
         $event = new Event();
@@ -35,18 +38,16 @@ if(!empty($_POST)){
         else{
             $event ->Title=$getter['Title'];
         }
-
         if(!empty($_POST['date'])){
             $event ->Day=$day;
             $event ->Month=$month;
-            $event ->Year=$Year;
+            $event ->Year=$year;
         }
         else{
             $event ->Day=$getter['Day'];
             $event ->Month=$getter['Month'];
             $event ->Year=$getter['Year'];
         }
-
         if(!empty($_POST['time'])){
             $event ->Hour=$_POST['time'];
         }
@@ -81,11 +82,11 @@ if(!empty($_POST)){
 </head>
 <body>
 <br/>
-<form action='EditEvent.php?ID=<?php echo $_GET['ID'];?>' method="POST" enctype="multipart/form-data">
+<form action='EditEvent.php' method="POST" enctype="multipart/form-data">
 
     <?php
     $rep= new EventRepository();
-    $id = $_GET["ID"];
+    $id=$_COOKIE['edit'];
     $event=$rep->GetByID($id);
 
     $Hour=$event['Hour'];
@@ -98,7 +99,7 @@ if(!empty($_POST)){
 
     echo "<div class='ev'>
         <input type='text' class='title' placeholder='Title: $Title' name='title'>
-        <input type='text' class='datepicker' placeholder='Pick Date: $Month/$Day/$Year' name='date'>
+        <input type='text' class='datepicker' placeholder='Pick Date:' value='$Month/$Day/$Year' name='date'>
     <div>
         <input type='text' class='choosers' id='time-start' placeholder='Time: $Hour' name='time' autocomplete='on'/>
         <input type='text' id='duration' placeholder='Duration: $Duration' name='duration'/>

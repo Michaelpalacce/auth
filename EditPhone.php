@@ -12,11 +12,7 @@ if(!empty($_POST['number'])&&!empty($_POST['type'])) {
     $phone->ID=$_GET['NID'];
     $repo->Update($phone);
 }
-
-
 ?>
-
-
 <html>
 <head>
     <?php include "Header.php";?>
@@ -25,7 +21,7 @@ if(!empty($_POST['number'])&&!empty($_POST['type'])) {
 <br/>
 <br/>
 
-<form action="CreatePhone.php?ID=<?php echo $_GET['ID']; ?>&NID=<?php echo $_GET['NID'];?>" method="POST">
+<form action="EditPhone.php?ID=<?php echo $_GET['ID']; ?>&NID=<?php echo $_GET['NID'];?>" method="POST">
     <?php
     $rep= new PhonesRepository();
     $id = $_GET['NID'];
@@ -38,7 +34,7 @@ if(!empty($_POST['number'])&&!empty($_POST['type'])) {
     ?>
     <select name="type" id ="drop">
         <option value="Work" <?php if($type=='Work'){echo " selected='selected' ";};?>>Work</option>
-        <option value="Home" <?php if($type=='Home'){echo " selected='selected' ";};?>>Home</option>
+        <option value="Home" <?php if($type=='Home.php'){echo " selected='selected' ";};?>>Home</option>
         <option value="Office" <?php if($type=='Office'){echo " selected='selected' ";};?>>Office</option>
      </select>
 

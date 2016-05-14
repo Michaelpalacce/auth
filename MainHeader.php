@@ -6,9 +6,9 @@ $email=$_SESSION['Email'];
 ?>
 <ul>
     <div class="dropdown2">
-        <li><a href="Home.php" class="dropbtn">Home</a> </li>
+        <li><a href="SetSelfCookie.php?value=<?=$_SESSION['user_id'] ?>" class="dropbtn">Profile Page</a> </li>
         <div class="dropdown-content">
-            <a href="Index.php" class="dropbtn">Index</a>
+            <a href="Home.php" class="dropbtn">Home</a>
             <?php
             set_include_path("D:/Coding/Xamp/htdocs/auth");
             if(!class_exists('UserRepository')){
@@ -17,8 +17,9 @@ $email=$_SESSION['Email'];
             $repo= new UserRepository();
             $user=new User();
             $user=$repo->GetByID($_SESSION['user_id']);
+
             if($user!=null){
-                if($user->Admin=='Y'){
+                if($user->Admin=='Y'||isset($_SESSION['Admin'])){
                     echo '<a href="Admin.php" class="dropbtn">Admin</a>';
                 }
             }
@@ -40,6 +41,7 @@ $email=$_SESSION['Email'];
         <li><a href="Friends.php" class="dropbtn">Friends</a> </li>
         <div class="dropdown-content">
             <a href="FindFriends.php">Find Friend</a>
+            <a href="Requests.php">Requests</a>
         </div>
     </div>
     <?php
@@ -83,8 +85,49 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
 <div class="load">
 
 </div>
+
+<div class="wrappper" style="display: none;">
+    <div class="follower">
+
+    </div>
+    <div class="follower2">
+
+    </div>
+    <div class="follower3">
+
+    </div>
+    <div class="follower4">
+
+    </div>
+    <div class="follower5">
+
+    </div>
+    <div class="follower6">
+
+    </div>
+    <div class="follower7">
+
+    </div>
+</div>
+
+
 <script type="text/javascript" src="Assets/js/jquery.js"></script>
+<script type="text/javascript" src="Assets/js/spin.js"></script>
 <script type="text/javascript">
+    var timer;
+    $(document).mousemove(function() {
+        if (timer) {
+            clearTimeout(timer);
+            timer = 0;
+        }
+
+       $('.wrappper').hide();
+        timer = setTimeout(function() {
+            $('.wrappper').show();
+        }, 10000)
+    })
+
+
     $(document).ready(function () {
         setInterval(function(){
             $('.load').load('Notif.php');

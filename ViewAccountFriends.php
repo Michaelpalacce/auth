@@ -27,7 +27,7 @@ ON
     $records->bindParam(':id',$id);
     $records->execute();
     while($results=$records->fetch(PDO::FETCH_ASSOC)){
-        if($results['ID']!=$friendID){
+        if($results['ID']!=$friendID&&($results['ID']!=$_SESSION['user_id'])){
             $ImagePath=$results['ImagePath'];
             $Birthday=$results['Birthday'];
             $Website=$results['Website'];
@@ -35,9 +35,6 @@ ON
             $Email=$results['Email'];
             $Name=$results['Name'];
             $thisid=$results['ID'];
-            if($thisid==$_SESSION['user_id']){
-                $thisid='del';
-            }
             echo "<div class='friend' data-value='$thisid'><img src='$ImagePath' alt='Image' width='50' height='50' id='img' style=''>
             <div class='Names'>$Name</div>
             <div class='Email'>$Email</div></div>";
@@ -46,20 +43,19 @@ ON
     ?>
 <script src="Assets/js/jquery.min.js"></script>
 <script>
-    $('.friend').click(function () {
-        var val= $(this).data('value');
-        if(val!='del'){
-            $.ajax({
-                type: 'POST',
-                url: 'SetFriendCookie.php',
-                data:{value:val},
-                success: function(data) {
-                    window.location.href="ViewAccount.php";
-                }
-            });
-        }
-
-    });
+//    $('.friend').click(function () {
+//        var val= $(this).data('value');
+//        if(val!='del'){
+//            $.ajax({
+//                type: 'POST',
+//                url: 'SetFriendCookie.php',
+//                data:{value:val},
+//                success: function(data) {
+//                    window.location.href="ViewAccount.php";
+//                }
+//            });
+//        }
+//    });
 </script>
 <style>
    .friend{
@@ -67,7 +63,6 @@ ON
        margin:20px 20px 20px 20px;
        background: #00CBBE;
        border-radius:5px;
-       cursor: pointer;
    }
    .friend #img{
        margin-top: 20px;
@@ -75,14 +70,12 @@ ON
     .Names{
         color: #FAFFFF;
         font-size: 25px;
-        cursor: pointer;
         margin:20px 20px 20px 20px;
         margin-left: 0px;
     }
     .Email{
         color: #FAFFFF;
         font-size: 25px;
-        cursor: pointer;
         margin:20px 20px 20px 20px;
     }
 </style>

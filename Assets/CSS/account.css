@@ -25,7 +25,7 @@
 body{
     margin:0px;
     padding:0px;
-    background-image: url("background.jpg");
+    background:#77E4E1;
     background-size: 100%;
     text-align: center;
 }
@@ -181,7 +181,7 @@ input[type="text"],input[type="password"] {
     border-radius: 3px;
     border: 1px solid #eee;
     margin: 20px 20px 20px 35px;
-    display: block;
+
 }
 .submit{
     background:#2FCC00;

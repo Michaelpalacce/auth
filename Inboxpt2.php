@@ -17,7 +17,7 @@ $records2->execute();
 </head>
 <body>
 
-
+<input type="text" class="search" placeholder="Search" style="margin: 20px auto; width: 20%;">
 <div class="Message-container">
 
     <?php
@@ -25,8 +25,10 @@ $records2->execute();
     $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
 WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER BY messages.ID DESC");
     $records->bindParam(':id',$id);
+    $count=0;
     $records->execute();
     while($results=$records->fetch(PDO::FETCH_ASSOC)) {
+        $count++;
         $ImagePath = $results['ImagePath'];
         $Email = $results['Email'];
         $Name = $results['Name'];
@@ -54,8 +56,8 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
                 <p class='email-text'>$Message</p>
             </div>
             <div>
-            <button class='but1send' value='$Sender'>Reply</button>
-            <button class='but1del' value='$messageID'>Delete</button>
+            <button class='but1send' value='$Sender'><span><i class='fa fa-reply' aria-hidden='true'></i> Reply</span></button>
+            <button class='but1del' value='$messageID'><span><i class='fa fa-trash' aria-hidden='true'></i> Delete</span></button>
             </div>
 <br/>
              </div>
@@ -67,12 +69,33 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
         </div>
     </div>";
     }
+    if($count==0){
+        echo" <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div>
+        <span style=\"font-size: 40px; font-weight: bold; color:white;\">You have no mail currently.</span>
+    </div>";
+    }
     ?>
+
 </div>
 </body>
 </html>
+<link rel="stylesheet" href="font-awesome-4.6.2/css/font-awesome.min.css">
 <script src="Assets/js/jquery.min.js"></script>
 <script>
+    var $rows = $('.message');
+
+    $('.search').keyup(function() {
+        var val = $.trim($(this).val()).toLowerCase();
+        $rows.show().filter(function(index) {
+            var text= $(this).text().toLowerCase();
+            return (text.indexOf(val) === -1);
+        }).hide();
+    });
+
     $('.but1send').click(function () {
         var val= $(this).val();
         window.location.href="  SendMessage.php?ID="+val;
@@ -86,7 +109,7 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' ORDER B
             url: 'DeleteMessageReciever.php',
             data:{value:me},
             success: function(data) {
-                parent.hide();
+                parent.animate({height: 'toggle'},'slow');
             }
         });
     });

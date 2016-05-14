@@ -11,4 +11,5 @@ class Friend
     public $ID;
     public $UserID_1;
     public $UserID_2;
+    public $Accepted;
 }

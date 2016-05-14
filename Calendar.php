@@ -55,8 +55,38 @@
             $dayCount++;
         }
         $dayNum=1;
+
+
+
         while($dayNum<=$daysInMonth){
-            echo "<td class='days'>$dayNum</td>";
+
+
+            if(substr($dayNum, 0, 1) === '0'){
+                $dayNum=substr($dayNum,1,1);
+            }
+            if(substr($month, 0, 1) === '0'){
+                $month=substr($month,1,1);
+            }
+            $records =$pdo->prepare("SELECT * FROM events WHERE UserId=:id and Year = :year and Month =:month and Day=:day order by TimeCreated ASC");
+            $records->bindParam(':id',$id);
+            $records->bindParam(':day',$dayNum);
+            $records->bindParam(':month',$month);
+            $records->bindParam(':year',$year);
+            $records->execute();
+            $eventCount=0;
+
+
+            while($results=$records->fetch(PDO::FETCH_ASSOC)) {
+                $eventCount++;
+
+            }
+            if($eventCount>0){
+                echo "<td class='days' id='$dayNum'>$dayNum<div class='due'></div></td>";
+            }
+            else{
+                echo "<td class='days' id='$dayNum'>$dayNum </td>";
+            }
+
             $dayNum++;
             $dayCount++;
             if($dayCount>7){
@@ -75,6 +105,19 @@
 </body>
 </html>
 <style>
+    .due{
+        width: 11px;
+        font-weight: bold;
+        height: 11px;
+        -webkit-border-radius:50%;
+        -moz-border-radius:50%;
+        border-radius:50%;
+        margin-left: 10px;
+        display: inline-block;
+        background: #00CCBF;
+        font-size: 10px;
+    }
+
     .days{
         cursor: pointer;
         border-left:1px dashed grey;
@@ -90,7 +133,7 @@
 <script>
     $(document).ready(function(){
         $('.days').click(function () {
-            var day=$(this).html();
+            var day=$(this).attr('id');
             var month=<?php echo "$month"; ?>;
             var year=<?php echo "$year"; ?>;
             window.location.href= "CalendarEvent.php?Day="+day+"&Month="+month+"&Year="+year;

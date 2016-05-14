@@ -5,8 +5,12 @@ if(!class_exists('ContactRepository')){
 }
 
 require 'Assets/include/Random.php';
-
-$id = $_GET["ID"];
+$id='';
+if(!isset($_COOKIE['friend'])) {
+    header('Location: Error.php');
+} else {
+    $id=$_COOKIE['edit'];
+}
 if(!empty($_POST)){
     if(!empty($_POST['firstname'])||!empty($_POST['lastname'])||!empty($_POST['address'])||!empty($_FILES['upload'])){
         if(!isset($_SESSION)){
@@ -59,6 +63,7 @@ if(!empty($_POST)){
             $con->Address=$getter->Address;
         }
         $con->ID=$id;
+        $con->Private=$_POST['private'];
 
         if ($uploadOk == 0) {
             $con->ImagePath='Images/default.png';
@@ -83,23 +88,32 @@ if(!empty($_POST)){
 
         include "Assets/Repository/GroupRepository.php";
         include "Assets/include/database.php";
+        $UserID=$_SESSION['user_id'];
         if(isset($_POST['groups'])){
             $groups=$_POST['groups'];
             if(!empty($groups)){
                 $sql="Delete From contact_group where contact_id=:cid";
                 $stmt=$pdo->prepare($sql);
-                $stmt->bindParam(':cid',$_GET['ID']);
+                $stmt->bindParam(':cid',$id);
                 $stmt->execute();
                 for($i=0;$i<count($groups);$i++){
                     $GroupRepository=new GroupRepository();
-                    $group=$GroupRepository->GetByName($groups[$i]);
-                    $sql="INSERT INTO contact_group (contact_id,group_id) VALUES (:cid,:gid)";
+                    $group=$GroupRepository->GetByID($groups[$i]);
+                    $sql="INSERT INTO contact_group (contact_id,group_id,UserID) VALUES (:cid,:gid,:UserID)";
                     $stmt=$pdo->prepare($sql);
-                    $stmt->bindParam(':cid',$_GET['ID']);
+                    $stmt->bindParam(':cid',$id);
                     $stmt->bindParam(':gid',$group->ID);
+                    $stmt->bindParam(':UserID',$UserID);
                     $stmt->execute();
                 }
             }
+
+        }
+        else{
+            $sql="Delete From contact_group where contact_id=:cid";
+            $stmt=$pdo->prepare($sql);
+            $stmt->bindParam(':cid',$id);
+            $stmt->execute();
         }
         header('Location: Contacts.php');
     }
@@ -113,19 +127,20 @@ if(!empty($_POST)){
 <body>
 <br/>
 <br/>
-<form action='EditContact.php?ID=<?php echo $_GET['ID'];?>' method="POST" enctype="multipart/form-data">
+<form action='EditContact.php' method="POST" enctype="multipart/form-data">
 
     <?php
-    $rep= new ContactsRepository();
+    $id=$_COOKIE['edit'];
+    $repo=new ContactsRepository();
     $contact=new Contact();
-    $id = $_GET["ID"];
-    $contact=$rep->GetByID($id);
+    $contact=$repo->GetByID(150);
 
     $firstname=$contact->FirstName;
     $lastname=$contact->LastName;
     $address=$contact->Address;
     $userid=$contact->UserID;
     $ImagePath=$contact->ImagePath;
+    $Private=$contact->Private;
 
     echo " <img src='$ImagePath' alt='Image' width='250' height='250' id='img' class='img'>";
 
@@ -133,6 +148,10 @@ if(!empty($_POST)){
     echo "<input type='text' placeholder='Last Name: $lastname' name='lastname'>";
     echo "<input type='text' placeholder='Address: $address' name='address'>";
     ?>
+    <select name='private' id ='drop'>
+        <option value='Y'  <?php if($Private=="Y"){echo " selected='selected' ";};?>>Private</option>
+        <option value='N' <?php if($Private=="N"){echo " selected='selected' ";};?>>Public</option>
+    </select>
     Groups:
     <div class="groups">
 
@@ -148,17 +167,18 @@ if(!empty($_POST)){
         $records->execute();
         while($groups=$records->fetch(PDO::FETCH_ASSOC)):
             $records2 =$pdo->prepare("SELECT * FROM contact_group WHERE group_id=:id and contact_id =:cid");
-            $contactID=$_GET['ID'];
             $records2->bindParam(':id',$groups['ID']);
-            $records2->bindParam(':cid',$contactID);
+            $records2->bindParam(':cid',$id);
             $records2->execute();
             $groups2=$records2->fetch(PDO::FETCH_ASSOC);
+
             if($groups2['group_id']==$groups['ID']):?>
+
             <span><?php echo $groups['Name']; ?>:</span>
-            <input type='checkbox'  name='groups[]' checked="checked" value='<?php echo $groups['Name']; ?>' />
+            <input type='checkbox'  name='groups[]' checked="checked" value='<?php echo $groups['ID']; ?>' />
               <?php else: ?>
                 <span><?php echo $groups['Name']; ?>:</span>
-                <input type='checkbox'  name='groups[]' value='<?php echo $groups['Name']; ?>' />
+                <input type='checkbox'  name='groups[]' value='<?php echo $groups['ID']; ?>' />
             <?php endif;?>
         <?php endwhile; ?>
     </div>

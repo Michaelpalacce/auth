@@ -26,10 +26,13 @@ $image=$user->ImagePath;
     <img src="<?php echo  $image;?>" alt="Image" width="250" height="250" class="small">
     <span class="name"><?=$name?></span>
     <div class="content">
-        <button class="but1account" id="posts">Posts</button>
+        <?php if($friendID!=$_SESSION['user_id']):?>
         <button class="but1account" id="friends">Friends</button>
         <button class="but1account" id="contacts">Contacts</button>
         <button class="but1account" id="messages">Messages</button>
+        <?php else: ?>
+            <button class="but1account" id="agenda">Agenda</button>
+        <?php endif; ?>
         <button class="but1account" id="about">About</button>
     </div>
 </div>
@@ -43,6 +46,7 @@ $image=$user->ImagePath;
 </body>
 </html>
 <script src="Assets/js/jquery.min.js"></script>
+<script src="Assets/js/ripple.js"></script>
 <script>
 
 $(document).ready(function () {
@@ -66,27 +70,22 @@ $(document).ready(function () {
         }
     });
     $('#friends').click(function () {
-
         $('.bottomcontent').innerHTML="";
         $('.bottomcontent').load('ViewAccountFriends.php');
     });
+    $('#agenda').click(function () {
+        $('.bottomcontent').innerHTML="";
+        $('.bottomcontent').load('ViewAccountAgenda.php');
+    });
     $('#contacts').click(function () {
-
         $('.bottomcontent').innerHTML="";
         $('.bottomcontent').load('ViewAccountContacts.php');
     });
     $('#messages').click(function () {
-
         $('.bottomcontent').innerHTML="";
         $('.bottomcontent').load('ViewAccountMessages.php');
     });
-    $('#posts').click(function () {
-
-        $('.bottomcontent').innerHTML="";
-        $('.bottomcontent').load('ViewAccountPosts.php');
-    });
     $('#about').click(function () {
-
         $('.bottomcontent').innerHTML="";
         $('.bottomcontent').load('ViewAccountAbout.php');
     });
@@ -98,7 +97,6 @@ $(document).ready(function () {
     }
     .bottombar{
         margin:20px 20px 20px 20px;
-
         min-height:550px;
         min-width:400px;
         background: transparent;
@@ -127,7 +125,7 @@ $(document).ready(function () {
         -webkit-border-radius:50%;
         -moz-border-radius:50%;
         border-radius:50%;
-        box-shadow: 5px 5px 2px #888888;
+
     }
     .large{
         width:50%;

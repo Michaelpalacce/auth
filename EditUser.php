@@ -4,8 +4,12 @@ if(!class_exists('UserRepository')){
     include 'Assets/Repository/UserRepository.php';
 }
 require 'Assets/include/Random.php';
-$id=$_GET['ID'];
-
+$id='';
+if(!isset($_COOKIE['friend'])) {
+    header('Location: Error.php');
+} else {
+    $id=$_COOKIE['edit'];
+}
 if(!empty($_POST['email'])||!empty($_POST['password'])||!empty($_POST['admin'])||!empty($_POST['name'])||!empty($_POST['website'])||!empty($_POST['birthday'])||!empty($_POST['phone'])||!empty($_FILES['upload'])){
     if(!isset($_SESSION)){
         session_start();
@@ -37,6 +41,7 @@ if(!empty($_POST['email'])||!empty($_POST['password'])||!empty($_POST['admin'])|
     $user= new User();
     $user->ID=$id;
     $empty='';
+    $user->Admin=$_POST['admin'];
     if(!empty($_POST['email'])){
         $user->Email=$_POST['email'];
     }
@@ -49,12 +54,6 @@ if(!empty($_POST['email'])||!empty($_POST['password'])||!empty($_POST['admin'])|
     }
     else{
         $user->Password=$getter->Password;
-    }
-    if(!empty($_POST['admin'])){
-        $user->Admin=$_POST['admin'];
-    }
-    else{
-        $user->Admin=$getter->Admin;
     }
 
     if(!empty($_POST['name'])){
@@ -122,13 +121,13 @@ if(!empty($_POST['email'])||!empty($_POST['password'])||!empty($_POST['admin'])|
 <br/>
 <br/>
 
-<form action='EditUser.php?ID=<?php echo $_GET['ID'];?>' method="POST"  enctype="multipart/form-data">
+<form action='EditUser.php?ID' method="POST"  enctype="multipart/form-data">
 
 
 
     <?php
     $rep= new UserRepository();
-    $id = $_GET["ID"];
+    $id=$_COOKIE['edit'];
     $user=$rep->GetByID($id);
 
     $email=$user->Email;
@@ -146,9 +145,11 @@ if(!empty($_POST['email'])||!empty($_POST['password'])||!empty($_POST['admin'])|
     echo "<input type='text' placeholder='Phone: $phone' name='phone'>";
     echo "<input type='text' placeholder='Website: $website' name='website'>";
     echo "<input type='text' placeholder='Bithtday: $birthday' name='birthday'>";
-    echo "<input type='text' placeholder='Admin: $admin' name='admin'>";
-
     ?>
+    <select name='admin' id ='drop'>
+        <option value='Y'  <?php if($admin=="Y"){echo " selected='selected' ";};?>>Admin</option>
+        <option value='N' <?php if($admin=="N"){echo " selected='selected' ";};?>>User</option>
+    </select>
     <div>
         <button type="submit" class="submit">Submit</button>
         <a href="Admin.php" class="cancel">Cancel</a>

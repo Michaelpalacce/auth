@@ -7,6 +7,7 @@ if(!isset($_SESSION)){
 }
 set_include_path('D:/Coding/Xamp/htdocs/auth');
 require 'Assets/include/database.php';
+
 $reciever;
 $messageID;
 if(!empty($_GET['ID'])){
@@ -66,10 +67,14 @@ if(!empty($_POST)){
 
             <input placeholder="<?php if(!empty($_GET['ID'])){echo $reciever;}else{echo 'To:';} ?>" class="sendTo" name="reciever"  <?php if(!empty($_GET['ID'])){echo "value='$reciever'";} ?>">
 
-            <textarea placeholder="Message" class="mess" name="message" ></textarea>
 
             <div>
-                <button type="submit" class="sendButton"><span>Send</span></button>
+                <textarea placeholder="Message" class="mess"  name="message" ></textarea>
+               <div class="total">0</div> <div class="total2">(255):</div>
+            </div>
+
+            <div>
+                <button type="submit" class="sendButton" id="sendButton"><span>Send</span></button>
                 <div class="circle"></div>
             </div>
 
@@ -77,12 +82,25 @@ if(!empty($_POST)){
     </form>
 </body>
 </html>
+<script src="Assets/js/jquery.min.js"></script>
 <script>
-    (function() {
-        document.getElementsByClassName('sendTo').value=<?=$reciever;?>;
-    })();
+    $(document).ready(function() {
 
+        $('.mess').keyup(function() {
+            $('.sendButton').prop('disabled', false);
+            var value = $(this).val().length;
+            if(value >= 255) {
+                $('.sendButton').prop('disabled', true);
+            }
+
+            var totalChars = value;
+            $('.total').html(totalChars);
+        });
+    });
 </script>
+
+
+
 <style>
     .message{
         margin:20px 20px 20px 20px;
@@ -101,12 +119,20 @@ if(!empty($_POST)){
         margin:20px 0px 20px 20px;
         margin-right: 1000px;
     }
+    .total{
+        float: right;
+        margin-right: 10%;
+    }
+    .total2{
+        float: right;
+
+    }
     .mess{
         float: left;
         outline:none;
         padding: 10px;
 
-        width: 60%;
+        width: 90%;
         height:30%;
         border-radius:3px;
         border:1px solid #eee;

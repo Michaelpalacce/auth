@@ -6,4 +6,5 @@ class Contact{
     public $UserID;
     public $Address;
     public  $ImagePath;
+    public  $Private;
 }

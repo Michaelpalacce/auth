@@ -5,7 +5,12 @@ if(!class_exists('GroupRepository')){
 }
 
 require 'Assets/include/Random.php';
-$id=$_GET['ID'];
+$id='';
+if(!isset($_COOKIE['friend'])) {
+    header('Location: Error.php');
+} else {
+    $id=$_COOKIE['edit'];
+}
 if(!empty($_POST)){
     if(!empty($_POST['name'])||!empty($_FILES['upload'])) {
         if(!isset($_SESSION)){
@@ -80,10 +85,10 @@ if(!empty($_POST)){
 <br/>
 <br/>
 
-<form action="EditGroup.php?ID=<?php echo $_GET["ID"];?>" method="POST" enctype="multipart/form-data">
+<form action="EditGroup.php" method="POST" enctype="multipart/form-data">
     <?php
     $rep= new GroupRepository();
-    $id = $_GET["ID"];
+    $id=$_COOKIE['edit'];
     $group=$rep->GetByID($id);
 
     $Name=$group->Name;

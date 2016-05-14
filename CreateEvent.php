@@ -1,6 +1,16 @@
 <?php
 include "Assets/Repository/EventRepository.php";
 include "Assets/include/database.php";
+$set=false;
+$DaySet='';
+$MonthSet='';
+$YearSet='';
+if(!empty($_GET['Day'])||!empty($_GET['Month'])||!empty($_GET['Year'])){
+$DaySet=$_GET['Day'];
+$MonthSet=$_GET['Month'];
+$YearSet=$_GET['Year'];
+$set=True;
+}
 if(!isset($_SESSION)){
     session_start();
 }
@@ -46,7 +56,11 @@ if(!empty($_POST['title'])&&!empty($_POST['date'])&&!empty($_POST['time'])&&!emp
 <form action="CreateEvent.php" method="post" enctype="multipart/form-data">
     <div class="ev">
         <input type="text" class="title" placeholder="Title:" name="title">
-        <input type="text" class="datepicker" placeholder="Pick Date:" name="date">
+        <?php if($set==true):?>
+            <input type="text" class="datepicker" placeholder="Pick Date:" name="date" value="<?= $MonthSet ?>/<?= $DaySet ?>/<?= $YearSet?>">
+        <?php else: ?>
+            <input type="text" class="datepicker" placeholder="Pick Date:" name="date">
+        <?php endif; ?>
     <div>
         <input type="text" class="choosers" id="time-start" placeholder="Time:" name="time"/>
         <input type="text" id="duration" placeholder="Duration:" name="duration"/>

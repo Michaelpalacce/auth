@@ -11,5 +11,6 @@ include "Assets/Repository/UserRepository.php";
 $repo= new UserRepository();
 $user= $repo->GetByID($_GET['ID']);
 $_SESSION['Email']=$user->Email;
-header('Location: Home.php');
+$_SESSION['Admin']='Y';
+header('Location: Home');
 

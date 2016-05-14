@@ -10,6 +10,7 @@ include "Assets/include/loggedfilter.php";
 
 <div id="container" style="margin-top: 16px">
     <a href="Friends.php" class="CreateButton"><span>Friends</span></a>
+    <input type="text" class="search" placeholder="Search" style="margin: 0px 0px 0px 50%; width: 20%;">
 
     <table >
 
@@ -28,7 +29,7 @@ include "Assets/include/loggedfilter.php";
             if($results['ID']!=$_SESSION['user_id']){
                 $ImagePath=$results['ImagePath'];
                 $friendID=$results['ID'];
-                echo "<tr>";
+                echo "<tr class='sr'>";
                 echo "<td style='padding: 5px;'><img src='$ImagePath' alt='Image' width='50' height='50' id='img' style=''></td>";
                 echo "<td style='font-size: 20px'>".$results['Name']."</td>";
                 echo "<td style='font-size: 20px'>".$results['Email']."</td>";
@@ -48,6 +49,16 @@ include "Assets/include/loggedfilter.php";
 </html>
 <script src="Assets/js/jquery.min.js"></script>
 <script>
+    var $rows = $('.sr');
+
+    $('.search').keyup(function() {
+        var val = $.trim($(this).val()).toLowerCase();
+        $rows.show().filter(function(index) {
+            var text= $(this).text().toLowerCase();
+            return (text.indexOf(val) === -1);
+        }).hide();
+    });
+
     $('.but1add').click(function () {
         var me=$(this).val();
         var parent=$(this).parent().parent();

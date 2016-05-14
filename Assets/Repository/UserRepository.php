@@ -20,6 +20,7 @@ class UserRepository
         $stmt->bindParam(':admin',$User->Admin);
         $stmt->bindParam(':hash',$User->Hash);
         $stmt->bindParam(':reset',$User->Reset);
+
         $stmt->execute();
     }
 
@@ -53,6 +54,18 @@ class UserRepository
             $User->Admin=$results['Admin'];
             $User->Hash=$results['Hash'];
             $User->Reset=$results['Reset'];
+            $User->Job=$results['Job'];
+            $User->Relationship=$results['Relationship'];
+            $User->Hometown=$results['Hometown'];
+            $User->CurrentResidence=$results['CurrentResidence'];
+            $User->Description=$results['Description'];
+            $User->Education=$results['Education'];
+            $User->MotherLanguage=$results['MotherLanguage'];
+            $User->Country=$results['Country'];
+            $User->Religion=$results['Religion'];
+            $User->Gender=$results['Gender'];
+            $User->FavouriteQuote=$results['FavouriteQuote'];
+            $User->Nickname=$results['Nickname'];
             return $User;
         }
         else{
@@ -98,6 +111,18 @@ class UserRepository
             $User->IsAdmin=$results['Admin'];
             $User->Hash=$results['Hash'];
             $User->Reset=$results['Reset'];
+            $User->Job=$results['Job'];
+            $User->Relationship=$results['Relationship'];
+            $User->Hometown=$results['Hometown'];
+            $User->CurrentResidence=$results['CurrentResidence'];
+            $User->Description=$results['Description'];
+            $User->Education=$results['Education'];
+            $User->MotherLanguage=$results['MotherLanguage'];
+            $User->Country=$results['Country'];
+            $User->Religion=$results['Religion'];
+            $User->Gender=$results['Gender'];
+            $User->FavouriteQuote=$results['FavouriteQuote'];
+            $User->Nickname=$results['Nickname'];
             return $User;
         }
         else{
@@ -126,6 +151,18 @@ class UserRepository
             $User->Admin=$results['Admin'];
             $User->Hash=$results['Hash'];
             $User->Reset=$results['Reset'];
+            $User->Job=$results['Job'];
+            $User->Relationship=$results['Relationship'];
+            $User->Hometown=$results['Hometown'];
+            $User->CurrentResidence=$results['CurrentResidence'];
+            $User->Description=$results['Description'];
+            $User->Education=$results['Education'];
+            $User->MotherLanguage=$results['MotherLanguage'];
+            $User->Country=$results['Country'];
+            $User->Religion=$results['Religion'];
+            $User->Gender=$results['Gender'];
+            $User->FavouriteQuote=$results['FavouriteQuote'];
+            $User->Nickname=$results['Nickname'];
             return $User;
         }
         else{
@@ -153,6 +190,18 @@ class UserRepository
             $User->Admin=$results['Admin'];
             $User->Hash=$results['Hash'];
             $User->Reset=$results['Reset'];
+            $User->Job=$results['Job'];
+            $User->Relationship=$results['Relationship'];
+            $User->Hometown=$results['Hometown'];
+            $User->CurrentResidence=$results['CurrentResidence'];
+            $User->Description=$results['Description'];
+            $User->Education=$results['Education'];
+            $User->MotherLanguage=$results['MotherLanguage'];
+            $User->Country=$results['Country'];
+            $User->Religion=$results['Religion'];
+            $User->Gender=$results['Gender'];
+            $User->FavouriteQuote=$results['FavouriteQuote'];
+            $User->Nickname=$results['Nickname'];
             return $User;
         }
         else{
@@ -200,7 +249,7 @@ class UserRepository
     public function UpdateSec(User $User){
         set_include_path('D:/Coding/Xamp/htdocs/auth');
         require 'Assets/include/database.php';
-        $sql="UPDATE `users` SET `Name` = :name, `ImagePath` = :imagepath, `Phone` = :phone, `Website` = :website, `Birthday` = :birthday WHERE `ID` = :id";
+        $sql="UPDATE `users` SET `Name` = :name, `ImagePath` = :imagepath, `Phone` = :phone, `Website` = :website, `Birthday` = :birthday, `Job` = :job, `Relationship` = :relationship, `Hometown` = :hometown, `CurrentResidence` = :currentResidence, `Description` = :description, `Education` = :education, `MotherLanguage` = :motherLanguage, `Country` = :country, `Religion` = :religion, `Gender` = :gender, `FavouriteQuote` = :favouriteQuote, `Nickname` = :nickname WHERE `ID` = :id";
         $stmt=$pdo->prepare($sql);
 
         $stmt->bindParam(':name',$User->Name);
@@ -208,6 +257,18 @@ class UserRepository
         $stmt->bindParam(':phone',$User->Phone);
         $stmt->bindParam(':website',$User->Website);
         $stmt->bindParam(':birthday',$User->Birthday);
+        $stmt->bindParam(':job',$User->Job);
+        $stmt->bindParam(':relationship',$User->Relationship);
+        $stmt->bindParam(':hometown',$User->Hometown);
+        $stmt->bindParam(':currentResidence',$User->CurrentResidence);
+        $stmt->bindParam(':description',$User->Description);
+        $stmt->bindParam(':education',$User->Education);
+        $stmt->bindParam(':motherLanguage',$User->MotherLanguage);
+        $stmt->bindParam(':country',$User->Country);
+        $stmt->bindParam(':religion',$User->Religion);
+        $stmt->bindParam(':gender',$User->Gender);
+        $stmt->bindParam(':favouriteQuote',$User->FavouriteQuote);
+        $stmt->bindParam(':nickname',$User->Nickname);
         $stmt->bindParam(':id',$User->ID);
         $stmt->execute();
     }

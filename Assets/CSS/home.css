@@ -87,50 +87,193 @@ tr:hover {  background-color: #FFFEC1}
 .but1,.but1del,.but1add,.but1view,.but1send,.but1phones,.but1edit,.but1hijack,.but1account{
     padding: 10px 25px;
     text-decoration: none;
-    box-shadow: 3px 3px 1px grey;
+    /*box-shadow: 3px 3px 1px grey;*/
     color: white;
     border:0px;
-    margin:0px 0px 0px 20px;
+    margin:5px 5px 5px 5px;
     border-radius:0px;
     cursor: pointer;
-    text-decoration: none;
+    outline:none;
+    text-decoration:none;
+    overflow: hidden;
+    position: relative;
 
+}
+.but1:hover,.but1del:hover,.but1add:hover,.but1view:hover,.but1send:hover,.but1phones:hover,.but1edit:hover,.but1hijack:hover,.but1account:hover{
+    -webkit-transition:all .2s ease-in-out;
+    -moz-transition: all .2s  ease-in-out;
+    -ms-transition: all .2s  ease-in-out;
+    -o-transition: all .2s  ease-in-out;
+    transition: all .2s  ease-in-out;
 }
 .but1{
     background:#2FCC00;
+    transition:.4s ease-in-out;
+}
+.but1:hover{
+    background: white;
+    color: #2FCC00;
 }
 .but1view{
     background: #2CB800;
+    transition:.4s ease-in-out;
+}
+.but1view:hover{
+    background: white;
+    color: #2FCC00;
 }
 .but1send{
     background: #00CCBF;
+    transition:.4s ease-in-out;
+}
+.but1send:hover{
+    background: white;
+    color: #00CCBF;
 }
 .but1del{
     background:#FF0002;
+    transition:.4s ease-in-out;
+}
+.but1del:hover{
+    background: white;
+    color: #FF0002;
 }
 .but1add{
     background:#2FCC00;
+    transition:.4s ease-in-out;
+}
+.but1add:hover{
+    background: white;
+    color: #2FCC00;
 }
 .but1phones{
     background:#2FCC00;
+    transition: .4s ease-in-out;
+}
+.but1phones:hover{
+    background: white;
+    color: #2FCC00;
 }
 .but1hijack{
     background:#2FCC00;
+    transition:.4s ease-in-out;
+}
+.but1hijack:hover{
+    background: white;
+    color: #2FCC00;
 }
 .but1edit{
     background:#2FCC00;
+    transition:.4s ease-in-out;
+}
+.but1edit:hover{
+    background: white;
+    color: #2FCC00;
 }
 .but1account{
     margin-top:20px;
     background: #00CCBF;
     box-shadow: 3px 3px 1px #BBBEC0;
-    transition:.4s ease-in-out;
+
 }
 .but1account:hover{
     background: white;
     color: #00CCBF;
-    transition:.4s ease-in-out;
 }
+.but1:hover i,.but1del:hover i,.but1add:hover i,.but1view:hover i,.but1send:hover i,.but1phones:hover i,.but1edit:hover i,.but1hijack:hover i,.but1account:hover i{
+    transition: all .3s ease-in-out;
+    -webkit-animation: popoutandback 2s infinite linear;
+    -moz-animation : popoutandback 2s infinite linear;
+    -ms-animation : popoutandback 2s infinite linear;
+    -o-animation : popoutandback 2s infinite linear;
+}
+@-webkit-keyframes popoutandback {
+0%{
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+    50%{
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-moz-keyframes popoutandback {
+    0%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50%{
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-o-keyframes popoutandback {
+    0%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50%{
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@-ms-keyframes popoutandback {
+    0%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+    50%{
+        -webkit-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+        transform: scale(1.5);
+    }
+    100%{
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+}
+.ripple-effect{
+    position: absolute;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: #00CCBF;
+    animation: ripple-animation 5s;
+}
+@keyframes ripple-animation {
+    from {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    to {
+        transform: scale(100);
+        opacity: 0;
+    }
+}
+
 input[type="text"], input[type="password"]{
     outline:none;
     padding: 10px;
@@ -139,20 +282,13 @@ input[type="text"], input[type="password"]{
     border-radius:3px;
     border: 0;
     outline: 0;
-    background: transparent;
-    border-bottom: 1px solid white;
+    background: white;
     margin:20px auto;
+    margin-top:10px;
+    margin-bottom: 10px;
 
 }
 
-#drop{
-    padding: 10px;
-    display: block;
-    width:300px;
-    border-radius:3px;
-    border:1px solid #eee;
-    margin:20px auto ;
-}
 input[type="submit"]{
     padding:10px;
     color:#fff;
@@ -164,6 +300,16 @@ input[type="submit"]{
     border-radius:0px;
     cursor: pointer;
 }
+
+#drop{
+    padding: 10px;
+    display: block;
+    width:300px;
+    border-radius:3px;
+    border:1px solid #eee;
+    margin:20px auto ;
+}
+
 .cancel{
     padding:8.4px 7.5px;
     color:#fff;
@@ -338,7 +484,7 @@ input[type="file"]{
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     transition: visibility .5s, opacity 0.2s linear;
-
+    z-index: 500;
 }
 /* Show the dropdown menu on hover */
 .dropdown2:hover .dropdown-content {
@@ -347,10 +493,11 @@ input[type="file"]{
     visibility: visible;
     margin-top:20px;
     display: block;
+    z-index: 500;
 }
 
 .dropdown:hover .dropdown-content {
-
+    z-index: 500;
     margin-top: 20px;
     display: block;
 }
@@ -359,6 +506,7 @@ input[type="file"]{
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    z-index: 500;
 }
 
 #img{
@@ -403,6 +551,7 @@ p {
 .message .title {
     transition: opacity .4s ease-in-out;
     font-weight: bold;
+
 }
 
 .message .time {
@@ -415,8 +564,7 @@ p {
 .message-row:hover .email-row {
     max-height: 200px;
     cursor: pointer;
-    color: white;
-    background: #7BE4E2;
+    color: black;
     visibility: visible;
     opacity:1;
 }
@@ -432,8 +580,7 @@ p {
 .email-row:hover{
     max-height: 200px;
     cursor: pointer;
-    color: white;
-    background: #7BE4E2;
+    color: black;
     visibility: visible;
     opacity:1;
 }
@@ -446,8 +593,118 @@ p {
     opacity:0;
     transition: 0.6s ease-in-out ;
 }
+
 .message:hover .title{
     visibility: hidden;
     opacity:0;
     transition: 0.6s ease-in-out;
+}
+.wrappper{
+    position: relative;
+}
+.follower{
+    width:10px;
+    height:10px;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+
+    position : absolute;
+    -webkit-animation        : spin 10s infinite linear;
+    -webkit-transform-origin : 20px 20px;
+}
+
+.follower2,.follower3,.follower4,.follower5,.follower6,.follower7{
+    width:5px;
+    height:5px;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+
+position : absolute;
+-webkit-animation        : spin 6s infinite linear;
+-webkit-transform-origin : 15px 15px;
+}
+.follower3{
+    -webkit-animation        : spin 5s infinite linear;
+    -webkit-transform-origin : 30px 30px;
+}
+.follower4{
+    -webkit-animation        : spin 4s infinite linear;
+    -webkit-transform-origin : 30px 30px;
+}
+.follower5{
+    -webkit-animation        : spin 3s infinite linear;
+    -webkit-transform-origin : 30px 30px;
+}
+.follower6{
+    -webkit-animation        : spin 2s infinite linear;
+    -webkit-transform-origin : 15px 30px;
+}
+.follower7{
+    -webkit-animation        : spin 1s infinite linear;
+    -webkit-transform-origin : 30px 30px;
+}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotateZ(0deg);
+        background: white;}
+    10%{ -webkit-transform: rotateZ(36deg);
+        background: #FFF667;}
+    20%{ -webkit-transform: rotateZ(72deg);
+        background: #FFB054;}
+    30%{ -webkit-transform: rotateZ(108deg);
+        background: #FF623D;}
+    40%{ -webkit-transform: rotateZ(144deg);
+        background: #FF0600;}
+    50%{ -webkit-transform: rotateZ(180deg);
+        background: #FF1ACF;}
+    60%{ -webkit-transform: rotateZ(216deg);
+        background: #9D21FF;}
+    70%{ -webkit-transform: rotateZ(252deg);
+        background: #1E05FF;}
+    80%{ -webkit-transform: rotateZ(288deg);
+        background: #00FFFF;}
+    90%{ -webkit-transform: rotateZ(324deg);
+        background: #03FF03;}
+    100%   { -webkit-transform: rotateZ(360deg); background: white;}
+}
+
+@media screen and (max-width: 650px) {
+
+    #header {
+        height: auto;
+    }
+
+    #searchform {
+        position: absolute;
+        top: 5px;
+        right: 0;
+    }
+
+    #main-nav {
+        position: static;
+    }
+
+    #site-logo {
+        margin: 15px 100px 5px 0;
+        position: static;
+    }
+
+    #site-description {
+        margin: 0 0 15px;
+        position: static;
+    }
+
+    #content {
+        width: auto;
+        float: none;
+        margin: 20px 0;
+    }
+
+    #sidebar {
+        width: 100%;
+        float: none;
+        margin: 0;
+    }
+
 }

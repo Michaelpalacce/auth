@@ -6,7 +6,7 @@
     <?php include'Header.php'?>
 </head>
 <body>
-
+<input type="text" class="search" placeholder="Search" style="margin: 20px auto; width: 20%;">
 
 <div class="Message-container">
 
@@ -16,11 +16,11 @@
     WHERE messages.Sender like :id and messages.DeletedBySender LIKE 'N'  ORDER BY messages.ID DESC");
     $id = $_SESSION['user_id'];
     $records->bindParam(':id',$id);
-
+    $count=0;
     $records->execute();
     while($results=$records->fetch(PDO::FETCH_ASSOC)) {
+        $count++;
         $ImagePath=$results['ImagePath'];
-
         $Email=$results['Email'];
         $Name=$results['Name'];
         $Reciever=$results['Reciever'];
@@ -58,8 +58,8 @@
                 <p class='email-text'>$Message</p>
             </div>
             <div>
-            <button  class='but1send' value='$Reciever'>Send Message</button>
-            <button class='but1del' value='$messageID'>Delete</button>
+            <button  class='but1send' value='$Reciever'><span><i class='fa fa-envelope-o' aria-hidden='true'></i> Send Message</span></button>
+            <button class='but1del' value='$messageID'><span><i class='fa fa-trash' aria-hidden='true'></i> Delete</span></button>
 </div>
 <br/>
         </div>
@@ -70,12 +70,32 @@
         </div>
     </div>";
     }
+    if($count==0){
+        echo" <br/>
+    <br/>
+    <br/>
+    <br/>
+    <div>
+        <span style=\"font-size: 40px; font-weight: bold; color:white;\">You have no mail currently.</span>
+    </div>";
+    }
     ?>
 </div>
 </body>
 </html>
+<link rel="stylesheet" href="font-awesome-4.6.2/css/font-awesome.min.css">
 <script src="Assets/js/jquery.min.js"></script>
 <script>
+    var $rows = $('.message');
+
+    $('.search').keyup(function() {
+        var val = $.trim($(this).val()).toLowerCase();
+        $rows.show().filter(function(index) {
+            var text= $(this).text().toLowerCase();
+            return (text.indexOf(val) === -1);
+        }).hide();
+    });
+
     $('.but1send').click(function () {
         var val= $(this).val();
         window.location.href=" SendMessage.php?ID="+val;
@@ -88,7 +108,7 @@
             url: 'DeleteMessageSender.php',
             data:{value:me},
             success: function(data) {
-                parent.hide();
+                parent.animate({height: 'toggle'},'slow');
             }
         });
 
