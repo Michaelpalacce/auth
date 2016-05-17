@@ -1,4 +1,5 @@
 <?php
+include "Assets/include/loggedfilter.php";
 if(!isset($_SESSION)){
     session_start();
 }

@@ -1,5 +1,5 @@
 <?php
-require 'Assets/include/loggedfilter.php';
+require'Assets/include/loggedfilter.php';
 if(!class_exists('ContactRepository')){
     include 'Assets/Repository/ContactRepository.php';
 }

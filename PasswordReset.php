@@ -1,5 +1,4 @@
 <?php
-include "Assets/include/loggedoutfilter.php";
 require 'Assets/Repository/UserRepository.php';
 $res='';
 if(!empty($_GET['Reset'])){

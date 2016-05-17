@@ -46,7 +46,7 @@ $email=$_SESSION['Email'];
     </div>
     <?php
     include "Assets/include/database.php";
-    $records =$pdo->prepare("select DISTINCT messages.ID,Sender,Recieved,TimeSent, Message, users.ImagePath,users.Email,users.Name from messages inner join users on Sender = users.ID
+    $records =$pdo->prepare("select DISTINCT messages.ID from messages inner join users on Sender = users.ID
 WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND messages.Recieved like 'N' ORDER BY messages.ID DESC ");
     $id = $_SESSION['user_id'];
     $records->bindParam(':id',$id);
@@ -110,7 +110,6 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
     </div>
 </div>
 
-
 <script type="text/javascript" src="Assets/js/jquery.js"></script>
 <script type="text/javascript" src="Assets/js/spin.js"></script>
 <script type="text/javascript">
@@ -120,13 +119,11 @@ WHERE messages.Reciever like :id And messages.DeletedByReciever like 'N' AND mes
             clearTimeout(timer);
             timer = 0;
         }
-
        $('.wrappper').hide();
         timer = setTimeout(function() {
             $('.wrappper').show();
         }, 10000)
-    })
-
+    });
 
     $(document).ready(function () {
         setInterval(function(){

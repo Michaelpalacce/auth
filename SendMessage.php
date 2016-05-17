@@ -1,4 +1,5 @@
 <?php
+require'Assets/include/loggedfilter.php';
 if(!class_exists('MessageRepository')){
     include "Assets/Repository/MessageRepository.php";
 }

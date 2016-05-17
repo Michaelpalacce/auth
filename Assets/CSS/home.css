@@ -599,6 +599,9 @@ p {
     opacity:0;
     transition: 0.6s ease-in-out;
 }
+
+
+
 .wrappper{
     position: relative;
 }
@@ -610,7 +613,7 @@ p {
     border-radius:50%;
 
     position : absolute;
-    -webkit-animation        : spin 10s infinite linear;
+    -webkit-animation        : spin 2s infinite linear;
     -webkit-transform-origin : 20px 20px;
 }
 
@@ -622,30 +625,53 @@ p {
     border-radius:50%;
 
 position : absolute;
--webkit-animation        : spin 6s infinite linear;
+-webkit-animation        : spin .8s infinite linear;
 -webkit-transform-origin : 15px 15px;
 }
 .follower3{
-    -webkit-animation        : spin 5s infinite linear;
+    -webkit-animation        : spin .7s infinite linear;
     -webkit-transform-origin : 30px 30px;
 }
 .follower4{
-    -webkit-animation        : spin 4s infinite linear;
+    -webkit-animation        : spin .6s infinite linear;
     -webkit-transform-origin : 30px 30px;
 }
 .follower5{
-    -webkit-animation        : spin 3s infinite linear;
+    -webkit-animation        : spin .5s infinite linear;
     -webkit-transform-origin : 30px 30px;
 }
 .follower6{
-    -webkit-animation        : spin 2s infinite linear;
+    -webkit-animation        : spin .4s infinite linear;
     -webkit-transform-origin : 15px 30px;
 }
 .follower7{
-    -webkit-animation        : spin 1s infinite linear;
+    -webkit-animation        : spin .3s infinite linear;
     -webkit-transform-origin : 30px 30px;
 }
 @-webkit-keyframes spin {
+    0% { -webkit-transform: rotateZ(0deg);
+        background: white;}
+    10%{ -webkit-transform: rotateZ(36deg);
+        background: #FFF667;}
+    20%{ -webkit-transform: rotateZ(72deg);
+        background: #FFB054;}
+    30%{ -webkit-transform: rotateZ(108deg);
+        background: #FF623D;}
+    40%{ -webkit-transform: rotateZ(144deg);
+        background: #FF0600;}
+    50%{ -webkit-transform: rotateZ(180deg);
+        background: #FF1ACF;}
+    60%{ -webkit-transform: rotateZ(216deg);
+        background: #9D21FF;}
+    70%{ -webkit-transform: rotateZ(252deg);
+        background: #1E05FF;}
+    80%{ -webkit-transform: rotateZ(288deg);
+        background: #00FFFF;}
+    90%{ -webkit-transform: rotateZ(324deg);
+        background: #03FF03;}
+    100%   { -webkit-transform: rotateZ(360deg); background: white;}
+}
+@-webkit-keyframes spin2 {
     0% { -webkit-transform: rotateZ(0deg);
         background: white;}
     10%{ -webkit-transform: rotateZ(36deg);

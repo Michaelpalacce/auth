@@ -1,6 +1,5 @@
 <?php
 require 'Assets/include/adminfilter.php';
-
 ?>
 
 <html>

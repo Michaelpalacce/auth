@@ -1,4 +1,5 @@
 <?php
+require'Assets/include/loggedfilter.php';
 include "Assets/Repository/EventRepository.php";
 include "Assets/include/database.php";
 $set=false;

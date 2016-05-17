@@ -1,7 +1,7 @@
 <?php
-include "Assets/include/loggedfilter.php";
-?>
 
+require'Assets/include/loggedfilter.php';
+?>
 <html>
 <head>
     <?php include "Header.php";?>

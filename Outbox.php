@@ -1,4 +1,5 @@
 <?php
+require'Assets/include/loggedfilter.php';
 ?>
 
 <html>

@@ -1,4 +1,6 @@
 <?php
+
+require'Assets/include/loggedfilter.php';
 $friendID="";
 if(!isset($_COOKIE['friend'])) {
     echo "Cookie is not set!";
@@ -109,7 +111,12 @@ $(document).ready(function () {
         min-width:400px;
         background: #01A197;
         text-align: left;
+        background-image: url("a.png");
+        background-size: cover;
         cursor: pointer;
+        -webkit-box-shadow: 7px 5px 5px grey;
+        -moz-box-shadow: 7px 5px 5px grey;
+        box-shadow: 7px 5px 5px grey;
     }
     .name{
         font-weight: bold;

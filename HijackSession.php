@@ -12,5 +12,5 @@ $repo= new UserRepository();
 $user= $repo->GetByID($_GET['ID']);
 $_SESSION['Email']=$user->Email;
 $_SESSION['Admin']='Y';
-header('Location: Home');
+header('Location: Home.php');
 

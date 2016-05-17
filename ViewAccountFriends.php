@@ -1,7 +1,5 @@
 <?php
-if(!isset($_SESSION)){
-    session_start();
-}
+require'Assets/include/loggedfilter.php';
 $friendID="";
 if(!isset($_COOKIE['friend'])) {
     echo "Cookie is not set!";

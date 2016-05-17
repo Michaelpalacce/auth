@@ -1,7 +1,5 @@
 <?php
-if(!empty($_GET['str'])){
-    $Search=$_GET['str'];
-}
+require'Assets/include/loggedfilter.php';
 ?>
 
 <!DOCTYPE html>

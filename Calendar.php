@@ -1,5 +1,6 @@
-
-
+<?php
+include "Assets/include/loggedfilter.php";
+?>
 
 <html>
 <head>

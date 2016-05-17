@@ -1,4 +1,5 @@
 <?php
+require'Assets/include/loggedfilter.php';
 include "Assets/include/database.php";
 if(!isset($_SESSION)){
     session_start();

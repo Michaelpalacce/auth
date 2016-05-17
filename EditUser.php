@@ -1,5 +1,5 @@
 <?php
-require'Assets/include/loggedfilter.php';
+require'Assets/include/adminfilter.php';
 if(!class_exists('UserRepository')){
     include 'Assets/Repository/UserRepository.php';
 }

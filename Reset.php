@@ -2,8 +2,6 @@
 if(!isset($_SESSION)){
     session_start();
 }
-
-require 'Assets/include/loggedoutfilter.php';
 require 'Assets/include/Random.php';
 require 'Assets/Repository/UserRepository.php';
 require 'Assets/Mailer/PHPMailerAutoload.php';

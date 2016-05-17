@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(!isset($_SESSION)){
+    session_start();
+}
+
 require 'Assets/include/loggedoutfilter.php';
 if(!class_exists('UserRepository')){
     include 'Assets/Repository/UserRepository.php';
